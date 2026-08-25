@@ -17,7 +17,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "thca",
-            "image": "shopify://shop_images/1_ec75e459-793a-401e-ab38-2d835f21efab.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -37,7 +36,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "cbd-hash",
-            "image": "shopify://shop_images/ikoner_franklins_1.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -57,7 +55,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "herbal-mix",
-            "image": "shopify://shop_images/ikoner_franklins_5.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -77,7 +74,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "cbd-olie",
-            "image": "shopify://shop_images/3_2ae3312d-2280-46c9-a55a-de0e1498b206.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -98,7 +94,6 @@
           "disabled": true,
           "settings": {
             "collection": "cbd-topskud",
-            "image": "shopify://shop_images/4_091c77c6-4389-413d-803f-f42118e6e457.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -118,7 +113,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "jointpapir-og-filtertips",
-            "image": "shopify://shop_images/5_f954a84f-f440-4d59-93de-992c479450ae.png",
             "image_ratio": "auto",
             "title": "Jointpapir",
             "line_limit": "none",
@@ -138,7 +132,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "cones",
-            "image": "shopify://shop_images/ikoner_franklins_2.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -158,7 +151,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "grinder",
-            "image": "shopify://shop_images/ikoner_franklins_4.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -178,7 +170,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "lightere",
-            "image": "shopify://shop_images/ikoner_franklins_3.png",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -289,7 +280,6 @@
               "name": "t:names.icon",
               "settings": {
                 "icon": "tag",
-                "image_upload": "shopify://shop_images/Untitled_design_-_2026-04-29T233028.201.png",
                 "icon_size": "custom-size",
                 "width": 80,
                 "width_mobile": 80,
@@ -303,7 +293,6 @@
               "name": "t:names.icon",
               "settings": {
                 "icon": "tag",
-                "image_upload": "shopify://shop_images/Untitled_design_-_2026-04-29T233231.967.png",
                 "icon_size": "custom-size",
                 "width": 80,
                 "width_mobile": 80,
@@ -317,7 +306,6 @@
               "name": "t:names.icon",
               "settings": {
                 "icon": "tag",
-                "image_upload": "shopify://shop_images/Untitled_design_-_2026-04-29T233955.927.png",
                 "icon_size": "custom-size",
                 "width": 80,
                 "width_mobile": 80,
@@ -331,7 +319,6 @@
               "name": "t:names.icon",
               "settings": {
                 "icon": "tag",
-                "image_upload": "shopify://shop_images/Untitled_design_-_2026-04-29T233451.928.png",
                 "icon_size": "custom-size",
                 "width": 80,
                 "width_mobile": 80,
@@ -345,7 +332,6 @@
               "name": "t:names.icon",
               "settings": {
                 "icon": "tag",
-                "image_upload": "shopify://shop_images/Untitled_design_-_2026-04-29T234314.900.png",
                 "icon_size": "custom-size",
                 "width": 80,
                 "width_mobile": 80,
@@ -359,7 +345,6 @@
               "name": "t:names.icon",
               "settings": {
                 "icon": "tag",
-                "image_upload": "shopify://shop_images/Untitled_design_-_2026-04-29T234525.103.png",
                 "icon_size": "custom-size",
                 "width": 80,
                 "width_mobile": 80,
@@ -414,32 +399,32 @@
     "product_tabs_VFRpjk": {
       "type": "product-tabs",
       "blocks": {
-        "collection_wP9xGA": {
-          "type": "collection",
-          "settings": {
-            "collection": "bestsellere",
-            "title": ""
-          }
-        },
-        "collection_rt49CA": {
-          "type": "collection",
-          "settings": {
-            "collection": "thca",
-            "title": ""
-          }
-        },
         "collection_C4aep4": {
           "type": "collection",
           "settings": {
-            "collection": "cbd-hash",
+            "collection": "infrarodt-lys",
+            "title": "Saunatæppe"
+          }
+        },
+        "collection_kyfeYK": {
+          "type": "collection",
+          "settings": {
+            "collection": "isbad-dampsauna",
+            "title": "Saunatæppe"
+          }
+        },
+        "collection_4waXYt": {
+          "type": "collection",
+          "settings": {
+            "collection": "dampsauna",
             "title": "Saunatæppe"
           }
         }
       },
       "block_order": [
-        "collection_wP9xGA",
-        "collection_rt49CA",
-        "collection_C4aep4"
+        "collection_C4aep4",
+        "collection_kyfeYK",
+        "collection_4waXYt"
       ],
       "name": "t:names.product_tab_carousel",
       "settings": {
@@ -520,7 +505,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/4_247d1cf5-1e40-456e-9c7f-3cc144daa429.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "la-mousse-30-thca-hash",
@@ -576,7 +560,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/2_258b225a-03aa-4a3d-a99a-10b4230c1888.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "charas-30-thca",
@@ -632,7 +615,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/1_ac11dcc3-932b-4bb0-ad54-c1363904bad7.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "static-70-cbd",
@@ -688,7 +670,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/5_ea9da1a5-17a2-4dd8-857b-2adc9e4be4a7.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "bangkok-sativa-18-thca",
@@ -744,7 +725,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/6_beeb62a8-f82c-4b32-bd1f-343000c2f44e.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "static-70-cbd",
@@ -800,7 +780,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/3_a808ec69-ba05-4bd4-abd3-e26cb49646ed.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "bic-lighter-normal",
@@ -856,7 +835,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/7_195c6425-988f-4c11-a809-86825f86ec4b.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "og-kush-25-thca",
@@ -912,7 +890,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/8.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "cbd-bubble-hash-40",
@@ -1251,7 +1228,6 @@
               "type": "image-with-badges",
               "name": "t:names.image_with_badges_circle",
               "settings": {
-                "image": "shopify://shop_images/Untitled_design_-_2026-07-14T143841.271.png",
                 "image_ratio": "1/1",
                 "image_ratio_mobile": "1/1",
                 "rounded_image": true,
