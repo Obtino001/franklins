@@ -1735,6 +1735,7 @@
               "type": "image-with-badges",
               "name": "t:names.image_with_badges_circle",
               "settings": {
+                "image": "shopify://shop_images/unnamed-2_43d33afe-6beb-4166-8eea-c90c5f712f16.jpg",
                 "image_ratio": "1/1",
                 "image_ratio_mobile": "1/1",
                 "rounded_image": true,
