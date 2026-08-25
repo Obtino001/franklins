@@ -33,7 +33,7 @@
             "grid_layout": "grid-with-thumbnail",
             "grid_gap": 10,
             "carousel_thumbnail": "inside",
-            "thumbnail_media_aspect_ratio": "auto",
+            "thumbnail_media_aspect_ratio": "1/1",
             "thumbnail_media_aspect_ratio_mobile": "inherit",
             "media_aspect_ratio": "auto",
             "media_radius": 20,
@@ -1289,6 +1289,446 @@
     "testimonials_parallax_YKVWdW": {
       "type": "testimonials-parallax",
       "blocks": {
+        "testimonial_parallax_4FTmbE": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "la-mousse-30-thca-hash",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Er vild med den 🤪 vildt god og \"blød\" i smagen, og god high.</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Martin Jensen",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Vericeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "testimonial_parallax_aAz3RG": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "charas-30-thca",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Trip down memorylane, tak for jeres charas!</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Jørgen Olsen",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Verificeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "testimonial_parallax_kpCWCX": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "static-70-cbd",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Super lækker klump og leveret næste morgen. 😄</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Jeppe Kongsvang",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Verificeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "testimonial_parallax_BE4bb4": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "bangkok-sativa-18-thca",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Super kval men at i smed en pakke papes og nogle vingummier med var det bedste. Glæder mig til at bestille fra jer fremadrettet</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Peter L.",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Verificeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "testimonial_parallax_qre8zz": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "static-70-cbd",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Klart min favorit hos jer. Jeg har købt den utallige gange, og der kommer helt sikkert flere. 👍</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Brian Gade",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Verificeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "testimonial_parallax_yBEtWr": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "bic-lighter-normal",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Alt vel. Diskret pakke og dejlig service.</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Lydia P.",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Verificeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "testimonial_parallax_NcqWQf": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "og-kush-25-thca",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Hvad kan man sige... en ægte klassiker, og det gælder også denne fra franklins💙</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Morten Jespersen",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Verificeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "testimonial_parallax_e7ptkG": {
+          "type": "_testimonial-parallax",
+          "settings": {
+            "show_image": true,
+            "image_away_from_edge": true,
+            "image_border_radius": 10,
+            "product": "cbd-bubble-hash-40",
+            "color_scheme": "",
+            "border_radius": 20
+          },
+          "blocks": {
+            "static-testimonial-text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Vil lige sige tusind tak for den hurtige levering og de gratis slikposer – de ramte plet :)</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "static-testimonial-info": {
+              "type": "_author-info",
+              "static": true,
+              "settings": {
+                "image_width": 80,
+                "image_width_mobile": 60,
+                "name": "Karina Nielsen",
+                "name_preset": "h6",
+                "icon": "check-circle",
+                "bio": "Verificeret",
+                "bio_text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
         "static-section-header": {
           "type": "_testimonials-parallax-header",
           "name": "t:names.section_header",
@@ -1299,7 +1739,7 @@
               "type": "_simple-text",
               "name": "t:names.subheading",
               "settings": {
-                "text": "<p>Vi samler på glade kunder</p>",
+                "text": "<p>Ægte oplevelser. Uden filter.</p>",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
@@ -1323,7 +1763,7 @@
               "type": "_simple-text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<p>4,8 ud af 5 stjerner på Trustpilot</p>",
+                "text": "<p>Over 500 <br/>anmeldelser</p>",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
@@ -1348,233 +1788,17 @@
             "simple_text_jDLbfp",
             "simple_text_VkrFyE"
           ]
-        },
-        "review_anders": {
-          "type": "_testimonial-parallax",
-          "settings": {
-            "show_image": false,
-            "image_away_from_edge": true,
-            "image_border_radius": 10,
-            "product": "",
-            "color_scheme": "",
-            "border_radius": 20
-          },
-          "blocks": {
-            "static-testimonial-text": {
-              "type": "_simple-text",
-              "static": true,
-              "settings": {
-                "text": "<p><strong>God kvalitet af…</strong><br/>Hurtig levering og god kvalitet af varen. Mangler dog en brugsvejledning men ellers fint.</p>",
-                "highlight_style": "none",
-                "highlight_font_style": "italic",
-                "highlight_shape_color": "",
-                "highlight_text_color": "",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_weight": "",
-                "font_size": 15,
-                "font_size_mobile": 15,
-                "line_height": "normal",
-                "text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 12,
-                "mobile-padding-scale": 100,
-                "animation_type": "none",
-                "animation_delay": 250
-              },
-              "blocks": {}
-            },
-            "static-testimonial-info": {
-              "type": "_author-info",
-              "static": true,
-              "settings": {
-                "image_width": 80,
-                "image_width_mobile": 60,
-                "name": "Anders Hein",
-                "name_preset": "h6",
-                "icon": "check-circle",
-                "bio": "Verificeret",
-                "bio_text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "mobile-padding-scale": 80
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        },
-        "review_lene": {
-          "type": "_testimonial-parallax",
-          "settings": {
-            "show_image": false,
-            "image_away_from_edge": true,
-            "image_border_radius": 10,
-            "product": "",
-            "color_scheme": "",
-            "border_radius": 20
-          },
-          "blocks": {
-            "static-testimonial-text": {
-              "type": "_simple-text",
-              "static": true,
-              "settings": {
-                "text": "<p><strong>Alt var perfekt</strong><br/>Bestilte infrarødt saunatæppe. Virkelig godt produkt og varen ankom hurtigt.</p>",
-                "highlight_style": "none",
-                "highlight_font_style": "italic",
-                "highlight_shape_color": "",
-                "highlight_text_color": "",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_weight": "",
-                "font_size": 15,
-                "font_size_mobile": 15,
-                "line_height": "normal",
-                "text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 12,
-                "mobile-padding-scale": 100,
-                "animation_type": "none",
-                "animation_delay": 250
-              },
-              "blocks": {}
-            },
-            "static-testimonial-info": {
-              "type": "_author-info",
-              "static": true,
-              "settings": {
-                "image_width": 80,
-                "image_width_mobile": 60,
-                "name": "Lene",
-                "name_preset": "h6",
-                "icon": "check-circle",
-                "bio": "Verificeret",
-                "bio_text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "mobile-padding-scale": 80
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        },
-        "review_adam": {
-          "type": "_testimonial-parallax",
-          "settings": {
-            "show_image": false,
-            "image_away_from_edge": true,
-            "image_border_radius": 10,
-            "product": "",
-            "color_scheme": "",
-            "border_radius": 20
-          },
-          "blocks": {
-            "static-testimonial-text": {
-              "type": "_simple-text",
-              "static": true,
-              "settings": {
-                "text": "<p><strong>Jeg er tilfreds med købet</strong><br/>Jeg er tilfreds med købet, også for at prøve noget nyt og se hvad der sker.</p>",
-                "highlight_style": "none",
-                "highlight_font_style": "italic",
-                "highlight_shape_color": "",
-                "highlight_text_color": "",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_weight": "",
-                "font_size": 15,
-                "font_size_mobile": 15,
-                "line_height": "normal",
-                "text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 12,
-                "mobile-padding-scale": 100,
-                "animation_type": "none",
-                "animation_delay": 250
-              },
-              "blocks": {}
-            },
-            "static-testimonial-info": {
-              "type": "_author-info",
-              "static": true,
-              "settings": {
-                "image_width": 80,
-                "image_width_mobile": 60,
-                "name": "Adam Sebastian Nielsen",
-                "name_preset": "h6",
-                "icon": "check-circle",
-                "bio": "Verificeret",
-                "bio_text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "mobile-padding-scale": 80
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        },
-        "review_ronni": {
-          "type": "_testimonial-parallax",
-          "settings": {
-            "show_image": false,
-            "image_away_from_edge": true,
-            "image_border_radius": 10,
-            "product": "",
-            "color_scheme": "",
-            "border_radius": 20
-          },
-          "blocks": {
-            "static-testimonial-text": {
-              "type": "_simple-text",
-              "static": true,
-              "settings": {
-                "text": "<p><strong>Saunatæppet er fantastisk!</strong><br/>Saunatæppet er fantastisk! Prisen er langt lavere end andre steder, men kvaliteten er helt i top.</p>",
-                "highlight_style": "none",
-                "highlight_font_style": "italic",
-                "highlight_shape_color": "",
-                "highlight_text_color": "",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_weight": "",
-                "font_size": 15,
-                "font_size_mobile": 15,
-                "line_height": "normal",
-                "text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 12,
-                "mobile-padding-scale": 100,
-                "animation_type": "none",
-                "animation_delay": 250
-              },
-              "blocks": {}
-            },
-            "static-testimonial-info": {
-              "type": "_author-info",
-              "static": true,
-              "settings": {
-                "image_width": 80,
-                "image_width_mobile": 60,
-                "name": "Ronni Iversen",
-                "name_preset": "h6",
-                "icon": "check-circle",
-                "bio": "Verificeret",
-                "bio_text_color": "subtext",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "mobile-padding-scale": 80
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
         }
       },
       "block_order": [
-        "review_anders",
-        "review_lene",
-        "review_adam",
-        "review_ronni"
+        "testimonial_parallax_4FTmbE",
+        "testimonial_parallax_aAz3RG",
+        "testimonial_parallax_kpCWCX",
+        "testimonial_parallax_BE4bb4",
+        "testimonial_parallax_qre8zz",
+        "testimonial_parallax_yBEtWr",
+        "testimonial_parallax_NcqWQf",
+        "testimonial_parallax_e7ptkG"
       ],
       "name": "t:names.testimonials_parallax",
       "settings": {
