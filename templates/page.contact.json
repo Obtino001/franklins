@@ -1,1 +1,655 @@
-{"sections":{"breadcrumbs":{"type":"breadcrumbs","name":"t:names.breadcrumbs","settings":{"text_align":"left","text_align_mobile":"inherit","device":"desktop","padding-block-start":16,"padding-block-end":24,"padding-block-start-mobile":12,"padding-block-end-mobile":12}},"main":{"type":"main-page","blocks":{"page_title":{"type":"_page-title","name":"t:names.page_title","settings":{"type_preset":"h1","html_tag":"h1","font":"var(--font-body--family)","font_weight":"","font_size":15,"font_size_mobile":15,"line_height":"normal","text_color":"text","width":"fit-content","text_alignment":"left","width_mobile":"fit-content","text_alignment_mobile":"left","padding-block-start":0,"padding-block-end":0,"mobile-padding-scale":80,"animation_type":"fade-up","animation_delay":50},"blocks":{}},"page_content":{"type":"_page-content","name":"t:names.page_content","settings":{"type_preset":"rte","font_size":15,"font_size_mobile":15,"line_height":"normal","text_color":"subtext","width":"fit-content","text_alignment":"left","width_mobile":"fit-content","text_alignment_mobile":"left","padding-block-start":16,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0,"mobile-padding-scale":75,"animation_type":"fade-up","animation_delay":100},"blocks":{}}},"block_order":["page_title","page_content"],"settings":{"container":"fixed","container_custom_width":880,"use_color_scheme_in_container":false,"color_scheme":"","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"device":"desktop","padding-block-start":36,"padding-block-end":40,"padding-inline-start":15,"padding-inline-end":15,"padding-block-start-mobile":20,"padding-block-end-mobile":24,"padding-inline-start-mobile":16,"padding-inline-end-mobile":16}},"custom_section_tUbpGU":{"type":"custom-section","blocks":{"contact_form_tyLWPT":{"type":"contact-form","name":"Contact form","settings":{"width":"fill","custom_width":100,"column_gap":24,"row_gap":20,"width_mobile":"fill","custom_width_mobile":100,"row_gap_mobile":20},"blocks":{"custom_field_L6Yt43":{"type":"_custom-field","name":"Custom field","settings":{"field_type":"text","heading":"Telefon","placeholder":"","required":false,"full_width":false,"checkbox_checked_value":"Yes","checkbox_uncheck_value":"No","select_options":""},"blocks":{}},"custom_field_XHe9jL":{"type":"_custom-field","name":"Custom field","settings":{"field_type":"text","heading":"Ordre ID","placeholder":"","required":false,"full_width":false,"checkbox_checked_value":"Yes","checkbox_uncheck_value":"No","select_options":""},"blocks":{}},"custom_field_8WeCm7":{"type":"_custom-field","settings":{"field_type":"select","heading":"Hvad drejer det sig om?","placeholder":"","required":false,"full_width":true,"checkbox_checked_value":"Yes","checkbox_uncheck_value":"No","select_options":"Spørgsmål om produkt,Min ordrer,Returnering,Levering,Samarbejde, Andet"},"blocks":{}}},"block_order":["custom_field_L6Yt43","custom_field_XHe9jL","custom_field_8WeCm7"]},"divider_amtmne":{"type":"divider","name":"t:names.divider","settings":{"thickness":1,"width_percent":100,"disable_on_desktop":false,"disable_on_mobile":false,"device":"mobile","padding-block-start":0,"padding-block-end":0,"padding-block-start-mobile":0,"padding-block-end-mobile":0},"blocks":{}},"group_4wEPx4":{"type":"group","name":"t:names.group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","horizontal_alignment_flex_direction_column":"flex-start","column_gap":12,"row_gap":32,"enable_sticky_desktop":false,"width":"custom","custom_width":40,"width_mobile":"fill","custom_width_mobile":100,"inherit_color_scheme":true,"color_scheme":"","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"enable_swipe_on_mobile":false,"swipe_custom_width_column":false,"swipe_column_width":76,"columns_mobile":2,"column_gap_mobile":12,"row_gap_mobile":20,"device":"desktop","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0,"padding-block-start-mobile":0,"padding-block-end-mobile":0,"padding-inline-start-mobile":0,"padding-inline-end-mobile":0},"blocks":{"group_cQUErA":{"type":"group","name":"t:names.group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","horizontal_alignment_flex_direction_column":"flex-start","column_gap":12,"row_gap":12,"enable_sticky_desktop":false,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"inherit_color_scheme":true,"color_scheme":"","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"enable_swipe_on_mobile":false,"swipe_custom_width_column":false,"swipe_column_width":76,"columns_mobile":2,"column_gap_mobile":12,"row_gap_mobile":12,"device":"mobile","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0,"padding-block-start-mobile":0,"padding-block-end-mobile":4,"padding-inline-start-mobile":0,"padding-inline-end-mobile":0},"blocks":{"text_BY6EHY":{"type":"text","name":"t:names.heading","settings":{"text":"<p>Information</p>","highlight_style":"none","highlight_font_style":"italic","highlight_shape_color":"","highlight_text_color":"","type_preset":"h3","font":"var(--font-body--family)","font_weight":"","font_size":15,"font_size_mobile":15,"line_height":"normal","text_color":"text","text_color_gradient":"","disable_line_break_mobile":false,"width":"fit-content","text_alignment":"left","width_mobile":"fit-content","text_alignment_mobile":"left","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0,"mobile-padding-scale":80,"animation_type":"none","animation_delay":250},"blocks":{}},"text_WjdEzb":{"type":"text","name":"t:names.text","settings":{"text":"<p>Adresse, telefon og åbningstider – alt det praktiske.</p>","highlight_style":"none","highlight_font_style":"italic","highlight_shape_color":"","highlight_text_color":"","type_preset":"rte","font":"var(--font-body--family)","font_weight":"","font_size":15,"font_size_mobile":15,"line_height":"normal","text_color":"subtext","text_color_gradient":"","disable_line_break_mobile":false,"width":"fit-content","text_alignment":"left","width_mobile":"fit-content","text_alignment_mobile":"left","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0,"mobile-padding-scale":80,"animation_type":"none","animation_delay":250},"blocks":{}}},"block_order":["text_BY6EHY","text_WjdEzb"]},"icon_box_xh6q86":{"type":"icon-box","name":"t:names.icon_box_card","settings":{"direction":"horizontal","text_align":"left","icon":"phone","icon_spacing":12,"icon_size":"custom-size","icon_width":28,"icon_width_mobile":28,"heading":"Kontakt os","heading_preset":"h5","text":"<p>info@martilness.dk<br/>+45 2779 6900</p>","text_color":"subtext","link":"","show_link_icon":true,"content_row_gap":4,"style":"standard","inherit_color_scheme":true,"color_scheme":"","border":"none","border_width":1,"border_opacity":10,"border_radius":10},"blocks":{}},"icon_box_BEMkqB":{"type":"icon-box","name":"t:names.icon_box_card","settings":{"direction":"horizontal","text_align":"left","icon":"map-pin","icon_spacing":12,"icon_size":"custom-size","icon_width":32,"icon_width_mobile":32,"heading":"Adresse","heading_preset":"h5","text":"<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p>","text_color":"subtext","link":"","show_link_icon":true,"content_row_gap":4,"style":"standard","inherit_color_scheme":true,"color_scheme":"","border":"none","border_width":1,"border_opacity":10,"border_radius":10},"blocks":{}},"icon_box_Bkx7De":{"type":"icon-box","name":"t:names.icon_box_card","settings":{"direction":"horizontal","text_align":"left","icon":"clock","icon_spacing":12,"icon_size":"custom-size","icon_width":28,"icon_width_mobile":28,"heading":"Åbningstider","heading_preset":"h5","text":"<p>Man–Fre: 11–18<br/>Lør: 12–16<br/>Søn: 12–16</p>","text_color":"subtext","link":"","show_link_icon":true,"content_row_gap":4,"style":"standard","inherit_color_scheme":true,"color_scheme":"","border":"none","border_width":1,"border_opacity":10,"border_radius":10},"blocks":{}}},"block_order":["group_cQUErA","icon_box_xh6q86","icon_box_BEMkqB","icon_box_Bkx7De"]}},"block_order":["contact_form_tyLWPT","divider_amtmne","group_4wEPx4"],"name":"t:names.contact_form","settings":{"container":"page-width","content_direction":"row","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"flex-start","horizontal_alignment_flex_direction_column":"center","column_gap":50,"row_gap":12,"column_gap_mobile":12,"row_gap_mobile":40,"use_color_scheme_in_container":false,"color_scheme":"scheme-1","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"device":"desktop","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0,"padding-block-start-mobile":0,"padding-block-end-mobile":0,"padding-inline-start-mobile":0,"padding-inline-end-mobile":0}},"custom_section_4ARCm4":{"type":"custom-section","blocks":{"text_NazPFL":{"type":"text","name":"t:names.heading","settings":{"text":"<p>Find vores butik</p>","highlight_style":"none","highlight_font_style":"italic","highlight_shape_color":"","highlight_text_color":"","type_preset":"h1","font":"var(--font-body--family)","font_weight":"","font_size":15,"font_size_mobile":15,"line_height":"normal","text_color":"text","text_color_gradient":"","disable_line_break_mobile":false,"width":"fit-content","text_alignment":"left","width_mobile":"fit-content","text_alignment_mobile":"left","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0,"mobile-padding-scale":80,"animation_type":"fade-up","animation_delay":50},"blocks":{}}},"block_order":["text_NazPFL"],"name":"t:names.custom_section","settings":{"container":"page-width","content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","horizontal_alignment_flex_direction_column":"flex-start","column_gap":12,"row_gap":12,"column_gap_mobile":12,"row_gap_mobile":12,"use_color_scheme_in_container":false,"color_scheme":"","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"device":"mobile","padding-block-start":100,"padding-block-end":40,"padding-inline-start":0,"padding-inline-end":0,"padding-block-start-mobile":48,"padding-block-end-mobile":24,"padding-inline-start-mobile":0,"padding-inline-end-mobile":0}},"store_locator_BQJBp9":{"type":"store-locator","blocks":{"store_locator_WJAAjk":{"type":"store-locator","settings":{"style":"card","color_scheme":"","border":"none","border_width":1,"border_opacity":100,"border_radius":20},"blocks":{"image":{"type":"_image-card-media","static":true,"settings":{"image":"shopify://shop_images/Untitled_design_-_2026-07-20T235603.544.jpg","toggle_overlay":false,"overlay_color":"#00000026","image_ratio":"adapt","image_ratio_mobile":"1/1","border":"none","border_width":1,"border_opacity":100,"border_radius":10},"blocks":{}},"heading":{"type":"_simple-text","name":"t:names.heading","static":true,"settings":{"text":"<p>Herning</p>","highlight_style":"none","highlight_font_style":"italic","highlight_shape_color":"","highlight_text_color":"","type_preset":"h3","font":"var(--font-body--family)","font_weight":"","font_size":15,"font_size_mobile":15,"line_height":"normal","text_color":"text","padding-block-start":0,"padding-block-end":16,"mobile-padding-scale":75,"animation_type":"none","animation_delay":250},"blocks":{}},"text":{"type":"_simple-text","static":true,"settings":{"text":"<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p><p>+45 2779 6900 </p><p>Man–Fre: 11–18<br/>Lør: 12–16<br/>Søn: 12–16</p>","highlight_style":"none","highlight_font_style":"italic","highlight_shape_color":"","highlight_text_color":"","type_preset":"rte","font":"var(--font-body--family)","font_weight":"","font_size":15,"font_size_mobile":15,"line_height":"loose","text_color":"subtext","padding-block-start":0,"padding-block-end":0,"mobile-padding-scale":80,"animation_type":"none","animation_delay":250},"blocks":{}},"button":{"type":"button","static":true,"settings":{"label":"Find vej","link":"https://maps.app.goo.gl/NyZdXZq6WY6rwVtK7","style":"plain","size":"medium","icon":"caret-right","icon_only":false,"icon_style":"default","mobile_full_width":false,"animation_type":"none","animation_delay":250},"blocks":{}}},"block_order":[]}},"block_order":["store_locator_WJAAjk"],"name":"t:names.store_locator","settings":{"container":"fixed","type":"carousel","columns":2,"column_gap":10,"row_gap":30,"enable_swipe_on_mobile":true,"swipe_custom_width_column":false,"swipe_column_width":76,"columns_mobile":"1","column_gap_mobile":8,"row_gap_mobile":24,"color_scheme":"","padding-block-start":0,"padding-block-end":0}}},"order":["breadcrumbs","main","custom_section_tUbpGU","custom_section_4ARCm4","store_locator_BQJBp9"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "name": "t:names.breadcrumbs",
+      "settings": {
+        "text_align": "left",
+        "text_align_mobile": "inherit",
+        "device": "desktop",
+        "padding-block-start": 16,
+        "padding-block-end": 24,
+        "padding-block-start-mobile": 12,
+        "padding-block-end-mobile": 12
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "page_title": {
+          "type": "_page-title",
+          "name": "t:names.page_title",
+          "settings": {
+            "type_preset": "h1",
+            "html_tag": "h1",
+            "font": "var(--font-body--family)",
+            "font_weight": "",
+            "font_size": 15,
+            "font_size_mobile": 15,
+            "line_height": "normal",
+            "text_color": "text",
+            "width": "fit-content",
+            "text_alignment": "left",
+            "width_mobile": "fit-content",
+            "text_alignment_mobile": "left",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "mobile-padding-scale": 80,
+            "animation_type": "fade-up",
+            "animation_delay": 50
+          },
+          "blocks": {}
+        },
+        "page_content": {
+          "type": "_page-content",
+          "name": "t:names.page_content",
+          "settings": {
+            "type_preset": "rte",
+            "font_size": 15,
+            "font_size_mobile": 15,
+            "line_height": "normal",
+            "text_color": "subtext",
+            "width": "fit-content",
+            "text_alignment": "left",
+            "width_mobile": "fit-content",
+            "text_alignment_mobile": "left",
+            "padding-block-start": 16,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "mobile-padding-scale": 75,
+            "animation_type": "fade-up",
+            "animation_delay": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "page_title",
+        "page_content"
+      ],
+      "settings": {
+        "container": "fixed",
+        "container_custom_width": 880,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "desktop",
+        "padding-block-start": 36,
+        "padding-block-end": 40,
+        "padding-inline-start": 15,
+        "padding-inline-end": 15,
+        "padding-block-start-mobile": 20,
+        "padding-block-end-mobile": 24,
+        "padding-inline-start-mobile": 16,
+        "padding-inline-end-mobile": 16
+      }
+    },
+    "custom_section_tUbpGU": {
+      "type": "custom-section",
+      "blocks": {
+        "contact_form_tyLWPT": {
+          "type": "contact-form",
+          "name": "Contact form",
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "column_gap": 24,
+            "row_gap": 20,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "row_gap_mobile": 20
+          },
+          "blocks": {
+            "custom_field_L6Yt43": {
+              "type": "_custom-field",
+              "name": "Custom field",
+              "settings": {
+                "field_type": "text",
+                "heading": "Telefon",
+                "placeholder": "",
+                "required": false,
+                "full_width": false,
+                "checkbox_checked_value": "Yes",
+                "checkbox_uncheck_value": "No",
+                "select_options": ""
+              },
+              "blocks": {}
+            },
+            "custom_field_XHe9jL": {
+              "type": "_custom-field",
+              "name": "Custom field",
+              "settings": {
+                "field_type": "text",
+                "heading": "Ordre ID",
+                "placeholder": "",
+                "required": false,
+                "full_width": false,
+                "checkbox_checked_value": "Yes",
+                "checkbox_uncheck_value": "No",
+                "select_options": ""
+              },
+              "blocks": {}
+            },
+            "custom_field_8WeCm7": {
+              "type": "_custom-field",
+              "settings": {
+                "field_type": "select",
+                "heading": "Hvad drejer det sig om?",
+                "placeholder": "",
+                "required": false,
+                "full_width": true,
+                "checkbox_checked_value": "Yes",
+                "checkbox_uncheck_value": "No",
+                "select_options": "Spørgsmål om produkt,Min ordrer,Returnering,Levering,Samarbejde, Andet"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_field_L6Yt43",
+            "custom_field_XHe9jL",
+            "custom_field_8WeCm7"
+          ]
+        },
+        "divider_amtmne": {
+          "type": "divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 1,
+            "width_percent": 100,
+            "disable_on_desktop": false,
+            "disable_on_mobile": false,
+            "device": "mobile",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0
+          },
+          "blocks": {}
+        },
+        "group_4wEPx4": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "column_gap": 12,
+            "row_gap": 32,
+            "enable_sticky_desktop": false,
+            "width": "custom",
+            "custom_width": 40,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "enable_swipe_on_mobile": false,
+            "swipe_custom_width_column": false,
+            "swipe_column_width": 76,
+            "columns_mobile": 2,
+            "column_gap_mobile": 12,
+            "row_gap_mobile": 20,
+            "device": "desktop",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {
+            "group_cQUErA": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "column_gap": 12,
+                "row_gap": 12,
+                "enable_sticky_desktop": false,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "enable_swipe_on_mobile": false,
+                "swipe_custom_width_column": false,
+                "swipe_column_width": 76,
+                "columns_mobile": 2,
+                "column_gap_mobile": 12,
+                "row_gap_mobile": 12,
+                "device": "mobile",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 4,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {
+                "text_BY6EHY": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<p>Information</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "h3",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "text_color_gradient": "",
+                    "disable_line_break_mobile": false,
+                    "width": "fit-content",
+                    "text_alignment": "left",
+                    "width_mobile": "fit-content",
+                    "text_alignment_mobile": "left",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "text_WjdEzb": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Adresse, telefon og åbningstider – alt det praktiske.</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "subtext",
+                    "text_color_gradient": "",
+                    "disable_line_break_mobile": false,
+                    "width": "fit-content",
+                    "text_alignment": "left",
+                    "width_mobile": "fit-content",
+                    "text_alignment_mobile": "left",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_BY6EHY",
+                "text_WjdEzb"
+              ]
+            },
+            "icon_box_xh6q86": {
+              "type": "icon-box",
+              "name": "t:names.icon_box_card",
+              "settings": {
+                "direction": "horizontal",
+                "text_align": "left",
+                "icon": "phone",
+                "icon_spacing": 12,
+                "icon_size": "custom-size",
+                "icon_width": 28,
+                "icon_width_mobile": 28,
+                "heading": "Kontakt os",
+                "heading_preset": "h5",
+                "text": "<p>info@martilness.dk<br/>+45 2779 6900</p>",
+                "text_color": "subtext",
+                "link": "",
+                "show_link_icon": true,
+                "content_row_gap": 4,
+                "style": "standard",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 10,
+                "border_radius": 10
+              },
+              "blocks": {}
+            },
+            "icon_box_BEMkqB": {
+              "type": "icon-box",
+              "name": "t:names.icon_box_card",
+              "settings": {
+                "direction": "horizontal",
+                "text_align": "left",
+                "icon": "map-pin",
+                "icon_spacing": 12,
+                "icon_size": "custom-size",
+                "icon_width": 32,
+                "icon_width_mobile": 32,
+                "heading": "Adresse",
+                "heading_preset": "h5",
+                "text": "<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p>",
+                "text_color": "subtext",
+                "link": "",
+                "show_link_icon": true,
+                "content_row_gap": 4,
+                "style": "standard",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 10,
+                "border_radius": 10
+              },
+              "blocks": {}
+            },
+            "icon_box_Bkx7De": {
+              "type": "icon-box",
+              "name": "t:names.icon_box_card",
+              "settings": {
+                "direction": "horizontal",
+                "text_align": "left",
+                "icon": "clock",
+                "icon_spacing": 12,
+                "icon_size": "custom-size",
+                "icon_width": 28,
+                "icon_width_mobile": 28,
+                "heading": "Åbningstider",
+                "heading_preset": "h5",
+                "text": "<p>Man–Fre: 11–18<br/>Lør: 12–16<br/>Søn: 12–16</p>",
+                "text_color": "subtext",
+                "link": "",
+                "show_link_icon": true,
+                "content_row_gap": 4,
+                "style": "standard",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 10,
+                "border_radius": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_cQUErA",
+            "icon_box_xh6q86",
+            "icon_box_BEMkqB",
+            "icon_box_Bkx7De"
+          ]
+        }
+      },
+      "block_order": [
+        "contact_form_tyLWPT",
+        "divider_amtmne",
+        "group_4wEPx4"
+      ],
+      "name": "t:names.contact_form",
+      "settings": {
+        "container": "page-width",
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "horizontal_alignment_flex_direction_column": "center",
+        "column_gap": 50,
+        "row_gap": 12,
+        "column_gap_mobile": 12,
+        "row_gap_mobile": 40,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "scheme-1",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "desktop",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0,
+        "padding-inline-start-mobile": 0,
+        "padding-inline-end-mobile": 0
+      }
+    },
+    "custom_section_4ARCm4": {
+      "type": "custom-section",
+      "blocks": {
+        "text_NazPFL": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p>Find vores butik</p>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_shape_color": "",
+            "highlight_text_color": "",
+            "type_preset": "h1",
+            "font": "var(--font-body--family)",
+            "font_weight": "",
+            "font_size": 15,
+            "font_size_mobile": 15,
+            "line_height": "normal",
+            "text_color": "text",
+            "text_color_gradient": "",
+            "disable_line_break_mobile": false,
+            "width": "fit-content",
+            "text_alignment": "left",
+            "width_mobile": "fit-content",
+            "text_alignment_mobile": "left",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "mobile-padding-scale": 80,
+            "animation_type": "fade-up",
+            "animation_delay": 50
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_NazPFL"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "container": "page-width",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "column_gap": 12,
+        "row_gap": 12,
+        "column_gap_mobile": 12,
+        "row_gap_mobile": 12,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "mobile",
+        "padding-block-start": 100,
+        "padding-block-end": 40,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "padding-block-start-mobile": 48,
+        "padding-block-end-mobile": 24,
+        "padding-inline-start-mobile": 0,
+        "padding-inline-end-mobile": 0
+      }
+    },
+    "store_locator_BQJBp9": {
+      "type": "store-locator",
+      "blocks": {
+        "store_locator_WJAAjk": {
+          "type": "store-locator",
+          "settings": {
+            "style": "card",
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 20
+          },
+          "blocks": {
+            "image": {
+              "type": "_image-card-media",
+              "static": true,
+              "settings": {
+                "image": "shopify://shop_images/Untitled_design_-_2026-07-20T235603.544.jpg",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "image_ratio": "adapt",
+                "image_ratio_mobile": "1/1",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 10
+              },
+              "blocks": {}
+            },
+            "heading": {
+              "type": "_simple-text",
+              "name": "t:names.heading",
+              "static": true,
+              "settings": {
+                "text": "<p>Herning</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "padding-block-start": 0,
+                "padding-block-end": 16,
+                "mobile-padding-scale": 75,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "text": {
+              "type": "_simple-text",
+              "static": true,
+              "settings": {
+                "text": "<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p><p>+45 2779 6900 </p><p>Man–Fre: 11–18<br/>Lør: 12–16<br/>Søn: 12–16</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "loose",
+                "text_color": "subtext",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "button": {
+              "type": "button",
+              "static": true,
+              "settings": {
+                "label": "Find vej",
+                "link": "https://maps.app.goo.gl/NyZdXZq6WY6rwVtK7",
+                "style": "plain",
+                "size": "medium",
+                "icon": "caret-right",
+                "icon_only": false,
+                "icon_style": "default",
+                "mobile_full_width": false,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        }
+      },
+      "block_order": [
+        "store_locator_WJAAjk"
+      ],
+      "name": "t:names.store_locator",
+      "settings": {
+        "container": "fixed",
+        "type": "carousel",
+        "columns": 2,
+        "column_gap": 10,
+        "row_gap": 30,
+        "enable_swipe_on_mobile": true,
+        "swipe_custom_width_column": false,
+        "swipe_column_width": 76,
+        "columns_mobile": "1",
+        "column_gap_mobile": 8,
+        "row_gap_mobile": 24,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "custom_section_tUbpGU",
+    "custom_section_4ARCm4",
+    "store_locator_BQJBp9"
+  ]
+}
