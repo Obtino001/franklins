@@ -487,6 +487,23 @@
                 "group_wXJd6h"
               ]
             },
+            "shipping_date_8NUgUx": {
+              "type": "_shipping-date",
+              "name": "Afsendes",
+              "settings": {
+                "label": "Afsendes:",
+                "cutoff_hour": 17,
+                "text_today": "i dag",
+                "text_tomorrow": "i morgen",
+                "text_monday": "mandag",
+                "type_preset": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "buy_buttons_rhMNwM": {
               "type": "_buy-buttons",
               "name": "t:names.buy_buttons",
@@ -521,23 +538,6 @@
                 }
               },
               "block_order": []
-            },
-            "shipping_date_8NUgUx": {
-              "type": "_shipping-date",
-              "name": "Afsendes",
-              "settings": {
-                "label": "Afsendes:",
-                "cutoff_hour": 17,
-                "text_today": "i dag",
-                "text_tomorrow": "i morgen",
-                "text_monday": "mandag",
-                "type_preset": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             },
             "custom_liquid_6UVzQf": {
               "type": "custom-liquid",
@@ -748,8 +748,8 @@
             "custom_liquid_benefits",
             "variant_picker_NYNfW9",
             "group_ngeVTK",
-            "buy_buttons_rhMNwM",
             "shipping_date_8NUgUx",
+            "buy_buttons_rhMNwM",
             "custom_liquid_6UVzQf",
             "accordion_U9n4kg",
             "product_recommendations_CQcChJ"
