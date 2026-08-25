@@ -2168,6 +2168,7 @@
         "image_card_kEUTWL",
         "group_MxbTQz"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:names.faqs_preset_banner",
       "settings": {
