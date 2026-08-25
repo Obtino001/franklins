@@ -1,0 +1,82 @@
+{%- doc -%}
+  Martilness PDP benefit checklist.
+  Benefits come from product metafield `custom.fordele` (multi-line or pipe-separated),
+  with defaults by product handle/title for main catalog items.
+
+  @param {object} product
+{%- enddoc -%}
+
+{%- liquid
+  assign benefits = product.metafields.custom.fordele.value | default: product.metafields.custom.fordele | default: ''
+  if benefits == blank
+    assign handle = product.handle
+    assign ptype = product.type | downcase
+    assign title_d = product.title | downcase
+
+    if handle contains 'saunataeppe' or title_d contains 'saunatæppe' or title_d contains 'saunataeppe'
+      assign benefits = 'Wellness i dit eget hjem|Forbedrer muskelrestitution og lindrer ømhed og smerter|Reducerer stress og løfter humøret|Fremmer dybere søvn|Perfekt i kombination med isbad terapi|Giver sundere og renere hud'
+    elsif handle contains 'isbad' or title_d contains 'isbad' or ptype contains 'isbad'
+      assign benefits = 'Styrker både krop og sind|Reduceret muskelømhed og inflammation|Naturlig endorfin-boost|Perfekt i kombination med saunatæppe eller dampsauna|Nem opsætning derhjemme|Hurtig levering og gratis fragt'
+    elsif handle contains 'dampsauna' or title_d contains 'dampsauna'
+      assign benefits = 'Effektiv varme og velvære hjemme|Afslapning og stressreduktion|Forbedret blodcirkulation|Kan kombineres med isbad|Kompakt løsning til hjemmet|30 dages tilfredshedsgaranti'
+    elsif handle contains 'maske' or title_d contains 'led' or title_d contains 'maske'
+      assign benefits = 'Infrarød LED-terapi hjemme|Understøtter hudens restitution|Nem daglig rutine|Hurtig levering|Altid gratis fragt|30 dages tilfredshedsgaranti'
+    endif
+  endif
+-%}
+
+{%- if benefits != blank -%}
+  {%- assign benefit_lines = benefits | newline_to_br | split: '<br />' -%}
+  {%- if benefits contains '|' -%}
+    {%- assign benefit_lines = benefits | split: '|' -%}
+  {%- endif -%}
+  <ul class="mt-pdp-benefits" role="list">
+    {%- for line in benefit_lines -%}
+      {%- assign clean = line | strip -%}
+      {%- if clean == blank -%}{%- continue -%}{%- endif -%}
+      <li class="mt-pdp-benefits__item">
+        <span class="mt-pdp-benefits__icon" aria-hidden="true">{% render 'icon', icon: 'check' %}</span>
+        <span class="mt-pdp-benefits__text">{{ clean }}</span>
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
+
+<style>
+  .mt-pdp-benefits {
+    list-style: none;
+    margin: 0.8rem 0 1.6rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .mt-pdp-benefits__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1.45rem;
+    line-height: 1.4;
+    color: rgb(var(--color-foreground));
+  }
+
+  .mt-pdp-benefits__icon {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #16a34a;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+
+  .mt-pdp-benefits__icon .icon,
+  .mt-pdp-benefits__icon svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+</style>

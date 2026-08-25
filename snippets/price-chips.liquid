@@ -22,7 +22,9 @@
   assign variant = product.selected_or_first_available_variant
 
   assign save_percent = 0
+  assign save_amount = 0
   if variant.compare_at_price != nil and variant.compare_at_price > variant.price
+    assign save_amount = variant.compare_at_price | minus: variant.price
     assign save_percent = variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: variant.compare_at_price | round
   endif
 -%}
@@ -77,7 +79,7 @@
       ref="saveChip"
       {% if save_percent <= 0 %}hidden{% endif %}
     >
-      {%- if save_percent > 0 -%}Spar {{ save_percent }}%{%- endif -%}
+      {%- if save_percent > 0 -%}Du sparer: {{ save_amount | money }} ({{ save_percent }}%){%- endif -%}
     </span>
   {%- endif -%}
 </price-chips>

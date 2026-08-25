@@ -99,11 +99,16 @@ class PriceChips extends HTMLElement {
 
     if (saveChip) {
       const compareAt = variant.compare_at_price;
+      const saveAmount = compareAt > variant.price ? compareAt - variant.price : 0;
       const savePercent =
         compareAt > variant.price ? Math.round(((compareAt - variant.price) * 100) / compareAt) : 0;
 
       if (savePercent > 0) {
-        saveChip.textContent = `Spar ${savePercent}%`;
+        const formatted = (saveAmount / 100)
+          .toFixed(2)
+          .replace(".", ",")
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        saveChip.textContent = `Du sparer: ${formatted} kr. (${savePercent}%)`;
         saveChip.hidden = false;
       } else {
         saveChip.textContent = "";
