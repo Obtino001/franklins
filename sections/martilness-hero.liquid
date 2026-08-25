@@ -177,10 +177,6 @@
 
   @media screen and (min-width: 750px) {
     #shopify-section-{{ section.id }} .fr-hero { min-height: 56rem; border-radius: 2rem; }
-    #shopify-section-{{ section.id }} .fr-hero--full {
-      border-radius: 0;
-      min-height: 64rem;
-    }
     #shopify-section-{{ section.id }} .fr-hero__scrim {
       background: linear-gradient(
         to right,
@@ -192,15 +188,9 @@
     }
     #shopify-section-{{ section.id }} .fr-hero__inner {
       align-items: flex-start; text-align: left;
-      max-width: min(66rem, var(--page-width, 1500px));
+      max-width: 66rem;
       padding: 7.2rem 6.4rem;
       gap: 2.8rem;
-    }
-    #shopify-section-{{ section.id }} .fr-hero--full .fr-hero__inner {
-      max-width: var(--page-width, 1500px);
-      width: 100%;
-      padding-block: 7.2rem;
-      padding-inline: 0;
     }
     #shopify-section-{{ section.id }} .fr-hero__ctas {
       display: flex; flex-wrap: wrap;
@@ -214,8 +204,7 @@
   }
 </style>
 
-<div class="section__container section-grid section-grid--{{ container }}">
-<section class="fr-hero {{ hero_modifier }} color-{{ section.settings.color_scheme }}">
+<section class="fr-hero color-{{ section.settings.color_scheme }}">
   {% if use_picker_images or hero_desktop != blank or hero_mobile != blank %}
     <div class="fr-hero__bg">
       <picture>
@@ -368,7 +357,6 @@
     {% endif %}
   </div>
 </section>
-</div>
 
 {% schema %}
 {
@@ -379,27 +367,6 @@
     "groups": ["header", "footer", "custom.overlay"]
   },
   "settings": [
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "container",
-      "label": "Width",
-      "options": [
-        {
-          "value": "full",
-          "label": "Full width image"
-        },
-        {
-          "value": "fixed",
-          "label": "Page width"
-        }
-      ],
-      "default": "full",
-      "info": "Full width = edge-to-edge hero image. Page width = theme page width."
-    },
     {
       "type": "header",
       "content": "Content"
@@ -531,10 +498,7 @@
   ],
   "presets": [
     {
-      "name": "Martilness Hero",
-      "settings": {
-        "container": "full"
-      }
+      "name": "Martilness Hero"
     }
   ]
 }
