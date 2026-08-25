@@ -940,21 +940,21 @@
           "type": "collection",
           "settings": {
             "collection": "infrarodt-lys",
-            "title": "Infrarødt lys"
+            "title": ""
           }
         },
         "collection_kyfeYK": {
           "type": "collection",
           "settings": {
             "collection": "isbad-dampsauna",
-            "title": "Saunatæppe"
+            "title": ""
           }
         },
         "collection_4waXYt": {
           "type": "collection",
           "settings": {
             "collection": "dampsauna",
-            "title": "Saunatæppe"
+            "title": ""
           }
         }
       },
