@@ -82,6 +82,7 @@
       "blocks": {
         "marquee_eyQyYR": {
           "type": "_marquee",
+          "disabled": true,
           "settings": {
             "direction": "forward",
             "speed": 0.3,
@@ -351,6 +352,7 @@
       "block_order": [
         "marquee_eyQyYR"
       ],
+      "disabled": true,
       "name": "t:names.marquee",
       "settings": {
         "container": "page-width--full",
