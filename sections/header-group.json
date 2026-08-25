@@ -223,6 +223,7 @@
         },
         "banner_n3AnaN": {
           "type": "banner",
+          "disabled": true,
           "settings": {
             "menu_title": "FAQ",
             "menu_columns": 4,
