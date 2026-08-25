@@ -1,0 +1,716 @@
+.product-inventory__status {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.product-form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.product-form-buttons > *:not(.quantity-selector) {
+  flex: 1 1 51%;
+  min-width: fit-content;
+}
+
+.product-form-buttons .add-to-cart-button {
+  width: 100%;
+}
+
+.media-gallery__carousel-container {
+  border-radius: var(--media-radius, 0);
+}
+
+.media-gallery__item {
+  border-radius: var(--media-radius, 0);
+}
+
+.media-gallery__zoom-dialog-button {
+  position: absolute;
+  /* Match the badge inset on the opposite corner. The badges sit at inset 0 with
+     padding: var(--product-card-badges-padding, 1rem), so 2rem here put the zoom
+     button twice as far in and it landed on top of the % graphic baked into the
+     product photos. Referencing the same variable rather than hardcoding 1rem keeps
+     the two corners aligned if the badge inset is ever changed. */
+  inset-inline-end: var(--product-card-badges-padding, 1rem);
+  inset-block-start: var(--product-card-badges-padding, 1rem);
+}
+
+.dialog-size-chart {
+  --dialog-content-padding-block: 3.2rem;
+  --dialog-content-padding-inline: 2.4rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .media-gallery__zoom-dialog-button {
+    transition: opacity var(--animation-duration--medium) var(--animation-easing--smooth), visibility var(--animation-duration--medium) var(--animation-easing--smooth);
+    opacity: 0;
+    visibility: hidden;
+  }
+  .product-media:hover .media-gallery__zoom-dialog-button {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.recipient-form {
+  display: block;
+  margin-block-end: 2.4rem;
+}
+
+.recipient-form__send-to {
+  padding: 0;
+  margin-block-end: 0.8rem;
+}
+
+.gift-card-form-option {
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.gift-card-form-option__button-label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.recipient-fields:not([hidden]) {
+  margin-block-start: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.recipient-fields .form-control {
+  width: 100%;
+}
+
+.recipient-form__message > span {
+  display: block;
+  margin-block-start: 0.8rem;
+}
+
+/* Date picker calendar icon
+ * Safari doesn't show the icon and Firefox correctly applies the color from the input field.
+ * Webkit browsers need the mask-image trick to use the correct icon color.
+ */
+.field--send-on .recipient-fields__input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24' %3E%3Cg%3E%3Cpath d='M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-image: none;
+  background-color: currentcolor;
+  mask-type: match-source;
+}
+
+/* For Webkit browsers - text cursor for input area */
+.field--send-on .recipient-fields__input::-webkit-datetime-edit {
+  cursor: text;
+}
+
+.field--send-on .recipient-fields__input::-webkit-datetime-edit-year-field,
+.field--send-on .recipient-fields__input::-webkit-datetime-edit-month-field,
+.field--send-on .recipient-fields__input::-webkit-datetime-edit-day-field {
+  /* Override the disabled color */
+  color: rgb(var(--color-input-text));
+}
+
+/* Fallback for other browsers */
+.field--send-on .recipient-fields__input {
+  cursor: text;
+}
+
+/* For Firefox - entire field is clickable, so show pointer */
+@supports (-moz-appearance: none) {
+  .field--send-on .recipient-fields__input {
+    cursor: pointer;
+  }
+}
+@media (min-width: 768px) {
+  .dialog-size-chart {
+    --dialog-content-padding-inline: 4rem;
+  }
+}
+.product-recommendations:has([data-has-recommendations=false]) {
+  display: none;
+}
+
+.product-recommendations__item-placeholder {
+  background-color: rgb(var(--color-foreground));
+  min-height: 12rem;
+  aspect-ratio: 3/4;
+  opacity: 0.1;
+  border-radius: var(--card-placeholder-radius);
+}
+
+.product-combine {
+  --carousel-controls-margin-top: 1.6rem;
+}
+
+.product-card__badges--current {
+  inset-inline: auto 0;
+  padding: 2rem;
+}
+
+.product-combine__wrapper {
+  width: 100%;
+  max-width: max(66%, 88.4rem);
+  margin: 0 auto;
+  column-gap: 3rem;
+}
+
+.product-combine__main-item {
+  --product-card-wrapper-gap: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .product-combine {
+    --carousel-controls-margin-top: 2.4rem;
+  }
+  .product-combine__combine-items {
+    width: 50%;
+  }
+  .product-combine__main-item {
+    width: 50%;
+    padding-inline-end: 2rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .product-combine__combine-items {
+    display: contents;
+  }
+  .product-combine__main-item {
+    margin-block: 2.4rem;
+  }
+  .product-combine .section-header-block {
+    display: contents;
+  }
+  .product-combine .text-block {
+    order: -9;
+  }
+  .product-combine .button-block {
+    order: 9;
+  }
+}
+.sticky-add-to-cart__wrapper {
+  position: fixed;
+  z-index: 100;
+  bottom: 3rem;
+  inset-inline: auto 3rem;
+  padding-block: 1.2rem;
+  padding-inline: 1.2rem 2.4rem;
+  box-shadow: 0 0 10px 0 rgb(var(--color-foreground)/7%);
+  border-radius: min(1rem, var(--dialog-radius));
+  transform: translateY(100%);
+  opacity: 0;
+  width: 42.5rem;
+  gap: 1.2rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sticky-add-to-cart__wrapper {
+    transition-property: transform, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: var(--animation-easing);
+  }
+}
+.sticky-add-to-cart__wrapper[data-sticky=true] {
+  transform: translateY(0);
+  opacity: 1;
+}
+@media (max-width: 767.98px) {
+  .sticky-add-to-cart__wrapper {
+    bottom: 0;
+    inset-inline: 0 auto;
+    padding-inline: 1.6rem;
+    border-radius: min(2rem, var(--dialog-radius));
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 100%;
+    box-shadow: 0 -10px 20px 0 rgb(var(--color-foreground)/10%);
+  }
+}
+.sticky-add-to-cart__info {
+  gap: 1.6rem;
+}
+.sticky-add-to-cart__image {
+  width: 8rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: min(1rem, var(--product-card-media-radius));
+}
+@media (max-width: 767.98px) {
+  .sticky-add-to-cart__image {
+    width: 6rem;
+  }
+}
+.sticky-add-to-cart__content {
+  gap: 0.4rem;
+  /* Skal kunne krympe under sit min-content, ellers ville nowrap-linjen nedenfor
+     presse hele baren vandret ud i stedet for at blive forkortet. Flex-items har
+     min-width: auto som default. */
+  min-width: 0;
+}
+/* Titlen deles ved | som på produktkortene. Hver halvdel klampes til én linje,
+   så titlen ALTID er præcis to linjer og baren ikke kan vokse på lange navne.
+   Samme egenskaber som temaets egen [class*=text-limit-] + .text-limit-1-line. */
+.sticky-add-to-cart__title .product-title__name,
+.sticky-add-to-cart__title .product-title__suffix {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+/* Pris pr. gram-intervallet må aldrig ombryde: "54 kr – 81 kr/gram" er ~117px
+   og indholdskolonnen er ~120px på en 320px-skærm. Uden nowrap blev baren
+   2.2rem højere netop dér. Forkortes i stedet. */
+.sticky-add-to-cart__content .price-per-gram {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.product-information--main {
+  contain: layout;
+}
+
+.product-information__grid {
+  --details-offset-left: 0;
+  --details-offset-right: 0;
+  --sticky-element-top: 3rem;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
+}
+
+.product-information__media,
+.product-information__details {
+  min-width: 0;
+}
+
+.header-pinned .product-information__grid {
+  --sticky-element-top: calc(var(--header-height) + var(--spacing-6));
+}
+
+.media-gallery__carousel .carousel__controls--absolute .carousel__button {
+  --button-width: 4.8rem;
+  --button-height: 4.8rem;
+}
+
+@media (min-width: 768px) {
+  .product-information__grid {
+    --details-offset-left: min(5rem, var(--gap));
+    grid-column: 2;
+  }
+  .product-information__grid.product-information__grid--media-left {
+    grid-template-columns: 730fr 610fr;
+  }
+  .product-information__grid.product-information__grid--media-left .product-information__details {
+    padding-inline: var(--details-offset-left) var(--details-offset-right);
+  }
+  .product-information__grid.product-information__grid--media-left:has(.media-gallery--extend) {
+    grid-column: 1/3;
+  }
+  .product-information__grid.product-information__grid--media-right {
+    grid-template-columns: 610fr 730fr;
+  }
+  .product-information__grid.product-information__grid--media-right .product-information__media {
+    order: 1;
+  }
+  .product-information__grid.product-information__grid--media-right .product-information__details {
+    padding-inline: var(--details-offset-right) var(--details-offset-left);
+  }
+  .product-information__grid.product-information__grid--media-right:has(.media-gallery--extend) {
+    grid-column: 2/-1;
+  }
+  .product-information__grid.product-information__grid--half,
+  .product-information__grid.product-information__grid--half:has(.media-gallery--extend) {
+    grid-template-columns: 1fr 1fr;
+  }
+  .section--full .product-information__grid.product-information__grid--media-left,
+  .section--full .product-information__grid.product-information__grid--media-right {
+    grid-column: 1/-1;
+    padding-inline: 1.5rem;
+  }
+  .product-information__grid.product-information__grid--media-none {
+    grid-template-columns: auto;
+  }
+  .product-information__grid.product-information__grid--media-none .product-information__details {
+    width: var(--page-width-narrow);
+    margin: 0 auto;
+  }
+}
+/* stylelint-disable-next-line media-feature-range-notation */
+@media (min-width: 1440px) {
+  .product-information__grid {
+    --details-offset-left: var(--gap);
+    --details-offset-right: 2rem;
+  }
+  .product-information__grid.product-information__grid--half {
+    --details-offset-right: 5rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .product-information__grid .product-information__media,
+  .product-information__grid .product-information__details {
+    grid-column: 2/3;
+  }
+  .product-information__grid:has(.media-gallery__carousel-thumbnails--inside) .product-information__media {
+    grid-column: 1/-1;
+  }
+  .product-information__grid:has(.media-gallery__carousel-thumbnails--inside) .media-gallery__carousel-container {
+    --media-radius: 0;
+  }
+  .product-information__media + .product-information__details {
+    margin-block-start: var(--spacing-6);
+  }
+}
+.media-gallery--main {
+  --sticky-element-top: 3rem;
+}
+
+.header-pinned .media-gallery--main {
+  --sticky-element-top: calc(var(--header-height) + 3rem);
+}
+
+.media-gallery {
+  --media-grid-thumbs-size: 7rem;
+  --media-carousel-thumbs-size: 10rem;
+  --carousel-counter-min-width: var(--spacing-9);
+}
+
+.media-gallery__item .deferred-media__poster-button {
+  height: 100%;
+}
+
+.media-gallery__grid-thumbnails .media-gallery__item {
+  border-radius: min(1rem, var(--media-radius, 0));
+  border: 0.1rem solid transparent;
+  transition: border-color var(--animation-duration--fast) var(--animation-easing);
+  cursor: pointer;
+}
+
+.media-gallery__grid-thumbnails .media-gallery__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: border-color var(--animation-duration--fast) var(--animation-easing);
+  border-radius: inherit;
+  border: 0.6rem solid transparent;
+}
+
+.media-gallery__grid-thumbnails .media-gallery__item .media {
+  border-radius: min(0.4rem, var(--media-radius, 0));
+  height: auto;
+}
+
+.media-gallery__grid-thumbnails .media-gallery__item.is-active {
+  border-color: rgb(var(--color-foreground));
+}
+
+.media-gallery__grid-thumbnails .media-gallery__item:not(.is-active):hover {
+  border-color: rgb(var(--color-foreground)/10%);
+}
+
+.media-gallery__grid-thumbnails .media-gallery__item.is-active::after,
+.media-gallery__grid-thumbnails .media-gallery__item:hover::after {
+  border-color: rgb(var(--color-background));
+}
+
+.media-gallery__carousel-thumbnails .media-gallery__item {
+  width: var(--media-carousel-thumbs-size);
+  border-radius: min(0.4rem, var(--media-radius, 0));
+}
+
+.media-gallery__carousel-thumbnails .media-gallery__item.is-active {
+  border: 0.1rem solid rgb(var(--color-foreground));
+}
+
+.media-gallery__carousel-thumbnails--inside {
+  --media-carousel-thumbs-size: 5.5rem;
+  position: absolute;
+  bottom: var(--media-carousel-thumbs-offset, 3rem);
+  left: 50%;
+  z-index: 1;
+  width: 100%;
+  transform: translateX(-50%);
+  padding: var(--media-carousel-thumbs-wrapper-padding, 1rem);
+  max-width: var(--media-carousel-thumbs-w-desktop, 100%);
+  border-radius: min(1rem, var(--media-radius, 0));
+  background-color: #fff;
+  box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.media-gallery__carousel-thumbnails--outside {
+  --media-carousel-thumbs-size: 6rem;
+  margin-block-start: var(--spacing-3);
+}
+
+.media-gallery__carousel-wrapper [data-media-id] {
+  scroll-margin-top: var(--sticky-element-top);
+}
+
+@media (min-width: 768px) {
+  .media-gallery--grid .media-gallery__carousel-wrapper {
+    gap: var(--media-gap, 1rem);
+    grid-template-columns: var(--media-grid-columns);
+  }
+  .media-gallery__grid-thumbnails {
+    display: grid;
+    gap: var(--media-gap, 1rem);
+    max-height: var(--media-grid-thumbs-max-height, 60vh);
+    overflow-y: auto;
+    /* hide scrollbar cross-browser */
+    -ms-overflow-style: none; /* IE/Edge legacy */
+    scrollbar-width: none; /* Firefox */
+  }
+  .media-gallery__grid-thumbnails::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  .media-gallery--has-grid-thumbs {
+    display: grid;
+    align-items: flex-start;
+    overflow: visible;
+    gap: var(--media-gap, 1rem);
+    grid-template-columns: var(--media-grid-thumbs-size) 1fr;
+  }
+  .media-gallery--grid-2-column {
+    --media-grid-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .media-gallery {
+    --media-grid-thumbs-size: 9rem;
+  }
+}
+/* stylelint-disable-next-line media-feature-range-notation */
+@media (min-width: 1440px) {
+  .media-gallery {
+    --media-grid-thumbs-size: 12rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .media-gallery {
+    --carousel-progressbar-width: 100%;
+    --carousel-controls-margin-top: var(--spacing-3);
+  }
+  .media-gallery__carousel-thumbnails--inside {
+    --media-carousel-thumbs-offset: 2.4rem;
+    --media-carousel-thumbs-wrapper-padding: 0.8rem;
+    --media-carousel-thumbs-size: 4rem;
+    max-width: var(--media-carousel-thumbs-w-mobile, 100%);
+  }
+  .media-gallery__carousel-wrapper--none .media-gallery__item {
+    width: var(--media-item-width, 80vw);
+  }
+}
+@media (hover: hover) {
+  .media-gallery__carousel:hover .carousel__controls--absolute .carousel__button--prev {
+    --navigation-offset-left: calc(3rem * var(--flip-x-factor));
+  }
+  .media-gallery__carousel:hover .carousel__controls--absolute .carousel__button--next {
+    --navigation-offset-left: calc(-3rem * var(--flip-x-factor));
+  }
+}
+.media-gallery__badges {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  padding: var(--product-card-badges-padding, 1rem);
+  z-index: 2;
+  /* Badges er ren dekoration. Uden dette æder overlayet klik i billedets
+     øverste venstre hjørne, så zoom (PhotoSwipe) ikke kan åbnes derfra. */
+  pointer-events: none;
+}
+/* Er der ingen badges tilbage (fx tilbudsprodukt uden CBD/THCA-tag, nu hvor
+   rabatten kun vises som chip ved prisen), fjernes den tomme kasse helt.
+   Temaets egen regel .product-badges:has(.product-badges--empty) rammer aldrig,
+   fordi klassen sidder på SAMME element — ikke på et child. */
+.media-gallery__badges:has(> .product-badges--empty) {
+  display: none;
+}
+.shipping-date__status {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.shipping-date__text {
+  color: #2b2b2b;
+}
+
+.shipping-date__dot {
+  position: relative;
+  display: block;
+  height: 0.55em;
+  width: 0.55em;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.shipping-date__dot--pulse::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: currentcolor;
+  animation: shipping-date-pulse 2s var(--animation-easing--smooth) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes shipping-date-pulse {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(3.5); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shipping-date__dot--pulse::before {
+    animation: none;
+  }
+}
+/* Betalingsikoner + rating under købsknappen */
+.pr-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.pr-bar__pay {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+.pr-bar__pay svg {
+  width: 3.7rem;
+  height: 2.3rem;
+  display: block;
+}
+.pr-bar__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.pr-bar__score {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.pr-bar__stars {
+  display: flex;
+  gap: 0.3rem;
+}
+.pr-bar__star {
+  width: 1.8rem;
+  height: 1.8rem;
+  background: #48bb78;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pr-bar__star svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: #fff;
+  display: block;
+}
+@media (max-width: 749.98px) {
+  .pr-bar { gap: 0.8rem; }
+  .pr-bar__pay { gap: 0.5rem; }
+  .pr-bar__pay svg { width: 3.1rem; height: 2rem; }
+  .pr-bar__score { font-size: 1.3rem; }
+  .pr-bar__star { width: 1.7rem; height: 1.7rem; border-radius: 0.3rem; }
+  .pr-bar__star svg { width: 1.1rem; height: 1.1rem; }
+}
+/* === Price chips === */
+.product-price .price-container:has(.price-chips > :not([hidden])) {
+  flex-wrap: nowrap;
+}
+
+.price-chips {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.price-chips:empty,
+.price-chips:not(:has(> :not([hidden]))) {
+  display: none;
+}
+
+.price-chips__chip {
+  border-radius: 0.8rem;
+  white-space: nowrap;
+  padding: 1rem 1.4rem;
+  font-size: 1.4rem;
+}
+
+.price-chips__chip[hidden] {
+  display: none;
+}
+
+.price-chips__chip--unit {
+  background: rgb(var(--color-foreground) / 0.06);
+  color: rgb(var(--color-foreground));
+}
+
+.price-chips__chip--unit:not([hidden]):has(+ .price-chips__chip--save:not([hidden])) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.price-chips__chip--unit:not([hidden]) + .price-chips__chip--save:not([hidden]) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+@media (max-width: 767.98px) {
+  .price-chips__chip {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.1rem;
+  }
+}
+
+.product-price .price-container .price__sale .compare-at-price,
+.product-price .price-container .price__regular .compare-at-price {
+  font-size: calc(var(--font-size--h5) * 0.85);
+}
+
+/* Save-chip standardfarve */
+.price-chips__chip.price-chips__chip--save {
+  background: #38322f;
+  color: #ffffff;
+}
+/* Hele pris+chips-området er flex og stakker ALDRIG — prisen kan krympe, chips bliver ved siden af */
+.product-price .price-container:has(.price-chips > :not([hidden])) {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.product-price .price-container:has(.price-chips > :not([hidden])) .price__sale,
+.product-price .price-container:has(.price-chips > :not([hidden])) .price__regular {
+  min-width: 0;
+}
+/* Mobil: compare-at UNDER sale-prisen (stablet). KUN på tilbud (.price--on-sale) —
+   ellers skal price__sale forblive skjult, så ikke-tilbudsvarer ikke viser salgspris + compare. */
+@media (max-width: 767.98px) {
+  .product-price .price-container.price--on-sale:has(.price-chips > :not([hidden])) .price__sale {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+  }
+}
