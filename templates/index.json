@@ -961,10 +961,910 @@
         "padding-inline-start-mobile": 0,
         "padding-inline-end-mobile": 0
       }
+    },
+    "marquee_home_Mtq1": {
+      "type": "custom-section",
+      "blocks": {
+        "marquee_eyQyYR": {
+          "type": "_marquee",
+          "settings": {
+            "direction": "forward",
+            "speed": 0.3,
+            "angle": 0,
+            "pause_on_hover": true,
+            "show_edge_fade": false,
+            "enable_parallax": false,
+            "column_gap": 32,
+            "column_gap_mobile": 24,
+            "color_scheme": "scheme-inverse",
+            "border_radius": 0,
+            "padding-block-start": 16,
+            "padding-block-end": 16
+          },
+          "blocks": {
+            "text_pK8Bdf": {
+              "type": "text",
+              "settings": {
+                "text": "<p>GRATIS FRAGT PÅ ALLE ORDRER</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "separator_Gfk3gY": {
+              "type": "_separator",
+              "name": "t:names.separator",
+              "settings": {
+                "style": "dot"
+              },
+              "blocks": {}
+            },
+            "text_cpAcnq": {
+              "type": "text",
+              "settings": {
+                "text": "<p>1-3 DAGES LEVERING</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "separator_zYprUW": {
+              "type": "_separator",
+              "name": "t:names.separator",
+              "settings": {
+                "style": "dot"
+              },
+              "blocks": {}
+            },
+            "text_T3xUze": {
+              "type": "text",
+              "settings": {
+                "text": "<p>30 DAGES TILFREDSGARANTI</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "separator_Xmc8Ue": {
+              "type": "_separator",
+              "name": "t:names.separator",
+              "settings": {
+                "style": "dot"
+              },
+              "blocks": {}
+            },
+            "text_bettFi": {
+              "type": "text",
+              "settings": {
+                "text": "<p>4,8 UD AF 5 STJERNER PÅ TRUSTPILOT</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "separator_KyhCCB": {
+              "type": "_separator",
+              "name": "t:names.separator",
+              "settings": {
+                "style": "dot"
+              },
+              "blocks": {}
+            },
+            "text_jnWJVL": {
+              "type": "text",
+              "settings": {
+                "text": "<p>ISBAD · SAUNA · VELVÆRE</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "separator_D4CnAt": {
+              "type": "_separator",
+              "name": "t:names.separator",
+              "settings": {
+                "style": "dot"
+              },
+              "blocks": {}
+            },
+            "text_kV3nnd": {
+              "type": "text",
+              "settings": {
+                "text": "<p>DANSK WEBSHOP & KUNDESERVICE</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            },
+            "separator_PXJAt3": {
+              "type": "_separator",
+              "name": "t:names.separator",
+              "settings": {
+                "style": "dot"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_pK8Bdf",
+            "separator_Gfk3gY",
+            "text_cpAcnq",
+            "separator_zYprUW",
+            "text_T3xUze",
+            "separator_Xmc8Ue",
+            "text_bettFi",
+            "separator_KyhCCB",
+            "text_jnWJVL",
+            "separator_D4CnAt",
+            "text_kV3nnd",
+            "separator_PXJAt3"
+          ]
+        }
+      },
+      "block_order": [
+        "marquee_eyQyYR"
+      ],
+      "name": "t:names.marquee",
+      "settings": {
+        "container": "page-width--full",
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "column_gap": 12,
+        "row_gap": 12,
+        "column_gap_mobile": 12,
+        "row_gap_mobile": 12,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "scheme-1",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "mobile",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0,
+        "padding-inline-start-mobile": 0,
+        "padding-inline-end-mobile": 0
+      }
+    },
+    "collection_links_Mtq1": {
+      "type": "collection-highlight",
+      "blocks": {
+        "collection_highlight_1": {
+          "type": "_collection-highlight",
+          "name": "t:categories.collection",
+          "settings": {
+            "collection": "isbad",
+            "title": "Isbad",
+            "title_preset": "custom",
+            "title_font": "var(--font-heading--family)",
+            "title_font_weight": "",
+            "title_font_size": 68,
+            "title_font_size_mobile": 38,
+            "title_line_height": "loose",
+            "description": "<p>Robuste isbade til hjemmet –<br/>restitution og mental styrke året rundt.</p>"
+          },
+          "blocks": {
+            "collection-highlight-image-card": {
+              "type": "_collection-highlight-image-card",
+              "name": "t:names.image_card",
+              "static": true,
+              "settings": {
+                "image": "shopify://shop_images/thumbnail_1x1.1-2_6fe1b89a-a9d6-4aec-a668-785dcb1f6fd6.jpg",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "card_link": "",
+                "edge_gap": "lg",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-end",
+                "column_gap": 12,
+                "column_gap_mobile": 12,
+                "row_gap": 32,
+                "row_gap_mobile": 24,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-inverse",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 20,
+                "card_label": "",
+                "card_label_text_color": "#ffffff",
+                "enable_preload_image": false
+              },
+              "blocks": {
+                "subheading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Isbad kollektion</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "text-subheading",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "heading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Isbad</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_weight": "",
+                    "font_size": 48,
+                    "font_size_mobile": 34,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "text": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 24,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "button": {
+                  "type": "button",
+                  "static": true,
+                  "settings": {
+                    "label": "Shop Now",
+                    "link": "",
+                    "style": "primary",
+                    "size": "large",
+                    "icon": "caret-right",
+                    "icon_only": false,
+                    "icon_style": "solid",
+                    "mobile_full_width": true,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": []
+        },
+        "collection_highlight_2": {
+          "type": "_collection-highlight",
+          "name": "t:categories.collection",
+          "settings": {
+            "collection": "dampsauna",
+            "title": "Dampsauna",
+            "title_preset": "custom",
+            "title_font": "var(--font-heading--family)",
+            "title_font_weight": "",
+            "title_font_size": 68,
+            "title_font_size_mobile": 38,
+            "title_line_height": "loose",
+            "description": "<p>Effektiv varme og velvære<br/>uden at det kræver meget plads.</p>"
+          },
+          "blocks": {
+            "collection-highlight-image-card": {
+              "type": "_collection-highlight-image-card",
+              "name": "t:names.image_card",
+              "static": true,
+              "settings": {
+                "image": "shopify://shop_images/DSC00496_b04cb529-663f-4662-b7a3-cd329bd6088f.jpg",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "card_link": "",
+                "edge_gap": "lg",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-end",
+                "column_gap": 12,
+                "column_gap_mobile": 12,
+                "row_gap": 32,
+                "row_gap_mobile": 24,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-inverse",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 20,
+                "card_label": "",
+                "card_label_text_color": "#ffffff",
+                "enable_preload_image": false
+              },
+              "blocks": {
+                "subheading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Dampsauna kollektion</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "text-subheading",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "heading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Dampsauna</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_weight": "",
+                    "font_size": 48,
+                    "font_size_mobile": 34,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "text": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p></p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 24,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "button": {
+                  "type": "button",
+                  "static": true,
+                  "settings": {
+                    "label": "Shop now",
+                    "link": "",
+                    "style": "primary",
+                    "size": "large",
+                    "icon": "caret-right",
+                    "icon_only": false,
+                    "icon_style": "solid",
+                    "mobile_full_width": true,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": []
+        },
+        "collection_highlight_3": {
+          "type": "_collection-highlight",
+          "name": "t:categories.collection",
+          "settings": {
+            "collection": "saunataeppe",
+            "title": "Saunatæppe",
+            "title_preset": "custom",
+            "title_font": "var(--font-heading--family)",
+            "title_font_weight": "",
+            "title_font_size": 68,
+            "title_font_size_mobile": 38,
+            "title_line_height": "loose",
+            "description": "<p>Sauna-oplevelsen hjemme i sofaen –<br/>kompakt, fleksibel og afslappende.</p>"
+          },
+          "blocks": {
+            "collection-highlight-image-card": {
+              "type": "_collection-highlight-image-card",
+              "name": "t:names.image_card",
+              "static": true,
+              "settings": {
+                "image": "shopify://shop_images/DSC00652-scaled.jpg",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "card_link": "",
+                "edge_gap": "lg",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-end",
+                "column_gap": 12,
+                "column_gap_mobile": 12,
+                "row_gap": 32,
+                "row_gap_mobile": 24,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-inverse",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 20,
+                "card_label": "",
+                "card_label_text_color": "#ffffff",
+                "enable_preload_image": false
+              },
+              "blocks": {
+                "subheading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Saunatæppe kollektion</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "text-subheading",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "heading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Saunatæppe</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_weight": "",
+                    "font_size": 48,
+                    "font_size_mobile": 34,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "text": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p></p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 24,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "button": {
+                  "type": "button",
+                  "static": true,
+                  "settings": {
+                    "label": "Shop now",
+                    "link": "",
+                    "style": "primary",
+                    "size": "large",
+                    "icon": "caret-right",
+                    "icon_only": false,
+                    "icon_style": "solid",
+                    "mobile_full_width": true,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": []
+        },
+        "collection_highlight_4": {
+          "type": "_collection-highlight",
+          "name": "t:categories.collection",
+          "settings": {
+            "collection": "infrarodt-lys",
+            "image": "shopify://shop_images/DSC09528_44f17d66-85fb-4abc-9bf1-9661ae33f9ae.jpg",
+            "title": "Infrarødt lys",
+            "title_preset": "custom",
+            "title_font": "var(--font-heading--family)",
+            "title_font_weight": "",
+            "title_font_size": 68,
+            "title_font_size_mobile": 38,
+            "title_line_height": "loose",
+            "description": "<p>Rød og nær-infrarød lysterapi<br/>til hud, restitution og velvære.</p>"
+          },
+          "blocks": {
+            "collection-highlight-image-card": {
+              "type": "_collection-highlight-image-card",
+              "name": "t:names.image_card",
+              "static": true,
+              "settings": {
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "card_link": "",
+                "edge_gap": "lg",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-end",
+                "column_gap": 12,
+                "column_gap_mobile": 12,
+                "row_gap": 32,
+                "row_gap_mobile": 24,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-inverse",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 20,
+                "card_label": "",
+                "card_label_text_color": "#ffffff",
+                "enable_preload_image": false
+              },
+              "blocks": {
+                "subheading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Infrarødt lys kollektion</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "text-subheading",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "heading": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "<p>Infrarødt lys</p>",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_weight": "",
+                    "font_size": 48,
+                    "font_size_mobile": 34,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "text": {
+                  "type": "_simple-text",
+                  "static": true,
+                  "settings": {
+                    "text": "",
+                    "highlight_style": "none",
+                    "highlight_font_style": "italic",
+                    "highlight_shape_color": "",
+                    "highlight_text_color": "",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_weight": "",
+                    "font_size": 15,
+                    "font_size_mobile": 15,
+                    "line_height": "normal",
+                    "text_color": "text",
+                    "padding-block-start": 24,
+                    "padding-block-end": 0,
+                    "mobile-padding-scale": 80,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                },
+                "button": {
+                  "type": "button",
+                  "static": true,
+                  "settings": {
+                    "label": "Shop now",
+                    "link": "",
+                    "style": "primary",
+                    "size": "large",
+                    "icon": "caret-right",
+                    "icon_only": false,
+                    "icon_style": "solid",
+                    "mobile_full_width": true,
+                    "animation_type": "none",
+                    "animation_delay": 250
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": []
+        }
+      },
+      "block_order": [
+        "collection_highlight_1",
+        "collection_highlight_2",
+        "collection_highlight_3",
+        "collection_highlight_4"
+      ],
+      "custom_css": [
+        ".collection-highlight__preview-text {max-width: 34rem;}",
+        ".image-card__heading {max-width: 40rem;}",
+        "@media (max-width: 767.98px) {.image-card__heading {max-width: 28rem; }}"
+      ],
+      "name": "t:names.collection_highlight",
+      "settings": {
+        "desktop_image_position": "left",
+        "image_aspect_ratio": "1/1",
+        "image_aspect_ratio_mobile": "3/4",
+        "subheading": "Shop efter kategori",
+        "collection_link_style": "wavy-underline",
+        "color_scheme": "scheme-6",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 20,
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
     "martilness_hero_home",
+    "marquee_home_Mtq1",
+    "collection_links_Mtq1",
     "product_tabs_VFRpjk",
     "testimonials_parallax_8FqTjk",
     "custom_section_cjGfXN"
