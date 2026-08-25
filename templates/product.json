@@ -117,7 +117,7 @@
                       "settings": {
                         "show_installments": false,
                         "show_tax_info": false,
-                        "show_unit_chip": true,
+                        "show_unit_chip": false,
                         "show_save_chip": true,
                         "type_preset": "h3",
                         "padding-block-start": 0,
