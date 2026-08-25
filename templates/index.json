@@ -9,6 +9,29 @@
  */
 {
   "sections": {
+    "martilness_hero_home": {
+      "type": "martilness-hero",
+      "name": "Martilness Hero",
+      "settings": {
+        "show_rating": true,
+        "rating": "4.8",
+        "rating_suffix": "4,8 på Trustpilot",
+        "title": "Alle har ret til fysisk og psykisk velvære",
+        "subtitle": "Hurtig levering. Stort udvalg. Fra isbad til sauna — velvære derhjemme.",
+        "btn1_label": "Se vores produkter",
+        "btn1_link": "/collections/all",
+        "btn2_label": "Shop isbad",
+        "btn2_link": "/collections/isbad",
+        "btn3_label": "Shop sauna",
+        "btn3_link": "/collections/dampsauna",
+        "trust_1": "1-3 dages levering",
+        "trust_2": "Altid gratis fragt",
+        "trust_3": "30 dages tilfredsgaranti",
+        "image_desktop_url": "https://cdn.shopify.com/s/files/1/0942/8382/5500/files/Untitled_design_-_2026-08-01T142629.872.jpg?v=1785587205",
+        "image_mobile_url": "https://cdn.shopify.com/s/files/1/0942/8382/5500/files/Headder_mobil.jpg?v=1784537590",
+        "color_scheme": "scheme-1"
+      }
+    },
     "product_tabs_VFRpjk": {
       "type": "product-tabs",
       "blocks": {
@@ -73,7 +96,7 @@
         "padding-block-end": 50,
         "padding-inline-start": 0,
         "padding-inline-end": 0,
-        "padding-block-start-mobile": 10,
+        "padding-block-start-mobile": 46,
         "padding-block-end-mobile": 30,
         "padding-inline-start-mobile": 0,
         "padding-inline-end-mobile": 0,
@@ -935,30 +958,6 @@
         "padding-inline-start-mobile": 0,
         "padding-inline-end-mobile": 0
       }
-    },
-    "martilness_hero_home": {
-      "type": "martilness-hero",
-      "name": "Martilness Hero",
-      "settings": {
-        "show_rating": true,
-        "rating": "4.8",
-        "rating_suffix": "4,8 på Trustpilot",
-        "title": "Alle har ret til fysisk og psykisk velvære",
-        "subtitle": "Hurtig levering. Stort udvalg. Fra isbad til sauna — velvære derhjemme.",
-        "btn1_label": "Se vores produkter",
-        "btn1_link": "/collections/all",
-        "btn2_label": "Shop isbad",
-        "btn2_link": "/collections/isbad",
-        "btn3_label": "Shop sauna",
-        "btn3_link": "/collections/dampsauna",
-        "trust_1": "1-3 dages levering",
-        "trust_2": "Altid gratis fragt",
-        "trust_3": "30 dages tilfredsgaranti",
-        "image_desktop_url": "https://cdn.shopify.com/s/files/1/0942/8382/5500/files/Untitled_design_-_2026-08-01T142629.872.jpg?v=1785587205",
-        "image_mobile_url": "https://cdn.shopify.com/s/files/1/0942/8382/5500/files/Headder_mobil.jpg?v=1784537590",
-        "color_scheme": "scheme-1"
-      },
-      "blocks": {}
     }
   },
   "order": [
