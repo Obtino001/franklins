@@ -3,6 +3,7 @@
   assign rating_suffix = section.settings.rating_suffix | default: '4,8 på Trustpilot'
   assign title = section.settings.title
   assign subtitle = section.settings.subtitle
+  assign container = section.settings.container | default: 'full'
 
   assign use_picker_images = false
   if section.settings.image_desktop != blank or section.settings.image_mobile != blank
@@ -29,6 +30,11 @@
   assign btn1_link = section.settings.btn1_link
   assign btn2_link = section.settings.btn2_link
   assign btn3_link = section.settings.btn3_link
+
+  assign hero_modifier = 'fr-hero--fixed'
+  if container == 'full'
+    assign hero_modifier = 'fr-hero--full'
+  endif
 -%}
 
 <style>
@@ -44,6 +50,19 @@
     min-height: 58rem;
     border-radius: var(--fr-radius);
     color: rgb(var(--color-foreground));
+    width: 100%;
+  }
+
+  /* Full-bleed image: edge-to-edge, no card radius */
+  #shopify-section-{{ section.id }} .fr-hero--full {
+    --fr-radius: 0;
+    border-radius: 0;
+    min-height: 62rem;
+  }
+
+  #shopify-section-{{ section.id }} .fr-hero--full .fr-hero__inner {
+    padding-inline: var(--page-padding);
+    box-sizing: border-box;
   }
 
   #shopify-section-{{ section.id }} .fr-hero__bg { position: absolute; inset: 0; z-index: 0; }
