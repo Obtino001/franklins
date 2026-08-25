@@ -569,7 +569,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "text": "Beskrivelse",
-                    "open_row_by_default": true,
+                    "open_row_by_default": false,
                     "icon": "none",
                     "icon_size": "extra-large",
                     "width": 24,
