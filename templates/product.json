@@ -796,6 +796,49 @@
         "padding-block-end-mobile": 48
       }
     },
+    "trust_pills_pdp": {
+      "type": "martilness-trust-pills",
+      "blocks": {
+        "pill_1": {
+          "type": "pill",
+          "settings": {
+            "label": "1-3 Hverdages Levering"
+          }
+        },
+        "pill_2": {
+          "type": "pill",
+          "settings": {
+            "label": "Kundeservice 24/7"
+          }
+        },
+        "pill_3": {
+          "type": "pill",
+          "settings": {
+            "label": "Nem & Sikker Betaling"
+          }
+        },
+        "pill_4": {
+          "type": "pill",
+          "settings": {
+            "label": "Fri Fragt Over 500kr"
+          }
+        }
+      },
+      "block_order": [
+        "pill_1",
+        "pill_2",
+        "pill_3",
+        "pill_4"
+      ],
+      "disabled": true,
+      "name": "Trust pills",
+      "settings": {
+        "accent_color": "#5c1a1a",
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
     "whats_included_Kp7mR2": {
       "type": "whats-included",
       "blocks": {
@@ -863,6 +906,59 @@
         "page_bg_color": "#ffffff",
         "details_heading": "Detaljer om produktet",
         "includes_heading": "Hvad medfølger?"
+      }
+    },
+    "trustpilot_reviews_pdp": {
+      "type": "martilness-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "title": "God kvalitet af...",
+            "text": "Hurtig levering og god kvalitet af varen. Mangler dog en brugsvejledning men ellers fint.",
+            "author": "Anders Hein"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "title": "Alt var perfekt",
+            "text": "Bestilte infrarødt saunatæppe. Virkelig godt produkt og varen ankom hurtigt.",
+            "author": "Lene"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "title": "Jeg er tilfreds med købet",
+            "text": "Jeg er tilfreds med købet, også for at prøve noget nyt og se hvad der sker.",
+            "author": "Adam Sebastian Nielsen"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "title": "Saunatæppet er fantastisk!",
+            "text": "Saunatæppet er fantastisk! Prisen er langt lavere end andre steder, men kvaliteten er helt i top 💪",
+            "author": "Ronni Iversen"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ],
+      "name": "Trustpilot reviews",
+      "settings": {
+        "heading": "Vi samler på glade kunder",
+        "rating_label": "4,8 ud af 5 stjerner på Trustpilot",
+        "link_label": "Se flere anmeldelser her →",
+        "link_url": "https://dk.trustpilot.com",
+        "color_scheme": "scheme-1",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "progress_timeline_60d": {
@@ -3284,101 +3380,6 @@
         "padding-inline-end-mobile": 16,
         "custom_columns": ""
       }
-    },
-    "trustpilot_reviews_pdp": {
-      "type": "martilness-reviews",
-      "name": "Trustpilot reviews",
-      "settings": {
-        "heading": "Vi samler på glade kunder",
-        "rating_label": "4,8 ud af 5 stjerner på Trustpilot",
-        "link_label": "Se flere anmeldelser her →",
-        "link_url": "https://dk.trustpilot.com",
-        "color_scheme": "scheme-1",
-        "padding_top": 64,
-        "padding_bottom": 64
-      },
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "title": "God kvalitet af...",
-            "text": "Hurtig levering og god kvalitet af varen. Mangler dog en brugsvejledning men ellers fint.",
-            "author": "Anders Hein"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "title": "Alt var perfekt",
-            "text": "Bestilte infrarødt saunatæppe. Virkelig godt produkt og varen ankom hurtigt.",
-            "author": "Lene"
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "title": "Jeg er tilfreds med købet",
-            "text": "Jeg er tilfreds med købet, også for at prøve noget nyt og se hvad der sker.",
-            "author": "Adam Sebastian Nielsen"
-          }
-        },
-        "review_4": {
-          "type": "review",
-          "settings": {
-            "title": "Saunatæppet er fantastisk!",
-            "text": "Saunatæppet er fantastisk! Prisen er langt lavere end andre steder, men kvaliteten er helt i top 💪",
-            "author": "Ronni Iversen"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3",
-        "review_4"
-      ]
-    },
-    "trust_pills_pdp": {
-      "type": "martilness-trust-pills",
-      "name": "Trust pills",
-      "settings": {
-        "accent_color": "#5c1a1a",
-        "color_scheme": "scheme-1",
-        "padding_top": 24,
-        "padding_bottom": 24
-      },
-      "blocks": {
-        "pill_1": {
-          "type": "pill",
-          "settings": {
-            "label": "1-3 Hverdages Levering"
-          }
-        },
-        "pill_2": {
-          "type": "pill",
-          "settings": {
-            "label": "Kundeservice 24/7"
-          }
-        },
-        "pill_3": {
-          "type": "pill",
-          "settings": {
-            "label": "Nem & Sikker Betaling"
-          }
-        },
-        "pill_4": {
-          "type": "pill",
-          "settings": {
-            "label": "Fri Fragt Over 500kr"
-          }
-        }
-      },
-      "block_order": [
-        "pill_1",
-        "pill_2",
-        "pill_3",
-        "pill_4"
-      ]
     }
   },
   "order": [
