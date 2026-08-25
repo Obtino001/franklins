@@ -578,69 +578,22 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "accordion_row_XENRWn": {
+                "pdp_tab_beskrivelse": {
                   "type": "_accordion-row",
                   "settings": {
                     "text": "Beskrivelse",
-                    "open_row_by_default": false,
+                    "open_row_by_default": true,
                     "icon": "none",
                     "icon_size": "extra-large",
                     "width": 24,
                     "width_mobile": 24
                   },
                   "blocks": {
-                    "text_NhECK8": {
-                      "type": "text",
-                      "settings": {
-                        "text": "{{ closest.product.description }}",
-                        "highlight_style": "none",
-                        "highlight_font_style": "italic",
-                        "highlight_shape_color": "",
-                        "highlight_text_color": "",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_weight": "",
-                        "font_size": 15,
-                        "font_size_mobile": 15,
-                        "line_height": "normal",
-                        "text_color": "subtext",
-                        "text_color_gradient": "",
-                        "disable_line_break_mobile": false,
-                        "width": "fit-content",
-                        "text_alignment": "left",
-                        "width_mobile": "fit-content",
-                        "text_alignment_mobile": "left",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 40,
-                        "animation_type": "none",
-                        "animation_delay": 250
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_NhECK8"
-                  ]
-                },
-                "accordion_row_eMehRb": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Indhold",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "custom_liquid_ndXJrb": {
+                    "liquid_pdp_tab_beskrivelse": {
                       "type": "custom-liquid",
-                      "name": "t:names.custom_liquid",
+                      "name": "Beskrivelse",
                       "settings": {
-                        "custom_liquid": "{%- comment -%}\n  Produkt-specifikationer (metafelter) — bygget efter Pebbles egne konventioner.\n  Lægges i en Custom Liquid-blok inde i en collapsible row under \"Specifikationer\".\n  Tomme felter skjules automatisk. Rækkefølgen styres af listen nedenfor.\n{%- endcomment -%}\n\n{%- capture fields_config -%}\n  thca_indhold|custom|%\n  cbd_indhold|produkt|%\n  thc_indhold|custom|%\n  genetik|custom|\n  terpenprofil|custom|\n  oprindelsesland|custom|\n  dyrkningsmetode|custom|\n  konsistens|custom|\n  farve|custom|\n  storrelse|custom|\n  gram|custom|g\n  diameter|custom|mm\n  antal_lag|custom|lag\n  antal_pr_pakke|custom|stk\n  papirstype|custom|\n  ingredienser|custom|\n  brand|custom|\n{%- endcapture -%}\n\n<dl class=\"product-specs\">\n  {%- assign field_lines = fields_config | newline_to_br | split: '<br />' -%}\n  {%- for line in field_lines -%}\n    {%- assign clean = line | strip -%}\n    {%- if clean == '' -%}{%- continue -%}{%- endif -%}\n\n    {%- assign parts = clean | split: '|' -%}\n    {%- assign key = parts[0] | strip -%}\n    {%- assign ns = parts[1] | strip -%}\n    {%- assign suffix = parts[2] | default: '' | strip -%}\n\n    {%- assign mf = product.metafields[ns][key] -%}\n    {%- if mf == blank -%}{%- continue -%}{%- endif -%}\n\n    {%- assign value = mf | default: '' | strip -%}\n    {%- if value == '' -%}{%- continue -%}{%- endif -%}\n\n    {%- case key -%}\n      {%- when 'brand' -%}{%- assign label = 'Brand' -%}\n      {%- when 'storrelse' -%}{%- assign label = 'Størrelse' -%}\n      {%- when 'oprindelsesland' -%}{%- assign label = 'Oprindelsesland' -%}\n      {%- when 'genetik' -%}{%- assign label = 'Genetik' -%}\n      {%- when 'dyrkningsmetode' -%}{%- assign label = 'Dyrkningsmetode' -%}\n      {%- when 'terpenprofil' -%}{%- assign label = 'Terpenprofil' -%}\n      {%- when 'konsistens' -%}{%- assign label = 'Konsistens' -%}\n      {%- when 'farve' -%}{%- assign label = 'Farve' -%}\n      {%- when 'diameter' -%}{%- assign label = 'Diameter' -%}\n      {%- when 'gram' -%}{%- assign label = 'Gram' -%}\n      {%- when 'antal_lag' -%}{%- assign label = 'Antal lag' -%}\n      {%- when 'antal_pr_pakke' -%}{%- assign label = 'Antal pr. pakke' -%}\n      {%- when 'papirstype' -%}{%- assign label = 'Papirstype' -%}\n      {%- when 'ingredienser' -%}{%- assign label = 'Ingredienser' -%}\n      {%- when 'thca_indhold' -%}{%- assign label = 'THCA indhold' -%}\n      {%- when 'thc_indhold' -%}{%- assign label = 'THC indhold' -%}\n      {%- when 'cbd_indhold' -%}{%- assign label = 'CBD indhold' -%}\n      {%- else -%}{%- assign label = key | replace: '_', ' ' | capitalize -%}\n    {%- endcase -%}\n\n    <div class=\"product-specs__row\">\n      <dt class=\"product-specs__label\">{{ label }}</dt>\n      <dd class=\"product-specs__value color-subtext\">\n        {%- if key == 'ingredienser' -%}\n          {{ value | newline_to_br }}\n        {%- else -%}\n          {{ value }}{% if suffix != '' %}{% if suffix == '%' %}{{ suffix }}{% else %} {{ suffix }}{% endif %}{% endif %}\n        {%- endif -%}\n      </dd>\n    </div>\n  {%- endfor -%}\n</dl>\n\n<style>\n  .product-specs {\n    margin: 0;\n  }\n  .product-specs__row {\n    display: flex;\n    align-items: baseline;\n    justify-content: space-between;\n    gap: 1.6rem;\n    padding-block: 1.2rem;\n    border-block-end: 0.1rem solid rgb(var(--color-border) / var(--color-border-alpha));\n  }\n  .product-specs__row:first-child {\n    padding-block-start: 0;\n  }\n  .product-specs__row:last-child {\n    padding-block-end: 0;\n    border-block-end: 0;\n  }\n  .product-specs__label {\n    margin: 0;\n    font-weight: 500;\n    flex-shrink: 0;\n  }\n  .product-specs__value {\n    margin: 0;\n    text-align: end;\n    line-height: 1.4;\n  }\n</style>",
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'beskrivelse' -%}",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
@@ -651,13 +604,13 @@
                     }
                   },
                   "block_order": [
-                    "custom_liquid_ndXJrb"
+                    "liquid_pdp_tab_beskrivelse"
                   ]
                 },
-                "accordion_row_iXty6f": {
+                "pdp_tab_fordele": {
                   "type": "_accordion-row",
                   "settings": {
-                    "text": "Levering",
+                    "text": "Sundhedsmæssige fordele",
                     "open_row_by_default": false,
                     "icon": "none",
                     "icon_size": "extra-large",
@@ -665,47 +618,118 @@
                     "width_mobile": 24
                   },
                   "blocks": {
-                    "text_gd3Lty": {
-                      "type": "text",
+                    "liquid_pdp_tab_fordele": {
+                      "type": "custom-liquid",
+                      "name": "Sundhedsmæssige fordele",
                       "settings": {
-                        "text": "<p>Hos Martilness bestræber vi os på at levere alle varer inden for <strong>1–3 dage</strong>. Ordrer afgivet inden kl. <strong>15.00</strong> sendes som udgangspunkt samme dag.</p><ul><li><strong>Leveringstid:</strong> 1–2 hverdage</li><li><strong>Fragtfirma:</strong> GLS</li><li><strong>Fragt:</strong> Altid gratis til GLS pakkeshop</li><li><strong>Tilfredshedsgaranti:</strong> 30 dage</li></ul><p>Spørgsmål? Skriv til <a href=\"mailto:info@martilness.dk\">info@martilness.dk</a> eller ring +45 2779 6900.</p>",
-                        "highlight_style": "none",
-                        "highlight_font_style": "italic",
-                        "highlight_shape_color": "",
-                        "highlight_text_color": "",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_weight": "",
-                        "font_size": 15,
-                        "font_size_mobile": 15,
-                        "line_height": "normal",
-                        "text_color": "subtext",
-                        "text_color_gradient": "",
-                        "disable_line_break_mobile": false,
-                        "width": "fit-content",
-                        "text_alignment": "left",
-                        "width_mobile": "fit-content",
-                        "text_alignment_mobile": "left",
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'fordele' -%}",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0,
-                        "mobile-padding-scale": 80,
-                        "animation_type": "none",
-                        "animation_delay": 250
+                        "mobile-padding-scale": 80
                       },
                       "blocks": {}
                     }
                   },
                   "block_order": [
-                    "text_gd3Lty"
+                    "liquid_pdp_tab_fordele"
+                  ]
+                },
+                "pdp_tab_specs": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Tekniske specifikationer",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_specs": {
+                      "type": "custom-liquid",
+                      "name": "Tekniske specifikationer",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'specs' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_specs"
+                  ]
+                },
+                "pdp_tab_inkluderet": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Hvad er inkluderet?",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_inkluderet": {
+                      "type": "custom-liquid",
+                      "name": "Hvad er inkluderet?",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'inkluderet' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_inkluderet"
+                  ]
+                },
+                "pdp_tab_garanti": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "30 dages fuld tilfredshedsgaranti",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_garanti": {
+                      "type": "custom-liquid",
+                      "name": "30 dages fuld tilfredshedsgaranti",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'garanti' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_garanti"
                   ]
                 }
               },
               "block_order": [
-                "accordion_row_XENRWn",
-                "accordion_row_eMehRb",
-                "accordion_row_iXty6f"
+                "pdp_tab_beskrivelse",
+                "pdp_tab_fordele",
+                "pdp_tab_specs",
+                "pdp_tab_inkluderet",
+                "pdp_tab_garanti"
               ]
             },
             "product_recommendations_CQcChJ": {

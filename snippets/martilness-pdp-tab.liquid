@@ -1,0 +1,104 @@
+{%- doc -%}
+  Martilness PDP accordion tab body.
+  Uses product description / metafields when set; otherwise handle-based defaults from martilness.dk.
+
+  @param {object} product
+  @param {string} tab - beskrivelse | fordele | specs | inkluderet | garanti
+{%- enddoc -%}
+
+{%- liquid
+  assign handle = product.handle | default: ''
+  assign title_d = product.title | downcase | default: ''
+  assign is_dampsauna = false
+  if handle contains 'dampsauna' or title_d contains 'dampsauna'
+    assign is_dampsauna = true
+  endif
+-%}
+
+{%- case tab -%}
+  {%- when 'beskrivelse' -%}
+    {%- if product.description != blank -%}
+      <div class="mt-pdp-tab rte">{{ product.description }}</div>
+    {%- elsif is_dampsauna -%}
+      <div class="mt-pdp-tab rte">
+        <p><strong>Fysisk og psykisk velvære</strong><br>
+        Dampsauna er en fantastisk måde at forbedre både fysisk og psykisk velvære på. Når kroppen udsættes for den varme, fugtige luft i en dampsauna, sker der en række gavnlige reaktioner. Den øgede blodcirkulation fra varmen hjælper med at levere ilt og næringsstoffer mere effektivt til muskler og organer, hvilket lindrer muskelspændinger, reducerer smerter og fremmer restitution. Varmen får kroppen til at svede intenst, hvilket hjælper med at rense huden og udskille toksiner, hvilket både er godt for kroppens balance og for hudens udseende.</p>
+        <p><strong>Stressreducerende og udløser lykkehormoner</strong><br>
+        På det mentale plan har dampsauna en afslappende og stressreducerende effekt. Under sauna-sessionen frigiver kroppen endorfiner, som er kroppens naturlige “lykkehormoner”, og som bidrager til en følelse af ro og velvære. Varmen og roen giver en naturlig pause fra hverdagens stress, og mange oplever, at en dampsauna-session kan give bedre søvn og mere mental klarhed.</p>
+        <p><strong>Perfekt kombination med isbadning</strong><br>
+        En populær praksis er at kombinere dampsauna med isbadning, da de to former for kulde- og varmeterapi har en synergistisk effekt på krop og sind. Ved at gå fra dampens intense varme til det kolde isbad, bliver kroppen udsat for en kontrastfyldt stimulering, der øger blodcirkulationen yderligere og styrker immunforsvaret. Den skarpe kulde fra isbadet kan føles forfriskende og opkvikkende og har vist sig at booste energiniveauet samt hjælpe med at lindre inflammation i kroppen.</p>
+      </div>
+    {%- endif -%}
+
+  {%- when 'fordele' -%}
+    {%- assign mf = product.metafields.custom.sundhedsmaessige_fordele.value | default: product.metafields.custom.sundhedsmaessige_fordele -%}
+    {%- if mf != blank -%}
+      <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- elsif is_dampsauna -%}
+      <div class="mt-pdp-tab rte">
+        <p>Dampsaunaer har en række sundhedsmæssige fordele, som mange bruger for både fysisk og mental velvære. Her er nogle af de mest almindelige fordele:</p>
+        <p><strong>Forbedret cirkulation:</strong> Varmen i en dampsauna får blodkarrene til at udvide sig, hvilket øger blodgennemstrømningen. Dette kan hjælpe med at levere ilt og næringsstoffer mere effektivt rundt i kroppen.</p>
+        <p><strong>Afgiftning:</strong> Når du sveder, udskiller kroppen toksiner gennem huden. Dampens fugtige varme kan hjælpe med at åbne porerne og fremme en dybere afgiftning gennem sved.</p>
+        <p><strong>Muskelafslapning og lindring af ømhed:</strong> Dampsaunaens varme afslapper muskler og lindrer spændinger, hvilket kan være gavnligt for dem med muskelømhed eller ledproblemer som gigt. Varme hjælper også med at løsne stive led og fremme fleksibilitet.</p>
+        <p><strong>Bedre åndedrætsfunktion:</strong> Den fugtige varme i en dampsauna kan hjælpe med at åbne luftvejene og lindre symptomer på forkølelse, bihulebetændelse og astma. Den varme, fugtige luft kan løsne slim og rense næsepassagerne.</p>
+        <p><strong>Støtter hudpleje:</strong> Varme og fugt hjælper med at rense huden i dybden og kan forbedre hudens udseende ved at åbne porerne, fjerne døde hudceller og øge blodgennemstrømningen. Dette kan resultere i en sundere og mere strålende hud.</p>
+        <p><strong>Reduceret stress og bedre søvn:</strong> En session i dampsaunaen kan virke afslappende og reducere stress ved at sænke kroppens stresshormoner. Dette kan føre til en følelse af ro og forbedret søvnkvalitet.</p>
+        <p><strong>Forbedret immunforsvar:</strong> Varmen i dampsaunaen kan stimulere produktionen af hvide blodlegemer, hvilket kan styrke immunforsvaret og hjælpe kroppen med at bekæmpe infektioner.</p>
+        <p><strong>Hjælp til vægttab:</strong> Selvom vægttab fra en dampsauna primært er relateret til vandtab gennem sved, kan regelmæssige sessioner indirekte støtte en aktiv livsstil og dermed vægtkontrol, da forbrændingen af kalorier øges en smule under brugen.</p>
+        <p>Husk at drikke rigeligt med vand før og efter brug af en dampsauna, da man mister en del væske gennem sved.</p>
+      </div>
+    {%- endif -%}
+
+  {%- when 'specs' -%}
+    {%- assign mf = product.metafields.custom.tekniske_specifikationer.value | default: product.metafields.custom.tekniske_specifikationer -%}
+    {%- if mf != blank -%}
+      <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- elsif is_dampsauna -%}
+      <div class="mt-pdp-tab rte">
+        <ul>
+          <li>9 varmeindstillinger</li>
+          <li>Maksimal temperatur 60 °C</li>
+          <li>Tidsindstilling fra 20–120 min.</li>
+          <li>Damp generator (3 liter)</li>
+          <li>Form: Femkant/Pentagon</li>
+          <li>Størrelse: 90+90+53+53+53 cm og 185 cm. i højden.</li>
+          <li>Benyttes indendørs (kan også placeres udendørs hvis det placeres, specielt dampgeneratoren, under halvtag e.l., så det undgår regn og blæst).</li>
+        </ul>
+      </div>
+    {%- endif -%}
+
+  {%- when 'inkluderet' -%}
+    {%- assign mf = product.metafields.custom.hvad_er_inkluderet.value | default: product.metafields.custom.hvad_er_inkluderet -%}
+    {%- if mf != blank -%}
+      <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- elsif is_dampsauna -%}
+      <div class="mt-pdp-tab rte">
+        <ul>
+          <li>Damp Sauna</li>
+          <li>Damp Generator</li>
+          <li>Fjernbetjening til at styre varmen</li>
+          <li>Sammenklappelig stol</li>
+        </ul>
+      </div>
+    {%- endif -%}
+
+  {%- when 'garanti' -%}
+    {%- assign mf = product.metafields.custom.tilfredshedsgaranti.value | default: product.metafields.custom.tilfredshedsgaranti -%}
+    {%- if mf != blank -%}
+      <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- else -%}
+      <div class="mt-pdp-tab rte">
+        <p>Vi tror så meget på kvaliteten og effekten af vores produkter, at vi tilbyder dig en eksklusiv 30-dages prøveperiode! Tag produktet i brug derhjemme og mærk selv de mange fordele. Hvis du mod forventning ikke er tilfreds, kan du nemt returnere det og få dine penge tilbage.</p>
+        <p>Dette tilbud er vores måde at vise, hvor meget vi tror på, at dette produkt vil gøre en positiv forskel for dig!</p>
+        <p><a href="/pages/handelsbetingelser">Læs mere om fortrydelsesret i vores handelsbetingelser</a></p>
+      </div>
+    {%- endif -%}
+{%- endcase -%}
+
+<style>
+  .mt-pdp-tab { width: 100%; max-width: 100%; }
+  .mt-pdp-tab p { margin: 0 0 1.2rem; }
+  .mt-pdp-tab p:last-child { margin-bottom: 0; }
+  .mt-pdp-tab ul { margin: 0; padding-left: 1.8rem; }
+  .mt-pdp-tab li { margin: 0.4rem 0; }
+</style>
