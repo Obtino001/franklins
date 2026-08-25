@@ -42,7 +42,7 @@
     "new_badge_tags": "Isbad 🧊",
     "hot_badge_tags": "Sauna 🔥",
     "popular_badge_tags": "Velvære ✨",
-    "pcard_aspect_ratio": "auto",
+    "pcard_aspect_ratio": "1/1",
     "pcard_style": "standard",
     "pcard_content_alignment": "center",
     "pcard_rating_style": "outline",
@@ -82,15 +82,15 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#FFFFFF",
+          "background": "#ffffff",
           "background_secondary": "#eeeeee",
           "foreground": "#000000",
           "foreground_secondary": "#000000b3",
           "border": "#0000001a",
           "sale_price": "#c4301c",
-          "primary_button_background": "#09412D",
+          "primary_button_background": "#09412d",
           "primary_button_text": "#ffffff",
-          "secondary_button_background": "#09412D",
+          "secondary_button_background": "#09412d",
           "secondary_button_text": "#ffffff",
           "secondary_button_border": "#ebebeb",
           "input_background": "#eeeeee",
@@ -108,7 +108,7 @@
       },
       "scheme-inverse": {
         "settings": {
-          "background": "#09412D",
+          "background": "#09412d",
           "background_secondary": "#212121",
           "foreground": "#ffffff",
           "foreground_secondary": "#ffffffb3",
