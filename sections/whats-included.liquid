@@ -1,215 +1,224 @@
-<div class="pd-section-wrapper" id="pd-card-{{ section.id }}">
-  <div class="pd-card">
-    
-    <!-- Card Header -->
-    <div class="pd-header">
-      <div class="pd-title-group">
-        <svg class="pd-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="7" y="5" width="10" height="14" rx="2"></rect>
-          <path d="M9 5v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1"></path>
-        </svg>
-        <h2 class="pd-title">{{ section.settings.main_heading }}</h2>
-      </div>
-      <button class="pd-close-btn" aria-label="Close" onclick="document.getElementById('pd-card-{{ section.id }}').style.display='none'">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+<div
+  id="section-{{ section.id }}"
+  class="whats-included-section"
+  style="background-color: {{ section.settings.bg_color }};"
+>
+  <div class="whats-included-container">
+    <div class="hanger-tab" aria-hidden="true">
+      <svg class="icon-box" viewBox="0 0 234 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="234" height="74" fill="currentColor"></rect>
+        <rect x="58" y="32" width="118" height="19" class="svg-cutout"></rect>
+        <circle cx="117.5" cy="32.5" r="11.5" class="svg-cutout"></circle>
+      </svg>
     </div>
 
-    <!-- Content Grid -->
-    <div class="pd-content-grid">
-      {% for block in section.blocks %}
-        <div class="pd-block" {{ block.shopify_attributes }}>
-          <h3 class="pd-block-heading">{{ block.settings.block_heading }}</h3>
-          <div class="pd-list">
-            {{ block.settings.block_content }}
+    {% if section.settings.heading != blank %}
+      <h2 class="whats-included-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="whats-included-grid">
+        {% for block in section.blocks %}
+          <div class="included-item" {{ block.shopify_attributes }}>
+            <div class="included-image-circle">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 200, height: 200, crop: 'center'
+                  | image_tag: loading: 'lazy', alt: block.settings.title
+                }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            {% if block.settings.title != blank %}
+              <p class="included-title">{{ block.settings.title }}</p>
+            {% endif %}
           </div>
-        </div>
-      {% endfor %}
-    </div>
-
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </div>
 
 <style>
-  .pd-section-wrapper {
-    padding: 40px 20px;
+  #section-{{ section.id }}.whats-included-section {
+    padding: 80px 20px;
     display: flex;
     justify-content: center;
   }
 
-  .pd-card {
-    background-color: #1a1a1a; /* Dark background matching the image */
-    border-radius: 16px;
-    padding: 30px 40px 40px;
-    max-width: 800px;
-    width: 100%;
-    color: #ffffff;
-    font-family: inherit;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  }
-
-  /* Header Styles */
-  .pd-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 25px;
-    margin-bottom: 30px;
-  }
-
-  .pd-title-group {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .pd-icon {
-    width: 24px;
-    height: 24px;
-    color: #ffffff;
-  }
-
-  .pd-title {
-    font-size: 22px;
-    font-weight: 600;
-    margin: 0;
-    color: #ffffff;
-  }
-
-  .pd-close-btn {
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-  }
-
-  .pd-close-btn:hover {
-    opacity: 1;
-  }
-
-  .pd-close-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* Grid & List Styles */
-  .pd-content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .pd-block-heading {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    margin-top: 0;
-    color: #ffffff;
-  }
-
-  .pd-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .pd-list li {
+  #section-{{ section.id }} .whats-included-container {
+    background-color: #f8f8f8;
+    border-radius: 24px;
+    padding: 60px 40px 50px;
     position: relative;
-    padding-left: 18px;
-    margin-bottom: 8px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #e0e0e0;
+    max-width: 850px;
+    width: 100%;
+    text-align: center;
   }
 
-  .pd-list li::before {
-    content: "";
+  #section-{{ section.id }} .hanger-tab {
     position: absolute;
-    left: 0;
-    top: 8px;
-    width: 6px;
-    height: 6px;
-    background-color: #888; /* Gray bullets */
-    border-radius: 50%;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    color: #1a1a1a;
   }
 
-  /* Mobile Adjustments */
-  @media screen and (max-width: 600px) {
-    .pd-content-grid {
-      grid-template-columns: 1fr;
-      gap: 30px;
+  #section-{{ section.id }} .hanger-tab svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #section-{{ section.id }} .svg-cutout {
+    fill: {{ section.settings.bg_color }};
+  }
+
+  #section-{{ section.id }} .whats-included-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 40px;
+    font-family: inherit;
+  }
+
+  #section-{{ section.id }} .whats-included-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  #section-{{ section.id }} .included-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+  }
+
+  #section-{{ section.id }} .included-image-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  #section-{{ section.id }} .included-image-circle img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+  }
+
+  #section-{{ section.id }} .included-image-circle .placeholder-svg {
+    width: 50%;
+    height: 50%;
+    fill: #ccc;
+  }
+
+  #section-{{ section.id }} .included-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    #section-{{ section.id }} .whats-included-grid {
+      gap: 15px;
     }
-    .pd-card {
-      padding: 20px;
+
+    #section-{{ section.id }} .included-item {
+      width: 45%;
+    }
+
+    #section-{{ section.id }} .included-image-circle {
+      width: 100px;
+      height: 100px;
+    }
+
+    #section-{{ section.id }} .whats-included-heading {
+      font-size: 24px;
     }
   }
 </style>
 
 {% schema %}
 {
-  "name": "Product Details Card",
+  "name": "What's Included",
+  "tag": "section",
+  "class": "section-whats-included",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
   "settings": [
     {
       "type": "text",
-      "id": "main_heading",
-      "label": "Main Heading",
-      "default": "Detaljer om produktet"
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hvad medfølger?"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Page Background Color",
+      "default": "#FFFFFF",
+      "info": "This color fills the hole in the hanger SVG so it matches the background behind the card."
     }
   ],
   "blocks": [
     {
-      "type": "details_group",
-      "name": "Details List",
+      "type": "item",
+      "name": "Included Item",
       "settings": [
         {
-          "type": "text",
-          "id": "block_heading",
-          "label": "List Heading",
-          "default": "Funktioner"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Item Image"
         },
         {
-          "type": "richtext",
-          "id": "block_content",
-          "label": "List Content",
-          "default": "<ul><li>Cylinderformet</li><li>330 liter kapacitet</li><li>Sort farve</li><li>Oppusteligt design</li></ul>",
-          "info": "Use bullet points in the editor to create the list."
+          "type": "text",
+          "id": "title",
+          "label": "Item Title",
+          "default": "Item Name"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Product Details Card",
+      "name": "What's Included",
       "blocks": [
         {
-          "type": "details_group",
+          "type": "item",
           "settings": {
-            "block_heading": "Funktioner",
-            "block_content": "<ul><li>Cylinderformet</li><li>330 liter kapacitet</li><li>Sort farve</li><li>Oppusteligt design</li></ul>"
+            "title": "Håndpumpe"
           }
         },
         {
-          "type": "details_group",
+          "type": "item",
           "settings": {
-            "block_heading": "Dimensioner",
-            "block_content": "<ul><li>75 cm diameter</li><li>75 cm højde</li><li>Velegnet til højder op til 2,10m</li></ul>"
+            "title": "Afløbshane"
           }
         },
         {
-          "type": "details_group",
+          "type": "item",
           "settings": {
-            "block_heading": "Konstruktion",
-            "block_content": "<ul><li>Nylon udvendigt materiale</li><li>UV-resistent materiale</li><li>Skumisolering</li><li>None-rip polyester</li></ul>"
+            "title": "Afløbsslange"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Overtræk"
           }
         }
       ]
