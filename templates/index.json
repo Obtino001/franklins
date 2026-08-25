@@ -924,7 +924,7 @@
         "image_aspect_ratio_mobile": "3/4",
         "subheading": "Shop efter kategori",
         "collection_link_style": "wavy-underline",
-        "color_scheme": "scheme-6",
+        "color_scheme": "scheme-inverse",
         "border": "none",
         "border_width": 1,
         "border_opacity": 100,
@@ -1861,48 +1861,6 @@
         "padding-inline-start-mobile": 0,
         "padding-inline-end-mobile": 0
       }
-    },
-    "trust_pills_home": {
-      "type": "martilness-trust-pills",
-      "name": "Trust pills",
-      "settings": {
-        "accent_color": "#5c1a1a",
-        "color_scheme": "scheme-1",
-        "padding_top": 24,
-        "padding_bottom": 24
-      },
-      "blocks": {
-        "pill_1": {
-          "type": "pill",
-          "settings": {
-            "label": "1-3 Hverdages Levering"
-          }
-        },
-        "pill_2": {
-          "type": "pill",
-          "settings": {
-            "label": "Kundeservice 24/7"
-          }
-        },
-        "pill_3": {
-          "type": "pill",
-          "settings": {
-            "label": "Nem & Sikker Betaling"
-          }
-        },
-        "pill_4": {
-          "type": "pill",
-          "settings": {
-            "label": "Fri Fragt Over 500kr"
-          }
-        }
-      },
-      "block_order": [
-        "pill_1",
-        "pill_2",
-        "pill_3",
-        "pill_4"
-      ]
     }
   },
   "order": [
@@ -1911,7 +1869,6 @@
     "marquee_home_Mtq1",
     "collection_links_Mtq1",
     "product_tabs_VFRpjk",
-    "trustpilot_reviews_home",
     "testimonials_parallax_8FqTjk",
     "custom_section_cjGfXN",
     "testimonials_Y49EXP"
