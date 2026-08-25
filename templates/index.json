@@ -31,7 +31,8 @@
         "image_mobile": "shopify://shop_images/DSC09528_44f17d66-85fb-4abc-9bf1-9661ae33f9ae.jpg",
         "image_desktop_url": "",
         "image_mobile_url": "",
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-1",
+        "container": "full"
       }
     },
     "product_tabs_VFRpjk": {
