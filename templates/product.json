@@ -138,6 +138,19 @@
                 "product_information_group_VXMCmd"
               ]
             },
+            "custom_liquid_benefits": {
+              "type": "custom-liquid",
+              "name": "Fordele + spar",
+              "settings": {
+                "custom_liquid": "{%- render 'martilness-pdp-extras', product: product -%}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            },
             "variant_picker_NYNfW9": {
               "type": "_variant-picker",
               "name": "t:names.variant_picker",
@@ -157,58 +170,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "shipping_date_8NUgUx": {
-              "type": "_shipping-date",
-              "name": "Afsendes",
-              "settings": {
-                "label": "Afsendes:",
-                "cutoff_hour": 17,
-                "text_today": "i dag",
-                "text_tomorrow": "i morgen",
-                "text_monday": "mandag",
-                "type_preset": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "buy_buttons_rhMNwM": {
-              "type": "_buy-buttons",
-              "name": "t:names.buy_buttons",
-              "settings": {
-                "gift_card_form": false,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "quantity-selector": {
-                  "type": "_quantity-selector",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                },
-                "add-to-cart": {
-                  "type": "_add-to-card-button",
-                  "static": true,
-                  "settings": {
-                    "style": "primary"
-                  },
-                  "blocks": {}
-                },
-                "accelerated-checkout": {
-                  "type": "_accelerated-checkout",
-                  "disabled": true,
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                }
-              },
-              "block_order": []
             },
             "group_ngeVTK": {
               "type": "group",
@@ -526,6 +487,58 @@
                 "group_wXJd6h"
               ]
             },
+            "buy_buttons_rhMNwM": {
+              "type": "_buy-buttons",
+              "name": "t:names.buy_buttons",
+              "settings": {
+                "gift_card_form": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity-selector": {
+                  "type": "_quantity-selector",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "_add-to-card-button",
+                  "static": true,
+                  "settings": {
+                    "style": "primary"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "_accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "shipping_date_8NUgUx": {
+              "type": "_shipping-date",
+              "name": "Afsendes",
+              "settings": {
+                "label": "Afsendes:",
+                "cutoff_hour": 17,
+                "text_today": "i dag",
+                "text_tomorrow": "i morgen",
+                "text_monday": "mandag",
+                "type_preset": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "custom_liquid_6UVzQf": {
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
@@ -721,19 +734,6 @@
                 "columns_mobile": "2",
                 "column_gap_mobile": 8,
                 "row_gap_mobile": 8,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "mobile-padding-scale": 80
-              },
-              "blocks": {}
-            },
-            "custom_liquid_benefits": {
-              "type": "custom-liquid",
-              "name": "Fordele + spar",
-              "settings": {
-                "custom_liquid": "{%- render 'martilness-pdp-extras', product: product -%}",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -1790,6 +1790,7 @@
         "testimonial_parallax_NcqWQf",
         "testimonial_parallax_e7ptkG"
       ],
+      "disabled": true,
       "name": "t:names.testimonials_parallax",
       "settings": {
         "color_scheme": "scheme-9",
