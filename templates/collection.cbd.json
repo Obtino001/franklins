@@ -160,7 +160,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "cbd-olie",
-            "image": "shopify://shop_images/Produktbilleder_NY_20.jpg",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -180,7 +179,6 @@
           "name": "t:names.collection_item",
           "settings": {
             "collection": "cbd-testpakker",
-            "image": "shopify://shop_images/franklins_kategori_billeder_14.jpg",
             "image_ratio": "auto",
             "title": "",
             "line_limit": "none",
@@ -361,6 +359,7 @@
       "block_order": [
         "text_Gfc86y"
       ],
+      "disabled": true,
       "name": "t:names.rich_text",
       "settings": {
         "container": "page-width",
