@@ -494,8 +494,8 @@
         "banner_hJV6j6"
       ],
       "settings": {
-        "menu": "",
-        "menu_mobile": "",
+        "menu": "main-menu",
+        "menu_mobile": "main-menu",
         "header_layout": "logo-left",
         "menu_trigger": "hover",
         "sticky_header": "on-scroll-up",
