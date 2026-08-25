@@ -263,7 +263,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
-                    "image": "shopify://shop_images/Untitled_design_-_2026-07-09T235724.526.png",
+                    "image": "shopify://shop_images/Logo-white.png",
                     "link": "",
                     "image_ratio": "adapt",
                     "image_ratio_mobile": "adapt",
@@ -628,7 +628,7 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Sider",
+            "heading": "Kundeservice",
             "heading_size": "h5",
             "open_default": false,
             "disable_collapse": false,
@@ -639,7 +639,7 @@
               "type": "_footer-menu",
               "name": "t:names.menu",
               "settings": {
-                "menu": "footer-menu-2"
+                "menu": "footer"
               },
               "blocks": {}
             }
@@ -653,7 +653,7 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Varekategorier",
+            "heading": "Kategorier",
             "heading_size": "h5",
             "open_default": false,
             "disable_collapse": false,
@@ -664,7 +664,7 @@
               "type": "_footer-menu",
               "name": "t:names.menu",
               "settings": {
-                "menu": "footer-menu-3"
+                "menu": "footer-kategorier"
               },
               "blocks": {}
             }
@@ -748,7 +748,6 @@
         "show_footer_bar": true,
         "payment_label": "Betalingsmuligheder",
         "shipping_label": "Fragtpartner",
-        "shipping_image": "shopify://shop_images/image_16.png",
         "reviews_label": "Anmeldelser",
         "color_scheme": "scheme-inverse",
         "border": "none",
