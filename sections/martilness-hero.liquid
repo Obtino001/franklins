@@ -346,7 +346,7 @@
         </motion-component>
       {% endif %}
 
-      {% if section.settings.trust_1 != blank or section.settings.trust_2 != blank or section.settings.trust_3 != blank %}
+      {% comment %} {% if section.settings.trust_1 != blank or section.settings.trust_2 != blank or section.settings.trust_3 != blank %}
         <motion-component data-motion="fade-up" data-motion-delay="400">
           <div class="fr-hero__trust">
             {% if section.settings.trust_1 != blank %}
@@ -369,7 +369,7 @@
             {% endif %}
           </div>
         </motion-component>
-      {% endif %}
+      {% endif %} {% endcomment %}
     </div>
   </div>
 </div>
