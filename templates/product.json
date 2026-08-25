@@ -135,7 +135,6 @@
                 }
               },
               "block_order": [
-                "judge_me_reviews_preview_badge_DrfrXi",
                 "product_information_group_VXMCmd"
               ]
             },
@@ -715,7 +714,7 @@
                 "show_swatches": false,
                 "show_quick_view": true,
                 "show_quick_add": true,
-                "pcard_image_ratio": "",
+                "pcard_image_ratio": "1/1",
                 "enable_swipe_on_mobile": true,
                 "swipe_custom_width_column": false,
                 "swipe_column_width": 76,
@@ -757,6 +756,46 @@
         "padding-block-end": 100,
         "padding-block-start-mobile": 0,
         "padding-block-end-mobile": 48
+      }
+    },
+    "whats_included_Kp7mR2": {
+      "type": "whats-included",
+      "blocks": {
+        "item_handpump": {
+          "type": "item",
+          "settings": {
+            "title": "Håndpumpe"
+          }
+        },
+        "item_drain": {
+          "type": "item",
+          "settings": {
+            "title": "Afløbshane"
+          }
+        },
+        "item_hose": {
+          "type": "item",
+          "settings": {
+            "title": "Afløbsslange"
+          }
+        },
+        "item_cover": {
+          "type": "item",
+          "settings": {
+            "title": "Overtræk"
+          }
+        }
+      },
+      "block_order": [
+        "item_handpump",
+        "item_drain",
+        "item_hose",
+        "item_cover"
+      ],
+      "name": "What's Included",
+      "settings": {
+        "heading": "Hvad medfølger?",
+        "bg_color": "#ffffff"
       }
     },
     "custom_section_UcMdTW": {
@@ -1023,7 +1062,6 @@
                 "text": "Hvordan kan det være lovligt?",
                 "open_row_by_default": false,
                 "icon": "umbrella",
-                "image_upload": "shopify://shop_images/justice-scale.png",
                 "icon_size": "custom-size",
                 "width": 32,
                 "width_mobile": 24
@@ -1255,7 +1293,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/4_247d1cf5-1e40-456e-9c7f-3cc144daa429.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "la-mousse-30-thca-hash",
@@ -1311,7 +1348,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/2_258b225a-03aa-4a3d-a99a-10b4230c1888.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "charas-30-thca",
@@ -1367,7 +1403,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/1_ac11dcc3-932b-4bb0-ad54-c1363904bad7.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "static-70-cbd",
@@ -1423,7 +1458,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/5_ea9da1a5-17a2-4dd8-857b-2adc9e4be4a7.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "bangkok-sativa-18-thca",
@@ -1479,7 +1513,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/6_beeb62a8-f82c-4b32-bd1f-343000c2f44e.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "static-70-cbd",
@@ -1535,7 +1568,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/3_a808ec69-ba05-4bd4-abd3-e26cb49646ed.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "bic-lighter-normal",
@@ -1591,7 +1623,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/7_195c6425-988f-4c11-a809-86825f86ec4b.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "og-kush-25-thca",
@@ -1647,7 +1678,6 @@
           "type": "_testimonial-parallax",
           "settings": {
             "show_image": true,
-            "image": "shopify://shop_images/8.jpg",
             "image_away_from_edge": true,
             "image_border_radius": 10,
             "product": "cbd-bubble-hash-40",
@@ -1854,46 +1884,6 @@
         "padding-inline-start-mobile": 16,
         "padding-inline-end-mobile": 16,
         "custom_columns": ""
-      }
-    },
-    "whats_included_Kp7mR2": {
-      "type": "whats-included",
-      "blocks": {
-        "item_handpump": {
-          "type": "item",
-          "settings": {
-            "title": "Håndpumpe"
-          }
-        },
-        "item_drain": {
-          "type": "item",
-          "settings": {
-            "title": "Afløbshane"
-          }
-        },
-        "item_hose": {
-          "type": "item",
-          "settings": {
-            "title": "Afløbsslange"
-          }
-        },
-        "item_cover": {
-          "type": "item",
-          "settings": {
-            "title": "Overtræk"
-          }
-        }
-      },
-      "block_order": [
-        "item_handpump",
-        "item_drain",
-        "item_hose",
-        "item_cover"
-      ],
-      "name": "What's Included",
-      "settings": {
-        "heading": "Hvad medfølger?",
-        "bg_color": "#FFFFFF"
       }
     }
   },
