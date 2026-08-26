@@ -201,7 +201,7 @@
         "button_label": "Ja tak - jeg vil gerne vinde :-)",
         "success_message": "Tak! Du er nu med i konkurrencen.",
         "image": "shopify://shop_images/DSC00435-Edit-scaled.jpg",
-        "panel_background": "#0a0a0a",
+        "panel_background": "#09412D",
         "accent_color": "#09412D",
         "open_by_default": false,
         "z_index": 40
