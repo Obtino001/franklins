@@ -2,24 +2,7 @@
   {%- liquid
     assign collection_links = section.blocks | where: 'type', 'collection_link'
   -%}
-  {% if collection_links.size > 0 %}
-    <nav class="wi-collections page-width" aria-label="Collections">
-      <ul class="wi-collections__list" role="list">
-        {% for block in collection_links %}
-          {% if block.settings.title != blank %}
-            <li class="wi-collections__item" {{ block.shopify_attributes }}>
-              <a
-                class="wi-collections__link"
-                href="{{ block.settings.link | default: '#' }}"
-              >
-                {{ block.settings.title }}
-              </a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </nav>
-  {% endif %}
+
 
   <div class="combined-cards-container">
     
