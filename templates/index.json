@@ -1028,7 +1028,7 @@
         "enable_swipe_on_mobile": true,
         "swipe_custom_width_column": false,
         "swipe_column_width": 76,
-        "columns_mobile": "1",
+        "columns_mobile": "2",
         "column_gap_mobile": 8,
         "row_gap_mobile": 8,
         "color_scheme": "",
