@@ -831,7 +831,7 @@
               "settings": {
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
-                "card_link": "",
+                "card_link": "shopify://collections/infrarodt-lys",
                 "edge_gap": "lg",
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -851,7 +851,8 @@
                 "border_radius": 20,
                 "card_label": "",
                 "card_label_text_color": "#ffffff",
-                "enable_preload_image": false
+                "enable_preload_image": false,
+                "image": "shopify://shop_images/DSC09528_44f17d66-85fb-4abc-9bf1-9661ae33f9ae.jpg"
               },
               "blocks": {
                 "subheading": {
@@ -931,7 +932,7 @@
                   "static": true,
                   "settings": {
                     "label": "Shop now",
-                    "link": "",
+                    "link": "shopify://collections/infrarodt-lys",
                     "style": "primary",
                     "size": "large",
                     "icon": "caret-right",
