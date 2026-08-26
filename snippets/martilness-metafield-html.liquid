@@ -1,0 +1,15 @@
+{%- doc -%}
+  Renders a product metafield as HTML.
+  Rich text metafields must use metafield_tag (raw .value dumps JSON).
+
+  @param {object} metafield - product.metafields.namespace.key
+{%- enddoc -%}
+{%- if metafield != blank and metafield.value != blank -%}
+  <div class="mt-pdp-tab rte">
+    {%- if metafield.type == 'rich_text_field' -%}
+      {{ metafield | metafield_tag }}
+    {%- else -%}
+      {{ metafield.value }}
+    {%- endif -%}
+  </div>
+{%- endif -%}
