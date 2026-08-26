@@ -20,6 +20,11 @@
   if handle contains 'saunataeppe' or handle contains 'saunatæppe' or title_d contains 'saunatæppe' or title_d contains 'saunataeppe' or type_d contains 'saunatæppe' or type_d contains 'saunataeppe'
     assign is_saunataeppe = true
   endif
+
+  assign is_led_maske = false
+  if handle contains 'led-maske' or handle contains 'led-mask' or title_d contains 'led maske' or title_d contains 'led-maske'
+    assign is_led_maske = true
+  endif
 -%}
 
 {%- case tab -%}
@@ -74,45 +79,98 @@
     {%- endif -%}
 
   {%- when 'fordele' -%}
-    {%- assign mf_field = product.metafields.custom.sundhedsmaessige_fordele -%}
-    {%- if mf_field != blank and mf_field.value != blank -%}
-      {% render 'martilness-metafield-html', metafield: mf_field, color_swatches: true %}
-    {%- elsif is_saunataeppe -%}
-      <div class="mt-pdp-tab rte">
-        <p>Udover saunatæppet giver en fantastisk varm wellness følelse, giver tæppet også følgende sundhedsmæssige fordele:</p>
-        <p><strong>Afslapning og stressreduktion:</strong> Hjælper med at reducere stress og fremmer dyb afslapning ved at lindre muskelspændinger.</p>
-        <p><strong>Forbedret blodcirkulation:</strong> Øger blodgennemstrømningen, hvilket leverer ilt og næringsstoffer til væv og organer, der understøtter helbred og energi.</p>
-        <p><strong>Smertelindring:</strong> Reducerer muskel- og ledsmerter samt kroniske smerter ved at varme dybt ind i vævet og lindre direkte på smertepunkter.</p>
-        <p><strong>Afgiftning:</strong> Stimulerer svedproduktionen, hvilket hjælper med at udskille toksiner og affaldsstoffer fra kroppen for at fremme en sund balance.</p>
-        <p><strong>Støtte til immunforsvaret:</strong> Regelmæssig brug kan styrke immunforsvaret ved at øge kroppens kernetemperatur, hvilket kan hjælpe kroppen med at bekæmpe infektioner.</p>
-        <p><strong>Forbedret hudpleje:</strong> Åbner porerne og renser huden dybt, hvilket kan give en klarere og mere strålende hudtone og stimulerer kollagenproduktionen for at modvirke rynker.</p>
-        <p><strong>Vægttab:</strong> Øger kalorieforbrændingen ved at hæve kroppens kernetemperatur, hvilket kan bidrage til vægttab over tid.</p>
-        <p><strong>Støtte til muskelrestitution:</strong> Hjælper med at lindre ømme muskler efter træning og fremmer hurtigere restitution.</p>
-        <p><strong>Fremmer bedre søvn:</strong> Den beroligende varme kan hjælpe med at forbedre søvnkvaliteten, især hvis tæppet bruges inden sengetid.</p>
-        <p><strong>Øget stofskifte:</strong> Kan stimulere stofskiftet og hjælpe kroppen med at forbrænde kalorier mere effektivt.</p>
+    {%- if is_led_maske -%}
+      <div class="mt-pdp-tab rte mt-pdp-tab--swatches">
+        <p><strong>Hvad hjælper de enkelte farver med?</strong></p>
+        <ul class="mt-pdp-tab__list mt-pdp-tab__list--colors">
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--rod" aria-hidden="true"></span>
+            <span><strong>Rød:</strong> Stimulerer kollagen og gør huden mere spændstig</span>
+          </li>
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--bla" aria-hidden="true"></span>
+            <span><strong>Blå:</strong> Reducerer akne, betændelse og urenheder</span>
+          </li>
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--gron" aria-hidden="true"></span>
+            <span><strong>Grøn:</strong> Beroliger huden og dæmper pigmentforandringer</span>
+          </li>
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--gul" aria-hidden="true"></span>
+            <span><strong>Gul:</strong> Lysner mørke pletter og forbedrer hudtonen</span>
+          </li>
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--lilla" aria-hidden="true"></span>
+            <span><strong>Lilla:</strong> Modvirker hævelser og stimulerer blodcirkulationen</span>
+          </li>
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--orange" aria-hidden="true"></span>
+            <span><strong>Orange:</strong> Understøtter lymfesystemet og reducerer hævelse</span>
+          </li>
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--cyan" aria-hidden="true"></span>
+            <span><strong>Cyan:</strong> Dæmper fedtet hud og mindsker hudorme</span>
+          </li>
+          <li class="mt-pdp-tab__swatch-row">
+            <span class="mt-color-dot mt-color-dot--nir" aria-hidden="true"></span>
+            <span><strong>Nærinfrarød (NIR):</strong> Trænger dybt ned i huden og understøtter cellefornyelse og blodcirkulation</span>
+          </li>
+        </ul>
       </div>
-    {%- elsif is_dampsauna -%}
-      <div class="mt-pdp-tab rte">
-        <p>Dampsaunaer har en række sundhedsmæssige fordele, som mange bruger for både fysisk og mental velvære. Her er nogle af de mest almindelige fordele:</p>
-        <p><strong>Forbedret cirkulation:</strong> Varmen i en dampsauna får blodkarrene til at udvide sig, hvilket øger blodgennemstrømningen. Dette kan hjælpe med at levere ilt og næringsstoffer mere effektivt rundt i kroppen.</p>
-        <p><strong>Afgiftning:</strong> Når du sveder, udskiller kroppen toksiner gennem huden. Dampens fugtige varme kan hjælpe med at åbne porerne og fremme en dybere afgiftning gennem sved.</p>
-        <p><strong>Muskelafslapning og lindring af ømhed:</strong> Dampsaunaens varme afslapper muskler og lindrer spændinger, hvilket kan være gavnligt for dem med muskelømhed eller ledproblemer som gigt. Varme hjælper også med at løsne stive led og fremme fleksibilitet.</p>
-        <p><strong>Bedre åndedrætsfunktion:</strong> Den fugtige varme i en dampsauna kan hjælpe med at åbne luftvejene og lindre symptomer på forkølelse, bihulebetændelse og astma. Den varme, fugtige luft kan løsne slim og rense næsepassagerne.</p>
-        <p><strong>Støtter hudpleje:</strong> Varme og fugt hjælper med at rense huden i dybden og kan forbedre hudens udseende ved at åbne porerne, fjerne døde hudceller og øge blodgennemstrømningen. Dette kan resultere i en sundere og mere strålende hud.</p>
-        <p><strong>Reduceret stress og bedre søvn:</strong> En session i dampsaunaen kan virke afslappende og reducere stress ved at sænke kroppens stresshormoner. Dette kan føre til en følelse af ro og forbedret søvnkvalitet.</p>
-        <p><strong>Forbedret immunforsvar:</strong> Varmen i dampsaunaen kan stimulere produktionen af hvide blodlegemer, hvilket kan styrke immunforsvaret og hjælpe kroppen med at bekæmpe infektioner.</p>
-        <p><strong>Hjælp til vægttab:</strong> Selvom vægttab fra en dampsauna primært er relateret til vandtab gennem sved, kan regelmæssige sessioner indirekte støtte en aktiv livsstil og dermed vægtkontrol, da forbrændingen af kalorier øges en smule under brugen.</p>
-        <p>Husk at drikke rigeligt med vand før og efter brug af en dampsauna, da man mister en del væske gennem sved.</p>
-      </div>
+    {%- else -%}
+      {%- assign mf_field = product.metafields.custom.sundhedsmaessige_fordele -%}
+      {%- if mf_field != blank -%}
+        {% render 'martilness-metafield-html', metafield: mf_field, color_swatches: true, format_list: true %}
+      {%- elsif is_saunataeppe -%}
+        <div class="mt-pdp-tab rte">
+          <p>Udover saunatæppet giver en fantastisk varm wellness følelse, giver tæppet også følgende sundhedsmæssige fordele:</p>
+          <p><strong>Afslapning og stressreduktion:</strong> Hjælper med at reducere stress og fremmer dyb afslapning ved at lindre muskelspændinger.</p>
+          <p><strong>Forbedret blodcirkulation:</strong> Øger blodgennemstrømningen, hvilket leverer ilt og næringsstoffer til væv og organer, der understøtter helbred og energi.</p>
+          <p><strong>Smertelindring:</strong> Reducerer muskel- og ledsmerter samt kroniske smerter ved at varme dybt ind i vævet og lindre direkte på smertepunkter.</p>
+          <p><strong>Afgiftning:</strong> Stimulerer svedproduktionen, hvilket hjælper med at udskille toksiner og affaldsstoffer fra kroppen for at fremme en sund balance.</p>
+          <p><strong>Støtte til immunforsvaret:</strong> Regelmæssig brug kan styrke immunforsvaret ved at øge kroppens kernetemperatur, hvilket kan hjælpe kroppen med at bekæmpe infektioner.</p>
+          <p><strong>Forbedret hudpleje:</strong> Åbner porerne og renser huden dybt, hvilket kan give en klarere og mere strålende hudtone og stimulerer kollagenproduktionen for at modvirke rynker.</p>
+          <p><strong>Vægttab:</strong> Øger kalorieforbrændingen ved at hæve kroppens kernetemperatur, hvilket kan bidrage til vægttab over tid.</p>
+          <p><strong>Støtte til muskelrestitution:</strong> Hjælper med at lindre ømme muskler efter træning og fremmer hurtigere restitution.</p>
+          <p><strong>Fremmer bedre søvn:</strong> Den beroligende varme kan hjælpe med at forbedre søvnkvaliteten, især hvis tæppet bruges inden sengetid.</p>
+          <p><strong>Øget stofskifte:</strong> Kan stimulere stofskiftet og hjælpe kroppen med at forbrænde kalorier mere effektivt.</p>
+        </div>
+      {%- elsif is_dampsauna -%}
+        <div class="mt-pdp-tab rte">
+          <p>Dampsaunaer har en række sundhedsmæssige fordele, som mange bruger for både fysisk og mental velvære. Her er nogle af de mest almindelige fordele:</p>
+          <p><strong>Forbedret cirkulation:</strong> Varmen i en dampsauna får blodkarrene til at udvide sig, hvilket øger blodgennemstrømningen. Dette kan hjælpe med at levere ilt og næringsstoffer mere effektivt rundt i kroppen.</p>
+          <p><strong>Afgiftning:</strong> Når du sveder, udskiller kroppen toksiner gennem huden. Dampens fugtige varme kan hjælpe med at åbne porerne og fremme en dybere afgiftning gennem sved.</p>
+          <p><strong>Muskelafslapning og lindring af ømhed:</strong> Dampsaunaens varme afslapper muskler og lindrer spændinger, hvilket kan være gavnligt for dem med muskelømhed eller ledproblemer som gigt. Varme hjælper også med at løsne stive led og fremme fleksibilitet.</p>
+          <p><strong>Bedre åndedrætsfunktion:</strong> Den fugtige varme i en dampsauna kan hjælpe med at åbne luftvejene og lindre symptomer på forkølelse, bihulebetændelse og astma. Den varme, fugtige luft kan løsne slim og rense næsepassagerne.</p>
+          <p><strong>Støtter hudpleje:</strong> Varme og fugt hjælper med at rense huden i dybden og kan forbedre hudens udseende ved at åbne porerne, fjerne døde hudceller og øge blodgennemstrømningen. Dette kan resultere i en sundere og mere strålende hud.</p>
+          <p><strong>Reduceret stress og bedre søvn:</strong> En session i dampsaunaen kan virke afslappende og reducere stress ved at sænke kroppens stresshormoner. Dette kan føre til en følelse af ro og forbedret søvnkvalitet.</p>
+          <p><strong>Forbedret immunforsvar:</strong> Varmen i dampsaunaen kan stimulere produktionen af hvide blodlegemer, hvilket kan styrke immunforsvaret og hjælpe kroppen med at bekæmpe infektioner.</p>
+          <p><strong>Hjælp til vægttab:</strong> Selvom vægttab fra en dampsauna primært er relateret til vandtab gennem sved, kan regelmæssige sessioner indirekte støtte en aktiv livsstil og dermed vægtkontrol, da forbrændingen af kalorier øges en smule under brugen.</p>
+          <p>Husk at drikke rigeligt med vand før og efter brug af en dampsauna, da man mister en del væske gennem sved.</p>
+        </div>
+      {%- endif -%}
     {%- endif -%}
 
   {%- when 'specs' -%}
     {%- assign mf_field = product.metafields.custom.tekniske_specifikationer -%}
-    {%- if mf_field != blank and mf_field.value != blank -%}
-      {% render 'martilness-metafield-html', metafield: mf_field %}
+    {%- if mf_field != blank -%}
+      {% render 'martilness-metafield-html', metafield: mf_field, format_list: true %}
+    {%- elsif is_led_maske -%}
+      <div class="mt-pdp-tab rte">
+        <ul class="mt-pdp-tab__list">
+          <li>Antal LED-lamper: 124 LED-lys</li>
+          <li>LED-lys: 7 biologiske LED-farver</li>
+          <li>Nærinfrarødt lys: 810–850 nm</li>
+          <li>Spænding: 220V (medfølgende AC/DC-adapter: 5V, DC 1000mA)</li>
+          <li>Tidsindstilling: 10, 15, 20, 25 eller 30 minutter</li>
+          <li>Materiale: Blød og fleksibel silikone</li>
+          <li>Certificeringer: CE &amp; RoHS</li>
+          <li>Betjening: Fjernbetjening med forudindstillede programmer</li>
+        </ul>
+      </div>
     {%- elsif is_saunataeppe -%}
       <div class="mt-pdp-tab rte">
-        <ul>
+        <ul class="mt-pdp-tab__list">
           <li>Størrelse: 80 cm x 190 cm</li>
           <li>Tidsindstilling: 20–60 minutter</li>
           <li>Temperatur 30–80 grader</li>
@@ -125,7 +183,7 @@
       </div>
     {%- elsif is_dampsauna -%}
       <div class="mt-pdp-tab rte">
-        <ul>
+        <ul class="mt-pdp-tab__list">
           <li>9 varmeindstillinger</li>
           <li>Maksimal temperatur 60 °C</li>
           <li>Tidsindstilling fra 20–120 min.</li>
@@ -139,8 +197,8 @@
 
   {%- when 'inkluderet' -%}
     {%- assign mf_field = product.metafields.custom.hvad_er_inkluderet -%}
-    {%- if mf_field != blank and mf_field.value != blank -%}
-      {% render 'martilness-metafield-html', metafield: mf_field %}
+    {%- if mf_field != blank -%}
+      {% render 'martilness-metafield-html', metafield: mf_field, format_list: true %}
     {%- elsif is_saunataeppe -%}
       <div class="mt-pdp-tab rte">
         <ul>
@@ -202,7 +260,8 @@
   .mt-pdp-tab .metafield-rich_text_field > *:last-child { margin-bottom: 0; }
 
   .mt-pdp-tab--swatches .metafield-rich_text_field ul,
-  .mt-pdp-tab--swatches .mt-pdp-tab__list {
+  .mt-pdp-tab--swatches .mt-pdp-tab__list,
+  .mt-pdp-tab__list--colors {
     list-style: none;
     padding-left: 0;
   }
@@ -213,11 +272,14 @@
     align-items: flex-start;
     gap: 0.85rem;
   }
+  .mt-pdp-tab__swatch-row {
+    list-style: none;
+  }
   .mt-color-dot {
     flex: 0 0 auto;
-    width: 1.1rem;
-    height: 1.1rem;
-    margin-top: 0.35rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.3rem;
     border-radius: 999px;
     box-shadow: inset 0 0 0 0.1rem rgb(0 0 0 / 8%);
   }

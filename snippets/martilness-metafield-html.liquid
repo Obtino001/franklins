@@ -1,13 +1,21 @@
 {%- doc -%}
   Renders a product metafield as HTML.
-  Always prefer metafield_tag for rich text — printing .value flattens lists into one paragraph.
+  Rich text must use metafield_tag. Flat/broken list text is normalized to <ul><li> in the browser.
 
   @param {object} metafield - product.metafields.namespace.key
   @param {boolean} [color_swatches] - inject colored dots for LED therapy colors
+  @param {boolean} [format_list] - force flat "Label: value" text into a bullet list (default true)
 {%- enddoc -%}
+{%- liquid
+  if format_list == nil
+    assign format_list = true
+  endif
+-%}
 {%- if metafield != blank -%}
   <div
     class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}"
+    data-mt-pdp-metafield
+    {% if format_list %}data-mt-format-list{% endif %}
     {% if color_swatches %}data-mt-color-swatches{% endif %}
   >
     {%- case metafield.type -%}
@@ -32,14 +40,73 @@
       {%- endcase -%}
   </div>
 
-  {%- if color_swatches -%}
-    <script>
-      (() => {
-        const root = document.currentScript && document.currentScript.previousElementSibling;
-        if (!root || !root.hasAttribute('data-mt-color-swatches')) return;
-        if (root.dataset.mtSwatchesBound === 'true') return;
-        root.dataset.mtSwatchesBound = 'true';
+  <script>
+    (() => {
+      const root = document.currentScript && document.currentScript.previousElementSibling;
+      if (!root || !root.hasAttribute('data-mt-pdp-metafield')) return;
+      if (root.dataset.mtMetaBound === 'true') return;
+      root.dataset.mtMetaBound = 'true';
 
+      const formatList = root.hasAttribute('data-mt-format-list');
+      const colorSwatches = root.hasAttribute('data-mt-color-swatches');
+
+      if (formatList) {
+        const existingLis = root.querySelectorAll('li');
+        const looksLikeList = existingLis.length >= 2;
+
+        if (!looksLikeList) {
+          const text = (root.innerText || '').replace(/\s+/g, ' ').trim();
+          const labels = [
+            'Antal LED-lamper',
+            'Nærinfrarødt lys',
+            'Certificeringer',
+            'Tidsindstilling',
+            'Strømforbrug',
+            'Strømstyrke',
+            'Temperatur',
+            'Materiale',
+            'Betjening',
+            'Spænding',
+            'Størrelse',
+            'LED-lys',
+            'Vægt',
+            'ROHS'
+          ].sort(function (a, b) { return b.length - a.length; });
+
+          const escaped = labels.map(function (l) {
+            return l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          }).join('|');
+
+          let parts = [];
+          if (escaped) {
+            parts = text
+              .split(new RegExp('(?=(?:' + escaped + ')\\s*:)', 'g'))
+              .map(function (p) { return p.trim(); })
+              .filter(Boolean);
+          }
+
+          if (parts.length < 2) {
+            parts = text
+              .split(/(?=(?:[A-ZÆØÅ][^\n:]{1,40}):)/)
+              .map(function (p) { return p.trim(); })
+              .filter(Boolean);
+          }
+
+          if (parts.length >= 2) {
+            const ul = document.createElement('ul');
+            ul.className = 'mt-pdp-tab__list';
+            parts.forEach(function (part) {
+              const li = document.createElement('li');
+              li.textContent = part;
+              ul.appendChild(li);
+            });
+            root.innerHTML = '';
+            root.appendChild(ul);
+          }
+        }
+      }
+
+      if (colorSwatches) {
         const map = [
           ['rød', 'rod'],
           ['blå', 'bla'],
@@ -52,14 +119,16 @@
           ['narinfrarod', 'nir']
         ];
 
-        root.querySelectorAll('li, p').forEach((el) => {
+        root.querySelectorAll('li, p').forEach(function (el) {
           if (el.querySelector('.mt-color-dot')) return;
           const text = (el.textContent || '').trim().toLowerCase();
-          if (!text || text.startsWith('hvad hjælper')) return;
+          if (!text || text.indexOf('hvad hjælper') === 0) return;
 
-          for (const [name, cls] of map) {
-            if (text.startsWith(name)) {
-              const dot = document.createElement('span');
+          for (var i = 0; i < map.length; i++) {
+            var name = map[i][0];
+            var cls = map[i][1];
+            if (text.indexOf(name) === 0) {
+              var dot = document.createElement('span');
               dot.className = 'mt-color-dot mt-color-dot--' + cls;
               dot.setAttribute('aria-hidden', 'true');
               el.insertBefore(dot, el.firstChild);
@@ -68,7 +137,7 @@
             }
           }
         });
-      })();
-    </script>
-  {%- endif -%}
+      }
+    })();
+  </script>
 {%- endif -%}
