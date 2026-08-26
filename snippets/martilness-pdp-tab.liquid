@@ -76,7 +76,7 @@
   {%- when 'fordele' -%}
     {%- assign mf_field = product.metafields.custom.sundhedsmaessige_fordele -%}
     {%- if mf_field != blank and mf_field.value != blank -%}
-      {% render 'martilness-metafield-html', metafield: mf_field %}
+      {% render 'martilness-metafield-html', metafield: mf_field, color_swatches: true %}
     {%- elsif is_saunataeppe -%}
       <div class="mt-pdp-tab rte">
         <p>Udover saunatæppet giver en fantastisk varm wellness følelse, giver tæppet også følgende sundhedsmæssige fordele:</p>
@@ -185,8 +185,44 @@
   .mt-pdp-tab { width: 100%; max-width: 100%; }
   .mt-pdp-tab p { margin: 0 0 1.2rem; }
   .mt-pdp-tab p:last-child { margin-bottom: 0; }
-  .mt-pdp-tab ul { margin: 0; padding-left: 1.8rem; }
-  .mt-pdp-tab li { margin: 0.4rem 0; }
+  .mt-pdp-tab ul,
+  .mt-pdp-tab .metafield-rich_text_field ul {
+    margin: 0;
+    padding-left: 1.4rem;
+    list-style: disc;
+    list-style-position: outside;
+  }
+  .mt-pdp-tab li {
+    margin: 0.55rem 0;
+  }
   .mt-pdp-tab .metafield-rich_text_field { margin: 0; }
   .mt-pdp-tab .metafield-rich_text_field > *:last-child { margin-bottom: 0; }
+
+  /* LED color swatches (WP match) */
+  .mt-pdp-tab--swatches .metafield-rich_text_field ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .mt-pdp-tab--swatches .metafield-rich_text_field li,
+  .mt-pdp-tab--swatches .metafield-rich_text_field p {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+  .mt-color-dot {
+    flex: 0 0 auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.35rem;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 0.1rem rgb(0 0 0 / 8%);
+  }
+  .mt-color-dot--rod { background: #e53935; }
+  .mt-color-dot--bla { background: #42a5f5; }
+  .mt-color-dot--gron { background: #43a047; }
+  .mt-color-dot--gul { background: #fdd835; }
+  .mt-color-dot--lilla { background: #8e24aa; }
+  .mt-color-dot--orange { background: #fb8c00; }
+  .mt-color-dot--cyan { background: #26c6da; border-radius: 0.2rem; }
+  .mt-color-dot--nir { background: #111; }
 </style>
