@@ -578,6 +578,64 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "pdp_tab_beskrivelse": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Beskrivelse",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_beskrivelse": {
+                      "type": "custom-liquid",
+                      "name": "Beskrivelse",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'beskrivelse' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_beskrivelse"
+                  ]
+                },
+                "pdp_tab_zoner": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Antal zoner",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_zoner": {
+                      "type": "custom-liquid",
+                      "name": "Antal zoner",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'zoner' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_zoner"
+                  ]
+                },
                 "pdp_tab_fordele": {
                   "type": "_accordion-row",
                   "settings": {
@@ -692,64 +750,6 @@
                   },
                   "block_order": [
                     "liquid_pdp_tab_garanti"
-                  ]
-                },
-                "pdp_tab_zoner": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Antal zoner",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_zoner": {
-                      "type": "custom-liquid",
-                      "name": "Antal zoner",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'zoner' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_zoner"
-                  ]
-                },
-                "pdp_tab_beskrivelse": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Beskrivelse",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_beskrivelse": {
-                      "type": "custom-liquid",
-                      "name": "Beskrivelse",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'beskrivelse' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_beskrivelse"
                   ]
                 }
               },
@@ -2049,6 +2049,7 @@
         "group_MxbTQz": {
           "type": "group",
           "name": "t:names.group",
+          "disabled": true,
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -2190,7 +2191,7 @@
                 "faq_row_01": {
                   "type": "_accordion-row",
                   "settings": {
-                    "text": "Hvorfor skal jeg købe et saunatæppe?",
+                    "text": "{{ closest.product.metafields.custom.ofte_stillede_sporgsmal.value.question.value }}",
                     "open_row_by_default": false,
                     "icon": "none",
                     "icon_size": "extra-large",
