@@ -838,35 +838,40 @@
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/unnamed-1_f6ad1c7f-44d1-4e12-a817-f98e746143c6.jpg",
-            "title": "Saunatæppe"
+            "title": "Saunatæppe",
+            "link": "shopify://collections/saunataeppe"
           }
         },
         "included_item_LPHdrX": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/DSC09835_cc1a13ad-36bf-4154-934b-9b6223c5a129.jpg",
-            "title": "Fiber håndklæde"
+            "title": "Infrarødt lys",
+            "link": "shopify://collections/infrarodt-lys"
           }
         },
         "included_item_nTt7mR": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/DSC09233_4a6165c7-c8ac-42a4-8e56-e04bd18139c9.jpg",
-            "title": "Controller"
+            "title": "Infrarød LED maske",
+            "link": "shopify://collections/infrarod-led-maske"
           }
         },
         "included_item_FrrDw4": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/1080x1080-Pakketilbud_Web_1-scaled_394ac44a-5491-4ca7-854d-7b05354cdffb.jpg",
-            "title": "Dansk manual"
+            "title": "Dampsauna",
+            "link": "shopify://collections/dampsauna"
           }
         },
         "included_item_BF6Bh9": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/IMG_6335-1-copy.png",
-            "title": "Stofpose"
+            "title": "Isbad",
+            "link": "shopify://collections/isbad"
           }
         },
         "details_list_VRABT3": {
@@ -902,7 +907,7 @@
       "settings": {
         "page_bg_color": "#ffffff",
         "details_heading": "Detaljer om produktet",
-        "includes_heading": "Hvad medfølger?"
+        "includes_heading": "Shop efter kategori"
       }
     },
     "trustpilot_reviews_pdp": {

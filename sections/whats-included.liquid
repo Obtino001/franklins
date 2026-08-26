@@ -78,7 +78,18 @@
       <div class="wi-grid">
         {% for block in section.blocks %}
           {% if block.type == 'included_item' %}
-            <div class="wi-item" {{ block.shopify_attributes }}>
+            {%- liquid
+              assign item_link = block.settings.link
+              assign item_tag = 'div'
+              if item_link != blank
+                assign item_tag = 'a'
+              endif
+            -%}
+            <{{ item_tag }}
+              class="wi-item{% if item_link != blank %} wi-item--link{% endif %}"
+              {% if item_link != blank %}href="{{ item_link }}"{% endif %}
+              {{ block.shopify_attributes }}
+            >
               <div class="wi-image-circle">
                 {% if block.settings.image != blank %}
                   {{ block.settings.image | image_url: width: 200, height: 200, crop: 'center' | image_tag: loading: 'lazy', alt: block.settings.title }}
@@ -89,7 +100,7 @@
               {% if block.settings.title != blank %}
                 <p class="wi-title">{{ block.settings.title }}</p>
               {% endif %}
-            </div>
+            </{{ item_tag }}>
           {% endif %}
         {% endfor %}
       </div>
@@ -315,6 +326,22 @@
     flex-direction: column;
     align-items: center;
     width: 120px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #section-{{ section.id }} .wi-item--link {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  #section-{{ section.id }} .wi-item--link:hover {
+    transform: translateY(-2px);
+  }
+
+  #section-{{ section.id }} .wi-item--link .wi-title {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
   }
 
   #section-{{ section.id }} .wi-image-circle {
@@ -469,6 +496,11 @@
           "id": "title",
           "label": "Item Title",
           "default": "Håndpumpe"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     }
