@@ -1,15 +1,35 @@
 {%- doc -%}
   Renders a product metafield as HTML.
   Rich text metafields must use metafield_tag (raw .value dumps JSON).
+  Optionally injects color swatches for LED light therapy color names (WP match).
 
   @param {object} metafield - product.metafields.namespace.key
+  @param {boolean} [color_swatches] - inject colored dots before color names
 {%- enddoc -%}
 {%- if metafield != blank and metafield.value != blank -%}
-  <div class="mt-pdp-tab rte">
+  {%- capture mf_html -%}
     {%- if metafield.type == 'rich_text_field' -%}
       {{ metafield | metafield_tag }}
     {%- else -%}
       {{ metafield.value }}
     {%- endif -%}
+  {%- endcapture -%}
+
+  {%- if color_swatches -%}
+    {%- assign mf_html = mf_html
+      | replace: '<strong>Rød', '<span class="mt-color-dot mt-color-dot--rod" aria-hidden="true"></span><strong>Rød'
+      | replace: '<strong>Blå', '<span class="mt-color-dot mt-color-dot--bla" aria-hidden="true"></span><strong>Blå'
+      | replace: '<strong>Grøn', '<span class="mt-color-dot mt-color-dot--gron" aria-hidden="true"></span><strong>Grøn'
+      | replace: '<strong>Gul', '<span class="mt-color-dot mt-color-dot--gul" aria-hidden="true"></span><strong>Gul'
+      | replace: '<strong>Lilla', '<span class="mt-color-dot mt-color-dot--lilla" aria-hidden="true"></span><strong>Lilla'
+      | replace: '<strong>Orange', '<span class="mt-color-dot mt-color-dot--orange" aria-hidden="true"></span><strong>Orange'
+      | replace: '<strong>Cyan', '<span class="mt-color-dot mt-color-dot--cyan" aria-hidden="true"></span><strong>Cyan'
+      | replace: '<strong>Nærinfrarød', '<span class="mt-color-dot mt-color-dot--nir" aria-hidden="true"></span><strong>Nærinfrarød'
+      | replace: '<strong>Narinfrarod', '<span class="mt-color-dot mt-color-dot--nir" aria-hidden="true"></span><strong>Narinfrarod'
+    -%}
+  {%- endif -%}
+
+  <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}">
+    {{ mf_html }}
   </div>
 {%- endif -%}
