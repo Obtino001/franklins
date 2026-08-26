@@ -3289,6 +3289,22 @@
         "padding-inline-end-mobile": 16,
         "custom_columns": ""
       }
+    },
+    "martilness_giveaway_pdp": {
+      "type": "martilness-giveaway",
+      "settings": {
+        "tab_label": "Vind produkter til en værdi af kr. 3398,-",
+        "heading": "Vind produkter til en værdi af kr. 3398,-",
+        "text": "Tilmeld dig vores nyhedsbrev og vær med i konkurrencen om en dampsauna kombineret med et isbad til en værdi af kr. 3398,-",
+        "name_placeholder": "Fornavn",
+        "email_placeholder": "Email",
+        "button_label": "Ja tak - jeg vil gerne vinde :-)",
+        "success_message": "Tak! Du er nu med i konkurrencen.",
+        "panel_background": "#0a0a0a",
+        "accent_color": "#2f6b3a",
+        "open_by_default": false,
+        "z_index": 40
+      }
     }
   },
   "order": [
@@ -3301,6 +3317,7 @@
     "progress_timeline_60d",
     "faq_banner_pdp_Mtq1",
     "17843818126653bf72",
-    "product_recently_viewed_BYKjx8"
+    "product_recently_viewed_BYKjx8",
+    "martilness_giveaway_pdp"
   ]
 }
