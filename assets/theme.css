@@ -8019,6 +8019,7 @@ body:not(.header-pinned) .header-scrolled .header[is=sticky-header] {
 .header__logo {
   grid-area: logo;
   max-width: max-content;
+  justify-self: center;
 }
 .header__logo--image {
   max-width: var(--logo-width-mobile);
@@ -8059,6 +8060,10 @@ body:not(.header-pinned) .header-scrolled .header[is=sticky-header] {
 }
 .header__icons--left {
   grid-area: icons-left;
+  justify-self: start;
+}
+.header__icons--right {
+  justify-self: end;
 }
 .header__buttons {
   margin-inline: -1rem;
@@ -8306,7 +8311,7 @@ shopify-account::part(signed-out-avatar) {
 @media (max-width: 767.98px) {
   .header--with-dividers {
     --header-icon-size: 6rem;
-    --header-grid-template: "icons-left logo icons" / auto auto 1fr;
+    --header-grid-template: "icons-left logo icons" / 1fr auto 1fr;
   }
   .header--with-dividers .header__background-inner::before {
     opacity: 1;
