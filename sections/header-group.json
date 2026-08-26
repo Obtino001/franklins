@@ -325,7 +325,7 @@
       "settings": {
         "menu": "main-menu",
         "menu_mobile": "main-menu",
-        "header_layout": "logo-center",
+        "header_layout": "logo-left",
         "menu_trigger": "hover",
         "sticky_header": "on-scroll-up",
         "enable_search_form": true,

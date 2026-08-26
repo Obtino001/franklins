@@ -494,6 +494,7 @@
       "block_order": [
         "text_NazPFL"
       ],
+      "disabled": true,
       "name": "t:names.custom_section",
       "settings": {
         "container": "page-width",
@@ -541,7 +542,6 @@
               "type": "_image-card-media",
               "static": true,
               "settings": {
-                "image": "shopify://shop_images/Untitled_design_-_2026-07-20T235603.544.jpg",
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "image_ratio": "adapt",
@@ -626,6 +626,7 @@
       "block_order": [
         "store_locator_WJAAjk"
       ],
+      "disabled": true,
       "name": "t:names.store_locator",
       "settings": {
         "container": "fixed",
