@@ -3,6 +3,8 @@
   assign rating_label = section.settings.rating_label | default: '4,8 ud af 5 stjerner på Trustpilot'
   assign link_label = section.settings.link_label
   assign link_url = section.settings.link_url
+  assign speed = section.settings.marquee_speed | default: 40
+  assign pause_on_hover = section.settings.pause_on_hover
 -%}
 
 <div
@@ -11,10 +13,11 @@
   style="
     --mt-reviews-pad-top: {{ section.settings.padding_top }}px;
     --mt-reviews-pad-bottom: {{ section.settings.padding_bottom }}px;
+    --mt-marquee-duration: {{ speed }}s;
   "
 >
-  <div class="mt-reviews__inner page-width">
-    <div class="mt-reviews__header">
+  <div class="mt-reviews__inner">
+    <div class="mt-reviews__header page-width">
       {% if heading != blank %}
         <h2 class="mt-reviews__heading">{{ heading }}</h2>
       {% endif %}
@@ -31,30 +34,40 @@
     </div>
 
     {% if section.blocks.size > 0 %}
-      <div class="mt-reviews__grid">
-        {% for block in section.blocks %}
-          <article class="mt-reviews__card" {{ block.shopify_attributes }}>
-            <div class="mt-reviews__card-stars" aria-hidden="true">
-              {%- for i in (1..5) -%}
-                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              {%- endfor -%}
+      <div
+        class="mt-reviews__marquee{% if pause_on_hover %} mt-reviews__marquee--pause{% endif %}"
+        role="region"
+        aria-label="{{ heading | escape }}"
+      >
+        <div class="mt-reviews__track">
+          {%- for pass in (1..2) -%}
+            <div class="mt-reviews__group" {% if pass == 2 %}aria-hidden="true"{% endif %}>
+              {% for block in section.blocks %}
+                <article class="mt-reviews__card" {% if pass == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                  <div class="mt-reviews__card-stars" aria-hidden="true">
+                    {%- for i in (1..5) -%}
+                      <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    {%- endfor -%}
+                  </div>
+                  {% if block.settings.title != blank %}
+                    <h3 class="mt-reviews__card-title">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <p class="mt-reviews__card-text">{{ block.settings.text }}</p>
+                  {% endif %}
+                  {% if block.settings.author != blank %}
+                    <p class="mt-reviews__card-author">- {{ block.settings.author }}</p>
+                  {% endif %}
+                </article>
+              {% endfor %}
             </div>
-            {% if block.settings.title != blank %}
-              <h3 class="mt-reviews__card-title">{{ block.settings.title }}</h3>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <p class="mt-reviews__card-text">{{ block.settings.text }}</p>
-            {% endif %}
-            {% if block.settings.author != blank %}
-              <p class="mt-reviews__card-author">- {{ block.settings.author }}</p>
-            {% endif %}
-          </article>
-        {% endfor %}
+          {%- endfor -%}
+        </div>
       </div>
     {% endif %}
 
     {% if link_label != blank %}
-      <div class="mt-reviews__footer">
+      <div class="mt-reviews__footer page-width">
         <a
           class="mt-reviews__link"
           href="{{ link_url | default: 'https://dk.trustpilot.com' }}"
@@ -72,11 +85,13 @@
     padding: var(--mt-reviews-pad-top) 0 var(--mt-reviews-pad-bottom);
     background: rgb(var(--color-background));
     color: rgb(var(--color-foreground));
+    overflow: hidden;
   }
 
-  #section-{{ section.id }} .mt-reviews__inner {
+  #section-{{ section.id }} .mt-reviews__header,
+  #section-{{ section.id }} .mt-reviews__footer {
     max-width: var(--page-width, 120rem);
-    margin: 0 auto;
+    margin-inline: auto;
     padding-inline: var(--page-padding, 2rem);
   }
 
@@ -120,17 +135,41 @@
     font-weight: 500;
   }
 
-  #section-{{ section.id }} .mt-reviews__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2.4rem 2rem;
+  #section-{{ section.id }} .mt-reviews__marquee {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  }
+
+  #section-{{ section.id }} .mt-reviews__track {
+    display: flex;
+    width: max-content;
+    animation: mt-reviews-marquee-{{ section.id }} var(--mt-marquee-duration) linear infinite;
+    will-change: transform;
+  }
+
+  #section-{{ section.id }} .mt-reviews__marquee--pause:hover .mt-reviews__track {
+    animation-play-state: paused;
+  }
+
+  #section-{{ section.id }} .mt-reviews__group {
+    display: flex;
+    gap: 2rem;
+    padding-inline-end: 2rem;
   }
 
   #section-{{ section.id }} .mt-reviews__card {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    min-width: 0;
+    flex: 0 0 auto;
+    width: min(32rem, 78vw);
+    padding: 2rem;
+    border-radius: 1.6rem;
+    background: rgb(var(--color-background));
+    border: 1px solid rgb(var(--color-foreground) / 0.08);
+    box-sizing: border-box;
   }
 
   #section-{{ section.id }} .mt-reviews__card-title {
@@ -166,16 +205,30 @@
     text-underline-offset: 0.3em;
   }
 
-  @media (max-width: 989px) {
-    #section-{{ section.id }} .mt-reviews__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  @keyframes mt-reviews-marquee-{{ section.id }} {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
   }
 
-  @media (max-width: 749px) {
-    #section-{{ section.id }} .mt-reviews__grid {
-      grid-template-columns: 1fr;
-      gap: 2.4rem;
+  @media (prefers-reduced-motion: reduce) {
+    #section-{{ section.id }} .mt-reviews__track {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      max-width: var(--page-width, 120rem);
+      margin-inline: auto;
+      padding-inline: var(--page-padding, 2rem);
+    }
+
+    #section-{{ section.id }} .mt-reviews__group:last-child {
+      display: none;
+    }
+
+    #section-{{ section.id }} .mt-reviews__group {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-inline-end: 0;
     }
   }
 </style>
@@ -200,6 +253,23 @@
       "id": "rating_label",
       "label": "Trustpilot rating text",
       "default": "4,8 ud af 5 stjerner på Trustpilot"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Marquee speed",
+      "min": 15,
+      "max": 80,
+      "step": 5,
+      "unit": "s",
+      "default": 40,
+      "info": "Lower = faster"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
     },
     {
       "type": "text",
