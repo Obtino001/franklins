@@ -3,15 +3,22 @@
   Uses product description / metafields when set; otherwise handle-based defaults from martilness.dk.
 
   @param {object} product
-  @param {string} tab - beskrivelse | fordele | specs | inkluderet | garanti
+  @param {string} tab - beskrivelse | zoner | fordele | specs | inkluderet | garanti
 {%- enddoc -%}
 
 {%- liquid
   assign handle = product.handle | default: ''
   assign title_d = product.title | downcase | default: ''
+  assign type_d = product.type | downcase | default: ''
+
   assign is_dampsauna = false
   if handle contains 'dampsauna' or title_d contains 'dampsauna'
     assign is_dampsauna = true
+  endif
+
+  assign is_saunataeppe = false
+  if handle contains 'saunataeppe' or handle contains 'saunatæppe' or title_d contains 'saunatæppe' or title_d contains 'saunataeppe' or type_d contains 'saunatæppe' or type_d contains 'saunataeppe'
+    assign is_saunataeppe = true
   endif
 -%}
 
@@ -19,6 +26,21 @@
   {%- when 'beskrivelse' -%}
     {%- if product.description != blank -%}
       <div class="mt-pdp-tab rte">{{ product.description }}</div>
+    {%- elsif is_saunataeppe -%}
+      <div class="mt-pdp-tab rte">
+        <p><strong>Fysisk og psykisk velvære</strong><br>
+        Et saunatæppe er et fremragende redskab til at fremme både fysisk og psykisk velvære. Det fungerer som en infrarød sauna, hvor kroppen opvarmes direkte, hvilket giver en række sundhedsmæssige fordele uden at kræve et stort sauna-rum. Saunatæpper opvarmer kroppen indefra og stimulerer en dyb svedproces, som både renser og afgifter. Denne intense varme hjælper med at øge blodcirkulationen, hvilket forbedrer kroppens evne til at levere næringsstoffer og ilt til musklerne og samtidig fremmer hurtigere restitution efter fysisk aktivitet.</p>
+        <p><strong>En ren wellness-oplevelse</strong><br>
+        Et saunatæppe er ikke bare et effektivt redskab til stressreduktion, men også en luksuriøs wellness-oplevelse – især i den kolde og mørke tid, hvor vi kan have ekstra behov for varme og komfort. Specielt her i vintermånederne, hvor kulden kan virke hård, er et saunatæppe en behagelig og opvarmende oplevelse, der hjælper kroppen med at slappe af og genfinde energien. Mange oplever, at det også kan lette vintertræthed og give en fornyet følelse af velvære. Derudover kan det at skabe en hyggelig, varm rutine med saunatæppet give mental opladning og følelsen af selvforkælelse, som er så vigtig i årets mørke tid.</p>
+        <p><strong>Virkelig gavnligt for folk med gigt, ledsmerter, inflammation og andre kroniske tilstande</strong><br>
+        Et saunatæppe kan være gavnligt for personer med gigt, ledsmerter og visse andre kroniske tilstande, da infrarød varme kan hjælpe med at lindre smerter og fremme helingsprocesser i kroppen.</p>
+        <p>For folk med gigt eller ledsmerter kan saunatæppets infrarøde varme trænge dybt ind i muskler og led og reducere smerter og stivhed. Varmen får blodkarrene til at udvide sig, hvilket øger blodgennemstrømningen til det berørte område. Dette kan hjælpe med at lindre inflammation og reducere ubehag.</p>
+        <p>Den infrarøde varme øger blodgennemstrømningen, hvilket betyder, at ilt og næringsstoffer transporteres mere effektivt til muskler, led og væv. Forbedret cirkulation kan reducere inflammatoriske processer og støtte heling, hvilket især er nyttigt for dem med kroniske smerter og gigt.</p>
+        <p><strong>Afslappende oplevelse der reducerer stress og i stedet skaber en indre ro – såvel i krop som mentalt</strong><br>
+        På det mentale plan skaber varmen en afslappende oplevelse, som reducerer stress og fremmer frigivelsen af lykkehormoner som endorfiner og serotonin. Dette kan føre til en følelse af indre ro og en reduktion af muskelspændinger og angst. Saunatæppet er ideelt til dem, der ønsker at slappe af, finde mere mentalt overflskud og forbedre søvnen.</p>
+        <p><strong>Virkelig god effekt i kombination med isbad</strong><br>
+        Ved at kombinere saunatæppe med isbadning får du det bedste fra begge verdener: dyb varme og afslapning efterfulgt af den forfriskende kølighed fra isbadet, der vækker kroppen og booster energi og humør. Kombinationen er perfekt til dem, der søger en holistisk wellness-oplevelse, der både er beroligende og oplivende.</p>
+      </div>
     {%- elsif is_dampsauna -%}
       <div class="mt-pdp-tab rte">
         <p><strong>Fysisk og psykisk velvære</strong><br>
@@ -30,10 +52,45 @@
       </div>
     {%- endif -%}
 
+  {%- when 'zoner' -%}
+    {%- assign mf = product.metafields.custom.antal_zoner.value | default: product.metafields.custom.antal_zoner -%}
+    {%- if mf != blank -%}
+      <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- else -%}
+      <div class="mt-pdp-tab rte">
+        <p>Vores saunatæppe har 1-zone.</p>
+        <p>Et tæppe med 1-zone er billigere end tæpper med flere zoner. Spørgsmålet er derfor om man har brug for flere zoner.</p>
+        <p><strong>Hvad er forskellen på 1, 2 og 3 zoner og hvad har du brug for?</strong><br>
+        Antallet af zoner i et saunatæppe betyder at du kan opvarme forskellige områder i tæppet individuelt. Dvs. du kan sætte høj varme på et specifikt område (f.eks. benene) og så have lav, eller ingen varme på overkroppen. Typisk har saunatæpper 1, 2 eller 3 zoner:</p>
+        <ul>
+          <li>Et tæppe med 1-zone, varmer hele tæppet op med den samme temperatur.</li>
+          <li>Et tæppe med 2-zoner, kan du f.eks. have varme på ben men ikke på mave og bryst, eller omvendt.</li>
+          <li>Et tæppe med 3-zoner, kan du fordele varmen på hhv. ben, mave og bryst.</li>
+        </ul>
+        <p>Bemærk, at nogle tæpper er zonerne også inddelt i over og underkrop (altså den del af tæppet du ligger på, og den del du har over dig).</p>
+        <p><strong>Har det nogen betydning for dit slutresultat, hvor mange zoner der er?</strong><br>
+        Nej, det har det ikke. For nogle er én zone tilstrækkeligt, da de ønsker samme temperatur over hele kroppen. For andre kan det være rart at have mere varme ved fødderne end ved overkroppen e.l.</p>
+      </div>
+    {%- endif -%}
+
   {%- when 'fordele' -%}
     {%- assign mf = product.metafields.custom.sundhedsmaessige_fordele.value | default: product.metafields.custom.sundhedsmaessige_fordele -%}
     {%- if mf != blank -%}
       <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- elsif is_saunataeppe -%}
+      <div class="mt-pdp-tab rte">
+        <p>Udover saunatæppet giver en fantastisk varm wellness følelse, giver tæppet også følgende sundhedsmæssige fordele:</p>
+        <p><strong>Afslapning og stressreduktion:</strong> Hjælper med at reducere stress og fremmer dyb afslapning ved at lindre muskelspændinger.</p>
+        <p><strong>Forbedret blodcirkulation:</strong> Øger blodgennemstrømningen, hvilket leverer ilt og næringsstoffer til væv og organer, der understøtter helbred og energi.</p>
+        <p><strong>Smertelindring:</strong> Reducerer muskel- og ledsmerter samt kroniske smerter ved at varme dybt ind i vævet og lindre direkte på smertepunkter.</p>
+        <p><strong>Afgiftning:</strong> Stimulerer svedproduktionen, hvilket hjælper med at udskille toksiner og affaldsstoffer fra kroppen for at fremme en sund balance.</p>
+        <p><strong>Støtte til immunforsvaret:</strong> Regelmæssig brug kan styrke immunforsvaret ved at øge kroppens kernetemperatur, hvilket kan hjælpe kroppen med at bekæmpe infektioner.</p>
+        <p><strong>Forbedret hudpleje:</strong> Åbner porerne og renser huden dybt, hvilket kan give en klarere og mere strålende hudtone og stimulerer kollagenproduktionen for at modvirke rynker.</p>
+        <p><strong>Vægttab:</strong> Øger kalorieforbrændingen ved at hæve kroppens kernetemperatur, hvilket kan bidrage til vægttab over tid.</p>
+        <p><strong>Støtte til muskelrestitution:</strong> Hjælper med at lindre ømme muskler efter træning og fremmer hurtigere restitution.</p>
+        <p><strong>Fremmer bedre søvn:</strong> Den beroligende varme kan hjælpe med at forbedre søvnkvaliteten, især hvis tæppet bruges inden sengetid.</p>
+        <p><strong>Øget stofskifte:</strong> Kan stimulere stofskiftet og hjælpe kroppen med at forbrænde kalorier mere effektivt.</p>
+      </div>
     {%- elsif is_dampsauna -%}
       <div class="mt-pdp-tab rte">
         <p>Dampsaunaer har en række sundhedsmæssige fordele, som mange bruger for både fysisk og mental velvære. Her er nogle af de mest almindelige fordele:</p>
@@ -53,6 +110,19 @@
     {%- assign mf = product.metafields.custom.tekniske_specifikationer.value | default: product.metafields.custom.tekniske_specifikationer -%}
     {%- if mf != blank -%}
       <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- elsif is_saunataeppe -%}
+      <div class="mt-pdp-tab rte">
+        <ul>
+          <li>Størrelse: 80 cm x 190 cm</li>
+          <li>Tidsindstilling: 20–60 minutter</li>
+          <li>Temperatur 30–80 grader</li>
+          <li>Vægt: 6,5 kg</li>
+          <li>Strømstyrke: 550W</li>
+          <li>Spænding: 220V</li>
+          <li>ROHS og CE certificeret</li>
+          <li>Strømforbrug: Alt efter din el aftale koster det mellem kr. 1,10 og 1,93 i timen at bruge tæppet.</li>
+        </ul>
+      </div>
     {%- elsif is_dampsauna -%}
       <div class="mt-pdp-tab rte">
         <ul>
@@ -71,6 +141,16 @@
     {%- assign mf = product.metafields.custom.hvad_er_inkluderet.value | default: product.metafields.custom.hvad_er_inkluderet -%}
     {%- if mf != blank -%}
       <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- elsif is_saunataeppe -%}
+      <div class="mt-pdp-tab rte">
+        <ul>
+          <li>Saunatæppe</li>
+          <li>Fiber håndklæde til at ligge på</li>
+          <li>Controller til at regulere varme og tid</li>
+          <li>Dansk manual</li>
+          <li>Elegant og robust stofpose, der gør det nemt at folde sammen og praktisk at opbevare eller transportere.</li>
+        </ul>
+      </div>
     {%- elsif is_dampsauna -%}
       <div class="mt-pdp-tab rte">
         <ul>
@@ -86,6 +166,12 @@
     {%- assign mf = product.metafields.custom.tilfredshedsgaranti.value | default: product.metafields.custom.tilfredshedsgaranti -%}
     {%- if mf != blank -%}
       <div class="mt-pdp-tab rte">{{ mf }}</div>
+    {%- elsif is_saunataeppe -%}
+      <div class="mt-pdp-tab rte">
+        <p>Vi tror så meget på kvaliteten og effekten af vores infrarøde saunatæppe, at vi tilbyder dig en eksklusiv 30-dages prøveperiode! Tag tæppet i brug derhjemme og mærk selv de mange fordele. Hvis du mod forventning ikke er tilfreds, kan du nemt returnere det og få dine penge tilbage.</p>
+        <p>Dette tilbud er vores måde at vise, hvor meget vi tror på, at dette produkt vil gøre en positiv forskel for dig!</p>
+        <p><a href="/pages/handelsbetingelser">Læs mere om fortrydelsesret i vores handelsbetingelser</a></p>
+      </div>
     {%- else -%}
       <div class="mt-pdp-tab rte">
         <p>Vi tror så meget på kvaliteten og effekten af vores produkter, at vi tilbyder dig en eksklusiv 30-dages prøveperiode! Tag produktet i brug derhjemme og mærk selv de mange fordele. Hvis du mod forventning ikke er tilfreds, kan du nemt returnere det og få dine penge tilbage.</p>

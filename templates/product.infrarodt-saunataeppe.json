@@ -578,35 +578,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "pdp_tab_beskrivelse": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Antal zoner",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_beskrivelse": {
-                      "type": "custom-liquid",
-                      "name": "Beskrivelse",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'beskrivelse' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_beskrivelse"
-                  ]
-                },
                 "accordion_row_6UR3dG": {
                   "type": "_accordion-row",
                   "settings": {
@@ -751,11 +722,40 @@
                   "block_order": [
                     "liquid_pdp_tab_garanti"
                   ]
+                },
+                "pdp_tab_zoner": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Antal zoner",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_zoner": {
+                      "type": "custom-liquid",
+                      "name": "Antal zoner",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'zoner' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_zoner"
+                  ]
                 }
               },
               "block_order": [
-                "pdp_tab_beskrivelse",
                 "accordion_row_6UR3dG",
+                "pdp_tab_zoner",
                 "pdp_tab_fordele",
                 "pdp_tab_specs",
                 "pdp_tab_inkluderet",
