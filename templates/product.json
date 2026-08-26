@@ -799,57 +799,97 @@
     "whats_included_Kp7mR2": {
       "type": "whats-included",
       "blocks": {
+        "collection_link_1": {
+          "type": "collection_link",
+          "settings": {
+            "title": "Isbad",
+            "link": "shopify://collections/isbad"
+          }
+        },
+        "collection_link_2": {
+          "type": "collection_link",
+          "settings": {
+            "title": "Dampsauna",
+            "link": "shopify://collections/dampsauna"
+          }
+        },
+        "collection_link_3": {
+          "type": "collection_link",
+          "settings": {
+            "title": "Isbad + Dampsauna",
+            "link": "shopify://collections/isbad-dampsauna"
+          }
+        },
+        "collection_link_4": {
+          "type": "collection_link",
+          "settings": {
+            "title": "Saunatæppe",
+            "link": "shopify://collections/saunataeppe"
+          }
+        },
+        "collection_link_5": {
+          "type": "collection_link",
+          "settings": {
+            "title": "Infrarødt lys",
+            "link": "shopify://collections/infrarodt-lys"
+          }
+        },
         "included_item_A7HArJ": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/unnamed-1_f6ad1c7f-44d1-4e12-a817-f98e746143c6.jpg",
-            "title": "Håndpumpe"
+            "title": "Saunatæppe"
           }
         },
         "included_item_LPHdrX": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/DSC09835_cc1a13ad-36bf-4154-934b-9b6223c5a129.jpg",
-            "title": "Håndpumpe"
+            "title": "Fiber håndklæde"
           }
         },
         "included_item_nTt7mR": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/DSC09233_4a6165c7-c8ac-42a4-8e56-e04bd18139c9.jpg",
-            "title": "Håndpumpe"
+            "title": "Controller"
           }
         },
         "included_item_FrrDw4": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/1080x1080-Pakketilbud_Web_1-scaled_394ac44a-5491-4ca7-854d-7b05354cdffb.jpg",
-            "title": "Håndpumpe"
+            "title": "Dansk manual"
           }
         },
         "included_item_BF6Bh9": {
           "type": "included_item",
           "settings": {
             "image": "shopify://shop_images/IMG_6335-1-copy.png",
-            "title": "Håndpumpe"
+            "title": "Stofpose"
           }
         },
         "details_list_VRABT3": {
           "type": "details_list",
           "settings": {
-            "block_heading": "Funktioner",
-            "block_content": "<ul><li>Cylinderformet</li><li>330 liter kapacitet</li><li>Sort farve</li><li>Oppusteligt design</li></ul>"
+            "block_heading": "Specifikationer",
+            "block_content": "<ul><li>Størrelse: 80 × 190 cm</li><li>Tid: 20–60 minutter</li><li>Temperatur: 30–80°</li><li>Vægt: 6,5 kg</li><li>Strøm: 550W / 220V</li><li>ROHS &amp; CE certificeret</li></ul>"
           }
         },
         "details_list_gECcwU": {
           "type": "details_list",
           "settings": {
             "block_heading": "Funktioner",
-            "block_content": "<ul><li>Cylinderformet</li><li>330 liter kapacitet</li><li>Sort farve</li><li>Oppusteligt design</li></ul>"
+            "block_content": "<ul><li>1-zone infrarød varme</li><li>Lynlåslukning</li><li>5-lags konstruktion</li><li>Silikone varmetråd</li><li>Kompakt opbevaring</li><li>30 dages tilfredsgaranti</li></ul>"
           }
         }
       },
       "block_order": [
+        "collection_link_1",
+        "collection_link_2",
+        "collection_link_3",
+        "collection_link_4",
+        "collection_link_5",
         "included_item_A7HArJ",
         "included_item_LPHdrX",
         "included_item_nTt7mR",
@@ -2811,12 +2851,422 @@
         "padding-inline-end-mobile": 16,
         "custom_columns": ""
       }
+    },
+    "iwt_how_it_works": {
+      "type": "custom-section",
+      "name": "Image with text",
+      "settings": {
+        "container": "page-width--full",
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "stretch",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "column_gap": 0,
+        "row_gap": 0,
+        "column_gap_mobile": 0,
+        "row_gap_mobile": 0,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "desktop",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0,
+        "padding-inline-start-mobile": 0,
+        "padding-inline-end-mobile": 0
+      },
+      "blocks": {
+        "txt_wrap_how": {
+          "type": "group",
+          "name": "t:names.section_header_vertical",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "column_gap": 0,
+            "row_gap": 0,
+            "enable_sticky_desktop": false,
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-1",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "column_gap_mobile": 0,
+            "row_gap_mobile": 0,
+            "device": "mobile",
+            "padding-block-start": 48,
+            "padding-block-end": 48,
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start-mobile": 32,
+            "padding-block-end-mobile": 32,
+            "padding-inline-start-mobile": 24,
+            "padding-inline-end-mobile": 24
+          },
+          "blocks": {
+            "heading_how": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "animation_type": "fade-up",
+                "text": "<p>Hvordan virker det?</p>",
+                "type_preset": "h2",
+                "padding-block-start": 0,
+                "padding-block-end": 24,
+                "mobile-padding-scale": 100,
+                "animation_delay": 100
+              },
+              "blocks": {}
+            },
+            "body_how": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "animation_type": "fade-up",
+                "text": "<p>En afslappende session på 30–60 minutter i saunatæppet har en gavnlig virkning på flere niveauer. Ud over at fremme dyb afslapning, stimulerer det også øget forbrænding, styrker immunforsvaret og udløser glædeshormoner.</p><p>Den intense opvarmning af kroppen under sessionen bidrager til at rense kroppen for giftstoffer og efterlader huden strålende og sund med en langvarig glød.</p>",
+                "type_preset": "rte",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 75,
+                "animation_delay": 150
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_how",
+            "body_how"
+          ]
+        },
+        "img_wrap_how": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "column_gap": 0,
+            "row_gap": 0,
+            "enable_sticky_desktop": false,
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "column_gap_mobile": 0,
+            "row_gap_mobile": 0,
+            "device": "mobile",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {
+            "image_how": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/DSC09642_7d443152-9d4d-4cb6-8834-d3a5b8ca4e78.jpg",
+                "image_ratio": "4/3",
+                "image_ratio_mobile": "4/3",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_how"
+          ]
+        }
+      },
+      "block_order": [
+        "txt_wrap_how",
+        "img_wrap_how"
+      ]
+    },
+    "iwt_health_benefits": {
+      "type": "custom-section",
+      "name": "Image with text",
+      "settings": {
+        "container": "page-width--full",
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "stretch",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "column_gap": 0,
+        "row_gap": 0,
+        "column_gap_mobile": 0,
+        "row_gap_mobile": 0,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "desktop",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0,
+        "padding-inline-start-mobile": 0,
+        "padding-inline-end-mobile": 0
+      },
+      "blocks": {
+        "img_wrap_health": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "column_gap": 0,
+            "row_gap": 0,
+            "enable_sticky_desktop": false,
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "column_gap_mobile": 0,
+            "row_gap_mobile": 0,
+            "device": "mobile",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {
+            "image_health": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/martilness1.jpg",
+                "image_ratio": "4/3",
+                "image_ratio_mobile": "4/3",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_health"
+          ]
+        },
+        "txt_wrap_health": {
+          "type": "group",
+          "name": "t:names.section_header_vertical",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "column_gap": 0,
+            "row_gap": 0,
+            "enable_sticky_desktop": false,
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-inverse",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "column_gap_mobile": 0,
+            "row_gap_mobile": 0,
+            "device": "mobile",
+            "padding-block-start": 48,
+            "padding-block-end": 48,
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start-mobile": 32,
+            "padding-block-end-mobile": 32,
+            "padding-inline-start-mobile": 24,
+            "padding-inline-end-mobile": 24
+          },
+          "blocks": {
+            "heading_health": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "animation_type": "fade-up",
+                "text": "<p>Sundhedsmæssige fordele ved at bruge saunatæppet</p>",
+                "type_preset": "h2",
+                "padding-block-start": 0,
+                "padding-block-end": 24,
+                "mobile-padding-scale": 100,
+                "animation_delay": 100
+              },
+              "blocks": {}
+            },
+            "body_health": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "animation_type": "fade-up",
+                "text": "<p>Infrarøde saunatæpper er et direkte alternativ til traditionelle infrarøde saunaer og kan nydes i komforten af dit eget hjem. Ved at bruge infrarøde stråler (FAR) tilbyder disse tæpper en specifik bølgelængde af lys, der trænger dybt ind i huden og varmer kroppen op indefra.</p><p>Mange kunder rapporterer forbedret blodcirkulation, lindring af smerter, afgiftning, bedre søvn og reduceret stress.</p>",
+                "type_preset": "rte",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "mobile-padding-scale": 75,
+                "animation_delay": 150
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_health",
+            "body_health"
+          ]
+        }
+      },
+      "block_order": [
+        "img_wrap_health",
+        "txt_wrap_health"
+      ]
     }
   },
   "order": [
     "breadcrumbs_zq9zwK",
     "main",
     "whats_included_Kp7mR2",
+    "iwt_how_it_works",
+    "iwt_health_benefits",
     "trustpilot_reviews_pdp",
     "progress_timeline_60d",
     "faq_banner_pdp_Mtq1",

@@ -1,10 +1,32 @@
 <div id="section-{{ section.id }}" class="combined-cards-section" style="background-color: {{ section.settings.page_bg_color }};">
+  {%- liquid
+    assign collection_links = section.blocks | where: 'type', 'collection_link'
+  -%}
+  {% if collection_links.size > 0 %}
+    <nav class="wi-collections page-width" aria-label="Collections">
+      <ul class="wi-collections__list" role="list">
+        {% for block in collection_links %}
+          {% if block.settings.title != blank %}
+            <li class="wi-collections__item" {{ block.shopify_attributes }}>
+              <a
+                class="wi-collections__link"
+                href="{{ block.settings.link | default: '#' }}"
+              >
+                {{ block.settings.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+
   <div class="combined-cards-container">
     
     <!-- ==========================================
-         LEFT CARD: BLACK (Product Details)
+         LEFT CARD: BLACK (Product Details) — sticky
     =========================================== -->
-    <div class="pd-card" id="pd-card-{{ section.id }}">
+    <div class="pd-card sticky-element" id="pd-card-{{ section.id }}">
       <div class="pd-header">
         <div class="pd-title-group">
           <!-- Icon -->
@@ -81,8 +103,45 @@
   #section-{{ section.id }}.combined-cards-section {
     padding: 80px 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
     font-family: var(--font-body--family, inherit);
+  }
+
+  #section-{{ section.id }} .wi-collections {
+    width: 100%;
+    max-width: 1400px;
+  }
+
+  #section-{{ section.id }} .wi-collections__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.2rem;
+  }
+
+  #section-{{ section.id }} .wi-collections__link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 1.6rem;
+    border-radius: 9999px;
+    border: 1.5px solid rgb(var(--color-foreground) / 0.18);
+    background: #fff;
+    color: rgb(var(--color-foreground));
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  #section-{{ section.id }} .wi-collections__link:hover {
+    border-color: rgb(var(--color-foreground) / 0.45);
+    background: rgb(var(--color-foreground) / 0.04);
   }
 
   #section-{{ section.id }} .combined-cards-container {
@@ -90,9 +149,17 @@
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
-    align-items: stretch; /* Makes both cards equal height if needed */
+    align-items: flex-start;
     max-width: 1400px;
     width: 100%;
+  }
+
+  @media screen and (min-width: 990px) {
+    #section-{{ section.id }} .pd-card.sticky-element {
+      position: sticky;
+      top: calc(var(--header-height, 0px) + 2.4rem);
+      align-self: flex-start;
+    }
   }
 
   /* ==========================================
@@ -352,6 +419,23 @@
     }
   ],
   "blocks": [
+    {
+      "type": "collection_link",
+      "name": "Collection link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Collection name",
+          "default": "Isbad"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Collection link"
+        }
+      ]
+    },
     {
       "type": "details_list",
       "name": "Details List (Black Card)",
