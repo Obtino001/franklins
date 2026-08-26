@@ -741,7 +741,7 @@
       "settings": {
         "menu": "",
         "enable_follow_on_shop": true,
-        "enable_social_media_icons": true,
+        "enable_social_media_icons": false,
         "enable_language_selector": true,
         "enable_country_selector": true,
         "enable_payment_icons": false,
