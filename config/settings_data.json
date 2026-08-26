@@ -15,7 +15,7 @@
     "logo_width_mobile": 170,
     "logo_menu_drawer": "shopify://shop_images/Logo.png",
     "logo_width_menu_drawer": 160,
-    "favicon": "shopify://shop_images/Untitled_design_-_2026-07-30T212208.559.png",
+    "favicon": "shopify://shop_images/favicon-300x300.png",
     "page_width": 1500,
     "enable_back_to_top_button": true,
     "enable_rtl": false,
