@@ -24,7 +24,7 @@
     mode: 'js',
     image: image,
     image_mobile: image_mobile,
-    default_alt: shop.name,
+    default_alt: heading | default: shop.name,
   %}
 {%- endcapture -%}
 
@@ -112,9 +112,18 @@
       border_radius: 20
     %}
   {%- when '3' -%}
+    {%- capture image_html -%}
+      {% render 'responsive-image',
+        mode: 'js',
+        image: image,
+        image_mobile: image_mobile,
+        image_ratio: '3/4',
+        default_alt: heading | default: shop.name,
+      %}
+    {%- endcapture -%}
     {%- capture button_html -%}
       {% render 'button',
-        label: button_label,
+        label: button_label | default: heading,
         link: button_link,
         style: button_style,
         size: button_size,
