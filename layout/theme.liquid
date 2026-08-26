@@ -34,6 +34,8 @@
 
     {% # Load css for template %}
     {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'custom.css' | asset_url | stylesheet_tag: preload: true }}
+
 
     {% render 'styles' %}
     {% render 'meta-tags' %}
