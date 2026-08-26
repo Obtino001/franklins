@@ -1871,6 +1871,33 @@
         "padding-block-end-mobile": 48
       }
     },
+    "martilness_split_faq_UcENen": {
+      "type": "martilness-split-faq",
+      "blocks": {
+        "faq_UiAnjc": {
+          "type": "faq",
+          "repeater": "{{ product.metafields.custom.faqs.value }}",
+          "settings": {
+            "question": "{{ block.repeater.question.value }}",
+            "answer": "{{ block.repeater.answer | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "faq_UiAnjc"
+      ],
+      "name": "Image with FAQs",
+      "settings": {
+        "image": "shopify://shop_images/DSC09476.jpg",
+        "image_position": "left",
+        "title": "Spørgsmål & svar",
+        "button_text": "Se alle spørgsmål og svar",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "faq_banner_pdp_Mtq1": {
       "type": "custom-section",
       "blocks": {
@@ -3299,6 +3326,7 @@
     "iwt_health_benefits",
     "trustpilot_reviews_pdp",
     "progress_timeline_60d",
+    "martilness_split_faq_UcENen",
     "faq_banner_pdp_Mtq1",
     "17843818126653bf72",
     "product_recently_viewed_BYKjx8"
