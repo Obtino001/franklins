@@ -186,23 +186,27 @@
   .mt-pdp-tab p { margin: 0 0 1.2rem; }
   .mt-pdp-tab p:last-child { margin-bottom: 0; }
   .mt-pdp-tab ul,
+  .mt-pdp-tab .mt-pdp-tab__list,
   .mt-pdp-tab .metafield-rich_text_field ul {
+    display: block;
     margin: 0;
-    padding-left: 1.4rem;
+    padding-left: 1.6rem;
     list-style: disc;
     list-style-position: outside;
   }
   .mt-pdp-tab li {
+    display: list-item;
     margin: 0.55rem 0;
   }
   .mt-pdp-tab .metafield-rich_text_field { margin: 0; }
   .mt-pdp-tab .metafield-rich_text_field > *:last-child { margin-bottom: 0; }
 
-  /* LED color swatches (WP match) */
-  .mt-pdp-tab--swatches .metafield-rich_text_field ul {
+  .mt-pdp-tab--swatches .metafield-rich_text_field ul,
+  .mt-pdp-tab--swatches .mt-pdp-tab__list {
     list-style: none;
     padding-left: 0;
   }
+  .mt-pdp-tab__swatch-row,
   .mt-pdp-tab--swatches .metafield-rich_text_field li,
   .mt-pdp-tab--swatches .metafield-rich_text_field p {
     display: flex;

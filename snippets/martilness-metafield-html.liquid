@@ -1,50 +1,74 @@
 {%- doc -%}
   Renders a product metafield as HTML.
-  Rich text metafields must use metafield_tag (raw .value dumps JSON).
-  Optionally injects color swatches for LED light therapy color names (WP match).
+  Always prefer metafield_tag for rich text — printing .value flattens lists into one paragraph.
 
   @param {object} metafield - product.metafields.namespace.key
-  @param {boolean} [color_swatches] - inject colored dots before color names
+  @param {boolean} [color_swatches] - inject colored dots for LED therapy colors
 {%- enddoc -%}
-{%- if metafield != blank and metafield.value != blank -%}
-  {%- capture mf_html -%}
-    {%- if metafield.type == 'rich_text_field' -%}
-      {{ metafield | metafield_tag }}
-    {%- else -%}
-      {{ metafield.value }}
-    {%- endif -%}
-  {%- endcapture -%}
+{%- if metafield != blank -%}
+  <div
+    class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}"
+    {% if color_swatches %}data-mt-color-swatches{% endif %}
+  >
+    {%- case metafield.type -%}
+      {%- when 'multi_line_text_field' -%}
+        {%- assign mf_lines = metafield.value | strip | newline_to_br | split: '<br />' -%}
+        {%- if mf_lines.size > 1 -%}
+          <ul class="mt-pdp-tab__list">
+            {%- for line in mf_lines -%}
+              {%- assign line_text = line | strip_html | strip -%}
+              {%- if line_text != blank -%}
+                <li>{{ line_text }}</li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
+          <div class="mt-pdp-tab__text">{{ metafield.value | newline_to_br }}</div>
+        {%- endif -%}
+      {%- when 'single_line_text_field' -%}
+        <p>{{ metafield.value }}</p>
+      {%- else -%}
+        {{ metafield | metafield_tag }}
+      {%- endcase -%}
+  </div>
 
   {%- if color_swatches -%}
-    {%- assign mf_html = mf_html
-      | replace: '<strong>Rød', '<span class="mt-color-dot mt-color-dot--rod" aria-hidden="true"></span><strong>Rød'
-      | replace: '<strong>Blå', '<span class="mt-color-dot mt-color-dot--bla" aria-hidden="true"></span><strong>Blå'
-      | replace: '<strong>Grøn', '<span class="mt-color-dot mt-color-dot--gron" aria-hidden="true"></span><strong>Grøn'
-      | replace: '<strong>Gul', '<span class="mt-color-dot mt-color-dot--gul" aria-hidden="true"></span><strong>Gul'
-      | replace: '<strong>Lilla', '<span class="mt-color-dot mt-color-dot--lilla" aria-hidden="true"></span><strong>Lilla'
-      | replace: '<strong>Orange', '<span class="mt-color-dot mt-color-dot--orange" aria-hidden="true"></span><strong>Orange'
-      | replace: '<strong>Cyan', '<span class="mt-color-dot mt-color-dot--cyan" aria-hidden="true"></span><strong>Cyan'
-      | replace: '<strong>Nærinfrarød', '<span class="mt-color-dot mt-color-dot--nir" aria-hidden="true"></span><strong>Nærinfrarød'
-      | replace: '<li>Rød', '<li><span class="mt-color-dot mt-color-dot--rod" aria-hidden="true"></span>Rød'
-      | replace: '<li>Blå', '<li><span class="mt-color-dot mt-color-dot--bla" aria-hidden="true"></span>Blå'
-      | replace: '<li>Grøn', '<li><span class="mt-color-dot mt-color-dot--gron" aria-hidden="true"></span>Grøn'
-      | replace: '<li>Gul', '<li><span class="mt-color-dot mt-color-dot--gul" aria-hidden="true"></span>Gul'
-      | replace: '<li>Lilla', '<li><span class="mt-color-dot mt-color-dot--lilla" aria-hidden="true"></span>Lilla'
-      | replace: '<li>Orange', '<li><span class="mt-color-dot mt-color-dot--orange" aria-hidden="true"></span>Orange'
-      | replace: '<li>Cyan', '<li><span class="mt-color-dot mt-color-dot--cyan" aria-hidden="true"></span>Cyan'
-      | replace: '<li>Nærinfrarød', '<li><span class="mt-color-dot mt-color-dot--nir" aria-hidden="true"></span>Nærinfrarød'
-      | replace: '<p>Rød', '<p><span class="mt-color-dot mt-color-dot--rod" aria-hidden="true"></span>Rød'
-      | replace: '<p>Blå', '<p><span class="mt-color-dot mt-color-dot--bla" aria-hidden="true"></span>Blå'
-      | replace: '<p>Grøn', '<p><span class="mt-color-dot mt-color-dot--gron" aria-hidden="true"></span>Grøn'
-      | replace: '<p>Gul', '<p><span class="mt-color-dot mt-color-dot--gul" aria-hidden="true"></span>Gul'
-      | replace: '<p>Lilla', '<p><span class="mt-color-dot mt-color-dot--lilla" aria-hidden="true"></span>Lilla'
-      | replace: '<p>Orange', '<p><span class="mt-color-dot mt-color-dot--orange" aria-hidden="true"></span>Orange'
-      | replace: '<p>Cyan', '<p><span class="mt-color-dot mt-color-dot--cyan" aria-hidden="true"></span>Cyan'
-      | replace: '<p>Nærinfrarød', '<p><span class="mt-color-dot mt-color-dot--nir" aria-hidden="true"></span>Nærinfrarød'
-    -%}
-  {%- endif -%}
+    <script>
+      (() => {
+        const root = document.currentScript && document.currentScript.previousElementSibling;
+        if (!root || !root.hasAttribute('data-mt-color-swatches')) return;
+        if (root.dataset.mtSwatchesBound === 'true') return;
+        root.dataset.mtSwatchesBound = 'true';
 
-  <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}">
-    {{ mf_html }}
-  </div>
+        const map = [
+          ['rød', 'rod'],
+          ['blå', 'bla'],
+          ['grøn', 'gron'],
+          ['gul', 'gul'],
+          ['lilla', 'lilla'],
+          ['orange', 'orange'],
+          ['cyan', 'cyan'],
+          ['nærinfrarød', 'nir'],
+          ['narinfrarod', 'nir']
+        ];
+
+        root.querySelectorAll('li, p').forEach((el) => {
+          if (el.querySelector('.mt-color-dot')) return;
+          const text = (el.textContent || '').trim().toLowerCase();
+          if (!text || text.startsWith('hvad hjælper')) return;
+
+          for (const [name, cls] of map) {
+            if (text.startsWith(name)) {
+              const dot = document.createElement('span');
+              dot.className = 'mt-color-dot mt-color-dot--' + cls;
+              dot.setAttribute('aria-hidden', 'true');
+              el.insertBefore(dot, el.firstChild);
+              el.classList.add('mt-pdp-tab__swatch-row');
+              break;
+            }
+          }
+        });
+      })();
+    </script>
+  {%- endif -%}
 {%- endif -%}
