@@ -956,7 +956,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<p>Hvordan virker det?</p>",
+                "text": "<p>{{ closest.product.metafields.custom.image_with_text.value.heading.value }}</p>",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
@@ -988,7 +988,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>En afslappende session på 30–60 minutter i saunatæppet har en gavnlig virkning på flere niveauer. Ud over at fremme dyb afslapning, stimulerer det også øget forbrænding, styrker immunforsvaret og udløser glædeshormoner.</p><p>Den intense opvarmning af kroppen under sessionen bidrager til at rense kroppen for giftstoffer og efterlader huden strålende og sund med en langvarig glød.</p>",
+                "text": "{{ closest.product.metafields.custom.image_with_text.value.rich_text | metafield_tag }}",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
@@ -1065,7 +1065,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/DSC09642_7d443152-9d4d-4cb6-8834-d3a5b8ca4e78.jpg",
+                "image": "{{ closest.product.metafields.custom.image_with_text.value.image.value }}",
                 "link": "",
                 "image_ratio": "4/3",
                 "image_ratio_mobile": "4/3",
@@ -1171,7 +1171,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/martilness1.jpg",
+                "image": "{{ closest.product.metafields.custom.image_with_text.value.image_1.value }}",
                 "link": "",
                 "image_ratio": "4/3",
                 "image_ratio_mobile": "4/3",
@@ -1240,7 +1240,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<p>Sundhedsmæssige fordele ved at bruge saunatæppet</p>",
+                "text": "<p>{{ closest.product.metafields.custom.image_with_text.value.heading_1.value }}</p>",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
@@ -1272,7 +1272,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>Infrarøde saunatæpper er et direkte alternativ til traditionelle infrarøde saunaer og kan nydes i komforten af dit eget hjem. Ved at bruge infrarøde stråler (FAR) tilbyder disse tæpper en specifik bølgelængde af lys, der trænger dybt ind i huden og varmer kroppen op indefra.</p><p>Mange kunder rapporterer forbedret blodcirkulation, lindring af smerter, afgiftning, bedre søvn og reduceret stress.</p>",
+                "text": "{{ closest.product.metafields.custom.image_with_text.value.rich_text_1 | metafield_tag }}",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
