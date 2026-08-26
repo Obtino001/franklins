@@ -65,10 +65,19 @@
             <img
               class="footer__bar-shipping"
               src="{{ section.settings.shipping_image | image_url: width: 160 }}"
-              alt="{{ section.settings.shipping_label | default: 'Fragt' }}"
+              alt="{{ section.settings.shipping_label | default: 'Fragtpartner' }} — GLS"
               loading="lazy"
               width="{{ section.settings.shipping_image.width }}"
               height="{{ section.settings.shipping_image.height }}"
+            >
+          {%- else -%}
+            <img
+              class="footer__bar-shipping"
+              src="{{ 'gls-logo.svg' | asset_url }}"
+              alt="GLS"
+              loading="lazy"
+              width="140"
+              height="49"
             >
           {%- endif -%}
         </div>
@@ -170,7 +179,9 @@
   height: 2.4rem;
 }
 .footer__bar-shipping {
-  width: 7rem;
+  display: block;
+  width: 9rem;
+  max-width: 100%;
   height: auto;
 }
 .footer__bar-stars {
