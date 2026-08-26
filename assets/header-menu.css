@@ -122,19 +122,28 @@
 .mega-menu__promotions .image-card--content-outside .image-card__media,
 .menu-drawer__mega .image-card--content-outside .image-card__media {
   width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 1.6rem;
 }
 .mega-menu__promotions .image-card--content-outside .image-card__media [style*="--ratio"],
 .menu-drawer__mega .image-card--content-outside .image-card__media [style*="--ratio"] {
   --ratio: 0.75;
   --ratio-mobile: 0.75;
+  height: 100%;
+}
+.mega-menu__promotions .image-card--content-outside .image-card__media [style*="--ratio"]::before,
+.menu-drawer__mega .image-card--content-outside .image-card__media [style*="--ratio"]::before {
+  padding-block-start: 133.333% !important;
 }
 .mega-menu__promotions .image-card--content-outside .image-card__media img,
 .mega-menu__promotions .image-card--content-outside .image-card__media .media__image,
 .menu-drawer__mega .image-card--content-outside .image-card__media img,
 .menu-drawer__mega .image-card--content-outside .image-card__media .media__image {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  object-fit: cover !important;
+  object-position: center;
+  width: 100% !important;
+  height: 100% !important;
 }
 .mega-menu__promotions .image-card--content-outside .image-card__content,
 .menu-drawer__mega .image-card--content-outside .image-card__content {
