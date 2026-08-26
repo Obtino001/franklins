@@ -581,7 +581,7 @@
                 "pdp_tab_beskrivelse": {
                   "type": "_accordion-row",
                   "settings": {
-                    "text": "Beskrivelse",
+                    "text": "Antal zoner",
                     "open_row_by_default": false,
                     "icon": "none",
                     "icon_size": "extra-large",
@@ -605,6 +605,35 @@
                   },
                   "block_order": [
                     "liquid_pdp_tab_beskrivelse"
+                  ]
+                },
+                "accordion_row_6UR3dG": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Beskrivelse",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "custom_liquid_FDzTMf": {
+                      "type": "custom-liquid",
+                      "name": "Beskrivelse",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'beskrivelse' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "custom_liquid_FDzTMf"
                   ]
                 },
                 "pdp_tab_fordele": {
@@ -726,6 +755,7 @@
               },
               "block_order": [
                 "pdp_tab_beskrivelse",
+                "accordion_row_6UR3dG",
                 "pdp_tab_fordele",
                 "pdp_tab_specs",
                 "pdp_tab_inkluderet",
