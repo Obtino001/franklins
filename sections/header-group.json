@@ -323,8 +323,8 @@
         "banner_n3AnaN"
       ],
       "settings": {
-        "menu": "main-menu-new",
-        "menu_mobile": "main-menu-new",
+        "menu": "main-menu",
+        "menu_mobile": "main-menu",
         "header_layout": "logo-left",
         "menu_trigger": "hover",
         "sticky_header": "on-scroll-up",
