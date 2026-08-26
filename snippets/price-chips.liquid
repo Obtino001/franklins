@@ -79,7 +79,7 @@
       ref="saveChip"
       {% if save_percent <= 0 %}hidden{% endif %}
     >
-      {%- if save_percent > 0 -%}Du sparer: {{ save_amount | money }} ({{ save_percent }}%){%- endif -%}
+      {%- if save_percent > 0 -%}Du sparer: {{ save_amount | money_without_trailing_zeros }} ({{ save_percent }}%){%- endif -%}
     </span>
   {%- endif -%}
 </price-chips>

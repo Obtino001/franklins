@@ -36,17 +36,17 @@
   assign price_min = product_resource.price_min
   assign price_max = product_resource.price_max
   assign available = target.available | default: false
-  assign money_price = price | money
-  assign money_compare_at_price = compare_at_price | money
-  assign money_price_min = price_min | money
-  assign money_price_max = price_max | money
+  assign money_price = price | money_without_trailing_zeros
+  assign money_compare_at_price = compare_at_price | money_without_trailing_zeros
+  assign money_price_min = price_min | money_without_trailing_zeros
+  assign money_price_max = price_max | money_without_trailing_zeros
 
   # Format price with or without currency code based on settings
   if settings.show_currency_code
-    assign money_price = price | money_with_currency
-    assign money_price_min = price_min | money_with_currency
-    assign money_price_max = price_max | money_with_currency
-    assign money_compare_at_price = compare_at_price | money_with_currency
+    assign money_price = price | money_with_currency | replace: ',00', '' | replace: '.00', ''
+    assign money_price_min = price_min | money_with_currency | replace: ',00', '' | replace: '.00', ''
+    assign money_price_max = price_max | money_with_currency | replace: ',00', '' | replace: '.00', ''
+    assign money_compare_at_price = compare_at_price | money_with_currency | replace: ',00', '' | replace: '.00', ''
   endif
 
   if target == product_resource and product_resource.price_varies
@@ -117,9 +117,9 @@
   {%- if selected_variant.unit_price and show_unit_price %}
     {%- liquid
       if settings.show_currency_code
-        assign unit_price = selected_variant.unit_price | money_with_currency
+        assign unit_price = selected_variant.unit_price | money_with_currency | replace: ',00', '' | replace: '.00', ''
       else
-        assign unit_price = selected_variant.unit_price | money
+        assign unit_price = selected_variant.unit_price | money_without_trailing_zeros
       endif
     -%}
     {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}

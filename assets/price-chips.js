@@ -107,8 +107,9 @@ class PriceChips extends HTMLElement {
         const formatted = (saveAmount / 100)
           .toFixed(2)
           .replace(".", ",")
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        saveChip.textContent = `Du sparer: ${formatted} kr. (${savePercent}%)`;
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+          .replace(/,00$/, "");
+        saveChip.textContent = `Du sparer: ${formatted} kr (${savePercent}%)`;
         saveChip.hidden = false;
       } else {
         saveChip.textContent = "";

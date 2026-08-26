@@ -264,12 +264,16 @@ export function formatMoney(value) {
  */
 export function formatCurrency(cents, format) {
   // Use Shopify's money formatting if available
+  let formatted;
   if (window.Shopify?.formatMoney) {
-    return window.Shopify.formatMoney(cents, format);
+    formatted = window.Shopify.formatMoney(cents, format);
+  } else {
+    // Fallback to our own implementation with current currency
+    formatted = formatShopifyMoney(cents, format);
   }
 
-  // Fallback to our own implementation with current currency
-  return formatShopifyMoney(cents, format);
+  // Drop trailing ,00 / .00 so whole-krone prices read cleaner (e.g. 9.999 kr)
+  return String(formatted).replace(/([.,])00(?=\D|$)/g, "");
 }
 
 /**
@@ -341,7 +345,7 @@ export function formatShopifyMoney(cents, format) {
       value = formatWithDelimiters(cents, 2);
   }
 
-  return formatString.replace(placeholderRegex, value);
+  return formatString.replace(placeholderRegex, value).replace(/([.,])00(?=\D|$)/g, "");
 }
 
 /**
