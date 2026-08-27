@@ -1390,6 +1390,7 @@
       ],
       "name": "Image with text",
       "settings": {
+        "require_metafield_key": "image_with_text",
         "container": "page-width",
         "content_direction": "row",
         "vertical_on_mobile": true,
@@ -1414,8 +1415,7 @@
         "padding-block-start-mobile": 0,
         "padding-block-end-mobile": 0,
         "padding-inline-start-mobile": 0,
-        "padding-inline-end-mobile": 0,
-        "require_metafield_key": "image_with_text"
+        "padding-inline-end-mobile": 0
       }
     },
     "iwt_health_benefits": {
@@ -1606,6 +1606,7 @@
       ],
       "name": "Image with text",
       "settings": {
+        "require_metafield_key": "image_with_text",
         "container": "page-width",
         "content_direction": "row",
         "vertical_on_mobile": true,
@@ -1621,17 +1622,16 @@
         "border": "none",
         "border_width": 1,
         "border_opacity": 100,
-        "border_radius": 0,
-        "device": "desktop",
+        "border_radius": 20,
+        "device": "mobile",
         "padding-block-start": 0,
-        "padding-block-end": 0,
+        "padding-block-end": 20,
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "padding-block-start-mobile": 0,
-        "padding-block-end-mobile": 0,
+        "padding-block-end-mobile": 20,
         "padding-inline-start-mobile": 0,
-        "padding-inline-end-mobile": 0,
-        "require_metafield_key": "image_with_text"
+        "padding-inline-end-mobile": 0
       }
     },
     "trustpilot_reviews_pdp": {
@@ -2302,14 +2302,15 @@
       ],
       "name": "Image with FAQs",
       "settings": {
+        "require_metafield_key": "faqs",
         "image_position": "left",
+        "image_radius": 20,
         "title": "Spørgsmål & svar",
         "button_text": "Se alle spørgsmål og svar",
         "button_link": "",
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 0,
-        "require_metafield_key": "faqs"
+        "padding_bottom": 0
       }
     }
   },
