@@ -1,5 +1,8 @@
 {%- doc -%}
-  Global LED color-name → circle swatches. Safe to render multiple times (runs once).
+  Global helpers:
+  1) Split flat Specifikationer blobs into bullet lists
+  2) Add LED color circles next to Rød/Blå/…
+  Safe to render multiple times (runs once).
 {%- enddoc -%}
 <style id="mt-color-dot-styles">
   .mt-pdp-tab__swatch-row {
@@ -42,11 +45,106 @@
       ['gul', 'gul']
     ];
 
+    const SPEC_LABELS = [
+      'Nærinfrarød (NIR)',
+      'Nærinfrarødt lys',
+      'Nærinfrarød',
+      'Antal LED-lamper',
+      'Certificeringer',
+      'Tidsindstilling',
+      'Strømforbrug',
+      'Strømstyrke',
+      'Temperatur',
+      'Materiale',
+      'Betjening',
+      'Spænding',
+      'Størrelse',
+      'LED-lys',
+      'Vægt',
+      'ROHS'
+    ].sort(function (a, b) { return b.length - a.length; });
+
+    const SPEC_RE = new RegExp(
+      '(?=(?:' +
+        SPEC_LABELS.map(function (l) {
+          return l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }).join('|') +
+        ')\\s*:)',
+      'gi'
+    );
+
+    function splitToList(container, text) {
+      var parts = text
+        .split(SPEC_RE)
+        .map(function (p) { return p.trim(); })
+        .filter(Boolean);
+
+      if (parts.length < 2) {
+        parts = text
+          .split(/(?=(?:[A-ZÆØÅ][a-zæøåA-ZÆØÅ0-9/().,\-]{1,40})\s*:)/)
+          .map(function (p) { return p.trim(); })
+          .filter(Boolean);
+      }
+
+      if (parts.length < 2) return false;
+
+      var ul = document.createElement('ul');
+      ul.className = 'mt-pdp-tab__list';
+      parts.forEach(function (part) {
+        var li = document.createElement('li');
+        li.textContent = part;
+        ul.appendChild(li);
+      });
+      container.innerHTML = '';
+      container.appendChild(ul);
+      return true;
+    }
+
+    function formatSpecBlobs(scope) {
+      var root = scope || document;
+      root.querySelectorAll('.mt-pd-block__list, [data-mt-pdp-metafield], .accordion__content .mt-pdp-tab').forEach(function (box) {
+        if (box.querySelectorAll('li').length >= 2) return;
+        var text = (box.innerText || '').replace(/\s+/g, ' ').trim();
+        if (!text || text.indexOf(':') === -1) return;
+        if (!/led-lamper|spænding|materiale|certificeringer|tidsindstilling/i.test(text)) return;
+        splitToList(box, text);
+      });
+    }
+
     function paint(scope) {
-      const root = scope || document;
+      var root = scope || document;
+
+      formatSpecBlobs(root);
+
+      root.querySelectorAll('[data-mt-pdp-metafield] p, .mt-pdp-tab p, .accordion__content p').forEach(function (p) {
+        if (p.querySelector('.mt-color-dot')) return;
+        var text = (p.textContent || '').toLowerCase();
+        var colorHits = (text.match(/\b(rød|blå|grøn|gul|lilla|orange|cyan|nærinfrarød)\s*:/g) || []).length;
+        if (colorHits < 2) return;
+        var html = p.innerHTML;
+        if (!/<br\s*\/?>/i.test(html) && !/\n/.test(p.textContent || '')) return;
+        var bits = html.split(/<br\s*\/?>/i).map(function (b) { return b.trim(); }).filter(Boolean);
+        if (bits.length < 2) return;
+        var ul = document.createElement('ul');
+        ul.className = 'mt-pdp-tab__list mt-pdp-tab__list--colors';
+        bits.forEach(function (bit) {
+          if (/hvad hjælper/i.test(bit)) {
+            var intro = document.createElement('p');
+            intro.innerHTML = '<strong>' + bit.replace(/<\/?strong>/gi, '') + '</strong>';
+            p.parentNode.insertBefore(intro, p);
+            return;
+          }
+          var li = document.createElement('li');
+          li.innerHTML = bit;
+          ul.appendChild(li);
+        });
+        p.parentNode.insertBefore(ul, p);
+        p.remove();
+      });
+
       root.querySelectorAll('li, p').forEach(function (el) {
         if (el.querySelector('.mt-color-dot')) return;
-        const text = (el.textContent || '').trim().toLowerCase();
+        var text = (el.textContent || '').trim().toLowerCase();
         if (!text || text.indexOf('hvad hjælper') === 0) return;
 
         for (var i = 0; i < COLOR_MAP.length; i++) {
@@ -87,8 +185,8 @@
     document.addEventListener('toggle', function (e) {
       if (e.target && e.target.tagName === 'DETAILS') run();
     }, true);
-    // Accordion open / late metafield scripts
-    setTimeout(run, 400);
-    setTimeout(run, 1200);
+    setTimeout(run, 200);
+    setTimeout(run, 800);
+    setTimeout(run, 1600);
   })();
 </script>

@@ -30,33 +30,35 @@
       </div>
 
       <div class="mt-pd-card__grid">
-        {%- capture is_led_flag -%}{% render 'martilness-is-led-maske', product: product_ref %}{%- endcapture -%}
-        {%- assign is_led_product = false -%}
-        {%- if is_led_flag contains '1' -%}
-          {%- assign is_led_product = true -%}
-        {%- endif -%}
         {% for block in section.blocks %}
           {% if block.type == 'details_list' %}
             {%- liquid
               assign mf_key = block.settings.metafield_key | strip
               assign mf_field = blank
+              assign mf_probe_txt = ''
               if mf_key != blank and product_ref != blank
                 assign mf_field = product_ref.metafields.custom[mf_key]
               endif
               assign has_metafield = false
               if mf_field != blank
-                if mf_field.value != blank
-                  assign has_metafield = true
-                elsif mf_field.type contains 'rich_text' or mf_field.type == 'multi_line_text_field'
+                capture mf_probe
+                  echo mf_field | metafield_tag
+                endcapture
+                assign mf_probe_txt = mf_probe | strip_html | strip
+                if mf_probe_txt != blank
                   assign has_metafield = true
                 endif
               endif
+
+              assign mf_probe_down = mf_probe_txt | downcase
               assign use_led_content = false
-              if is_led_product
-                if mf_key == 'sundhedsmaessige_fordele' or mf_key == 'fordele'
+              if mf_key == 'tekniske_specifikationer' or mf_key == 'specs'
+                if mf_probe_down contains 'led-lamper' or mf_probe_down contains 'biologiske led' or mf_probe_down contains 'nærinfrarødt lys'
                   assign use_led_content = true
                 endif
-                if mf_key == 'tekniske_specifikationer' or mf_key == 'specs'
+              endif
+              if mf_key == 'sundhedsmaessige_fordele' or mf_key == 'fordele'
+                if mf_probe_down contains 'hvad hjælper de enkelte farver' or mf_probe_down contains 'nærinfrarød (nir)'
                   assign use_led_content = true
                 endif
               endif

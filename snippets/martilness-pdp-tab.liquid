@@ -83,7 +83,9 @@
       {% render 'martilness-led-content', part: 'fordele' %}
     {%- else -%}
       {%- assign mf_field = product.metafields.custom.sundhedsmaessige_fordele -%}
-      {%- if mf_field != blank -%}
+      {%- capture mf_check -%}{{ mf_field | metafield_tag }}{%- endcapture -%}
+      {%- assign mf_txt = mf_check | strip_html | strip -%}
+      {%- if mf_txt != blank -%}
         {% render 'martilness-metafield-html', metafield: mf_field, color_swatches: true, format_list: true %}
       {%- elsif is_saunataeppe -%}
         <div class="mt-pdp-tab rte">
@@ -120,7 +122,9 @@
       {% render 'martilness-led-content', part: 'specs' %}
     {%- else -%}
       {%- assign mf_field = product.metafields.custom.tekniske_specifikationer -%}
-      {%- if mf_field != blank -%}
+      {%- capture mf_check -%}{{ mf_field | metafield_tag }}{%- endcapture -%}
+      {%- assign mf_txt = mf_check | strip_html | strip -%}
+      {%- if mf_txt != blank -%}
         {% render 'martilness-metafield-html', metafield: mf_field, format_list: true %}
       {%- elsif is_saunataeppe -%}
         <div class="mt-pdp-tab rte">

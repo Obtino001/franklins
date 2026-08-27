@@ -1,194 +1,93 @@
 {%- doc -%}
   Renders a product metafield as HTML.
-  Rich text must use metafield_tag. Flat/broken list text is normalized to <ul><li> in the browser.
-  LED color names (Rød, Blå, …) get colored circle swatches automatically.
+  Flat "Label: value" blobs are split into <ul><li> in Liquid (no JS).
+  LED color names get colored circle swatches via global swatch script + markup hints.
 
   @param {object} metafield - product.metafields.namespace.key
-  @param {boolean} [color_swatches] - force color dots (default: auto when color names detected)
-  @param {boolean} [format_list] - force flat "Label: value" text into a bullet list (default true)
+  @param {boolean} [color_swatches] - mark for color dots
+  @param {boolean} [format_list] - split flat label text into a list (default true)
 {%- enddoc -%}
 {%- liquid
   if format_list == nil
     assign format_list = true
   endif
+
+  capture mf_raw_html
+    case metafield.type
+      when 'multi_line_text_field'
+        echo metafield.value | newline_to_br
+      when 'single_line_text_field'
+        echo metafield.value
+      else
+        echo metafield | metafield_tag
+    endcase
+  endcapture
+
+  assign mf_plain = mf_raw_html | strip_html | replace: '&nbsp;', ' ' | strip
+  assign mf_plain_down = mf_plain | downcase
+
+  assign use_led_specs = false
+  assign use_led_fordele = false
+  if mf_plain_down contains 'antal led-lamper' or mf_plain_down contains '7 biologiske led'
+    assign use_led_specs = true
+  endif
+  if mf_plain_down contains 'hvad hjælper de enkelte farver' or mf_plain_down contains 'nærinfrarød (nir)'
+    if mf_plain_down contains 'rød:' or mf_plain_down contains 'blå:'
+      assign use_led_fordele = true
+    endif
+  endif
 -%}
 {%- if metafield != blank -%}
-  <div
-    class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}"
-    data-mt-pdp-metafield
-    {% if format_list %}data-mt-format-list{% endif %}
-    data-mt-color-swatches
-  >
-    {%- case metafield.type -%}
-      {%- when 'multi_line_text_field' -%}
-        {%- assign mf_lines = metafield.value | strip | newline_to_br | split: '<br />' -%}
-        {%- if mf_lines.size > 1 -%}
-          <ul class="mt-pdp-tab__list">
-            {%- for line in mf_lines -%}
-              {%- assign line_text = line | strip_html | strip -%}
-              {%- if line_text != blank -%}
-                <li>{{ line_text }}</li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        {%- else -%}
-          <div class="mt-pdp-tab__text">{{ metafield.value | newline_to_br }}</div>
-        {%- endif -%}
-      {%- when 'single_line_text_field' -%}
-        <p>{{ metafield.value }}</p>
+  {%- if use_led_specs and format_list -%}
+    {% render 'martilness-led-content', part: 'specs' %}
+  {%- elsif use_led_fordele -%}
+    {% render 'martilness-led-content', part: 'fordele' %}
+  {%- elsif metafield.type == 'multi_line_text_field' -%}
+    {%- assign mf_lines = metafield.value | strip | newline_to_br | split: '<br />' -%}
+    <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}" data-mt-pdp-metafield{% if format_list %} data-mt-format-list{% endif %} data-mt-color-swatches>
+      {%- if mf_lines.size > 1 -%}
+        <ul class="mt-pdp-tab__list">
+          {%- for line in mf_lines -%}
+            {%- assign line_text = line | strip_html | strip -%}
+            {%- if line_text != blank -%}
+              <li>{{ line_text }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
       {%- else -%}
-        {{ metafield | metafield_tag }}
-      {%- endcase -%}
-  </div>
-
-  <style>
-    .mt-pdp-tab--swatches .metafield-rich_text_field ul,
-    .mt-pdp-tab--swatches .mt-pdp-tab__list,
-    .mt-pdp-tab__list--colors,
-    .mt-pd-block__list .mt-pdp-tab__list {
-      list-style: none;
-      padding-left: 0;
-    }
-    .mt-pdp-tab__swatch-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      list-style: none;
-    }
-    .mt-color-dot {
-      flex: 0 0 auto;
-      width: 1.15rem;
-      height: 1.15rem;
-      margin-top: 0.3rem;
-      border-radius: 999px;
-      box-shadow: inset 0 0 0 0.1rem rgb(0 0 0 / 8%);
-    }
-    .mt-color-dot--rod { background: #e53935; }
-    .mt-color-dot--bla { background: #42a5f5; }
-    .mt-color-dot--gron { background: #43a047; }
-    .mt-color-dot--gul { background: #fdd835; }
-    .mt-color-dot--lilla { background: #8e24aa; }
-    .mt-color-dot--orange { background: #fb8c00; }
-    .mt-color-dot--cyan { background: #26c6da; border-radius: 0.2rem; }
-    .mt-color-dot--nir { background: #111; }
-  </style>
-
-  <script>
-    (() => {
-      const script = document.currentScript;
-      let root = script && script.previousElementSibling;
-      while (root && !root.hasAttribute('data-mt-pdp-metafield')) {
-        root = root.previousElementSibling;
-      }
-      if (!root || !root.hasAttribute('data-mt-pdp-metafield')) return;
-      if (root.dataset.mtMetaBound === 'true') return;
-      root.dataset.mtMetaBound = 'true';
-
-      const formatList = root.hasAttribute('data-mt-format-list');
-      const COLOR_MAP = [
-        ['nærinfrarød', 'nir'],
-        ['narinfrarod', 'nir'],
-        ['orange', 'orange'],
-        ['lilla', 'lilla'],
-        ['cyan', 'cyan'],
-        ['grøn', 'gron'],
-        ['blå', 'bla'],
-        ['rød', 'rod'],
-        ['gul', 'gul']
-      ];
-
-      function applyColorSwatches(scope) {
-        if (!scope) return;
-        let hit = false;
-        scope.querySelectorAll('li, p').forEach(function (el) {
-          if (el.querySelector('.mt-color-dot')) return;
-          const raw = (el.textContent || '').trim();
-          const text = raw.toLowerCase();
-          if (!text || text.indexOf('hvad hjælper') === 0) return;
-
-          for (var i = 0; i < COLOR_MAP.length; i++) {
-            var name = COLOR_MAP[i][0];
-            var cls = COLOR_MAP[i][1];
-            if (text.indexOf(name) === 0 || text.indexOf(name + ':') === 0 || text.indexOf(name + ' (') === 0) {
-              var dot = document.createElement('span');
-              dot.className = 'mt-color-dot mt-color-dot--' + cls;
-              dot.setAttribute('aria-hidden', 'true');
-              el.insertBefore(dot, el.firstChild);
-              el.classList.add('mt-pdp-tab__swatch-row');
-              hit = true;
-              break;
-            }
-          }
-        });
-        if (hit) scope.classList.add('mt-pdp-tab--swatches');
-      }
-
-      if (formatList) {
-        const existingLis = root.querySelectorAll('li');
-        const looksLikeList = existingLis.length >= 2;
-
-        if (!looksLikeList) {
-          const text = (root.innerText || '').replace(/\s+/g, ' ').trim();
-          const labels = [
-            'Nærinfrarød (NIR)',
-            'Nærinfrarødt lys',
-            'Nærinfrarød',
-            'Antal LED-lamper',
-            'Certificeringer',
-            'Tidsindstilling',
-            'Strømforbrug',
-            'Strømstyrke',
-            'Temperatur',
-            'Materiale',
-            'Betjening',
-            'Spænding',
-            'Størrelse',
-            'LED-lys',
-            'Orange',
-            'Lilla',
-            'Cyan',
-            'Grøn',
-            'Blå',
-            'Rød',
-            'Gul',
-            'Vægt',
-            'ROHS'
-          ].sort(function (a, b) { return b.length - a.length; });
-
-          const escaped = labels.map(function (l) {
-            return l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          }).join('|');
-
-          let parts = [];
-          if (escaped) {
-            parts = text
-              .split(new RegExp('(?=(?:' + escaped + ')\\s*:)', 'gi'))
-              .map(function (p) { return p.trim(); })
-              .filter(Boolean);
-          }
-
-          if (parts.length < 2) {
-            parts = text
-              .split(/(?=(?:[A-ZÆØÅ][a-zæøåA-ZÆØÅ-]{2,40})\s*:)/)
-              .map(function (p) { return p.trim(); })
-              .filter(Boolean);
-          }
-
-          if (parts.length >= 2) {
-            const ul = document.createElement('ul');
-            ul.className = 'mt-pdp-tab__list';
-            parts.forEach(function (part) {
-              const li = document.createElement('li');
-              li.textContent = part;
-              ul.appendChild(li);
-            });
-            root.innerHTML = '';
-            root.appendChild(ul);
-          }
-        }
-      }
-
-      applyColorSwatches(root);
-    })();
-  </script>
+        <div class="mt-pdp-tab__text">{{ metafield.value | newline_to_br }}</div>
+      {%- endif -%}
+    </div>
+  {%- elsif format_list and mf_plain contains ':' -%}
+    {%- comment -%}
+      Split "Label: value Label: value" into list items in Liquid.
+      Markers use a rare delimiter so we can split reliably.
+    {%- endcomment -%}
+    {%- assign work = mf_plain -%}
+    {%- assign labels = 'Nærinfrarødt lys|Nærinfrarød (NIR)|Nærinfrarød|Antal LED-lamper|Certificeringer|Tidsindstilling|Strømforbrug|Strømstyrke|Temperatur|Materiale|Betjening|Spænding|Størrelse|LED-lys|Vægt|ROHS' | split: '|' -%}
+    {%- for label in labels -%}
+      {%- assign needle = label | append: ':' -%}
+      {%- assign marked = '|||' | append: needle -%}
+      {%- assign work = work | replace: needle, marked -%}
+    {%- endfor -%}
+    {%- assign parts = work | split: '|||' -%}
+    <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}" data-mt-pdp-metafield data-mt-color-swatches>
+      {%- if parts.size > 2 -%}
+        <ul class="mt-pdp-tab__list">
+          {%- for part in parts -%}
+            {%- assign item = part | strip -%}
+            {%- if item != blank -%}
+              <li>{{ item }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        {{ mf_raw_html }}
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}" data-mt-pdp-metafield data-mt-color-swatches>
+      {{ mf_raw_html }}
+    </div>
+  {%- endif -%}
 {%- endif -%}
