@@ -1,11 +1,10 @@
 {%- doc -%}
   Renders a product metafield as HTML.
   Flat "Label: value" blobs are split into <ul><li> in Liquid (no JS).
-  LED color names get colored circle swatches via global swatch script + markup hints.
 
-  @param {object} metafield - product.metafields.namespace.key
-  @param {boolean} [color_swatches] - mark for color dots
-  @param {boolean} [format_list] - split flat label text into a list (default true)
+  @param {object} metafield
+  @param {boolean} [color_swatches]
+  @param {boolean} [format_list]
 {%- enddoc -%}
 {%- liquid
   if format_list == nil
@@ -24,27 +23,11 @@
   endcapture
 
   assign mf_plain = mf_raw_html | strip_html | replace: '&nbsp;', ' ' | strip
-  assign mf_plain_down = mf_plain | downcase
-
-  assign use_led_specs = false
-  assign use_led_fordele = false
-  if mf_plain_down contains 'antal led-lamper' or mf_plain_down contains '7 biologiske led'
-    assign use_led_specs = true
-  endif
-  if mf_plain_down contains 'hvad hjælper de enkelte farver' or mf_plain_down contains 'nærinfrarød (nir)'
-    if mf_plain_down contains 'rød:' or mf_plain_down contains 'blå:'
-      assign use_led_fordele = true
-    endif
-  endif
 -%}
 {%- if metafield != blank -%}
-  {%- if use_led_specs and format_list -%}
-    {% render 'martilness-led-content', part: 'specs' %}
-  {%- elsif use_led_fordele -%}
-    {% render 'martilness-led-content', part: 'fordele' %}
-  {%- elsif metafield.type == 'multi_line_text_field' -%}
+  {%- if metafield.type == 'multi_line_text_field' -%}
     {%- assign mf_lines = metafield.value | strip | newline_to_br | split: '<br />' -%}
-    <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}" data-mt-pdp-metafield{% if format_list %} data-mt-format-list{% endif %} data-mt-color-swatches>
+    <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}" data-mt-pdp-metafield data-mt-color-swatches>
       {%- if mf_lines.size > 1 -%}
         <ul class="mt-pdp-tab__list">
           {%- for line in mf_lines -%}
@@ -59,12 +42,8 @@
       {%- endif -%}
     </div>
   {%- elsif format_list and mf_plain contains ':' -%}
-    {%- comment -%}
-      Split "Label: value Label: value" into list items in Liquid.
-      Markers use a rare delimiter so we can split reliably.
-    {%- endcomment -%}
     {%- assign work = mf_plain -%}
-    {%- assign labels = 'Nærinfrarødt lys|Nærinfrarød (NIR)|Nærinfrarød|Antal LED-lamper|Certificeringer|Tidsindstilling|Strømforbrug|Strømstyrke|Temperatur|Materiale|Betjening|Spænding|Størrelse|LED-lys|Vægt|ROHS' | split: '|' -%}
+    {%- assign labels = 'Nærinfrarødt lys|Nærinfrarød (NIR)|Nærinfrarød|Antal LED-lamper|Certificeringer|Tidsindstilling|Strømforbrug|Strømstyrke|Temperatur|Materiale|Betjening|Spænding|Størrelse|LED-lys|Vægt|ROHS|Orange|Lilla|Cyan|Grøn|Blå|Rød|Gul' | split: '|' -%}
     {%- for label in labels -%}
       {%- assign needle = label | append: ':' -%}
       {%- assign marked = '|||' | append: needle -%}
