@@ -2119,8 +2119,8 @@
               "settings": {
                 "image": "shopify://shop_images/IMG_1698-1_d88880a3-2809-4c4a-9449-23e7dd493fac.jpg",
                 "image_ratio": "1/1",
-                "image_ratio_mobile": "adapt",
-                "toggle_overlay": true,
+                "image_ratio_mobile": "1/1",
+                "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "edge_gap": "md",
                 "text_alignment": "left",
