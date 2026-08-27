@@ -25,19 +25,18 @@
   background: #ffffff;
 }
 
-/* Leverings-bar over fragt-baren — kant-til-kant, temaets font/tokens */
+/* Leverings-bar — theme green */
 .cart-drawer__delivery-bar {
-  /* Skift --delivery-bar-bg for en anden tan/beige nuance */
-  --delivery-bar-bg: #fcf7ef;
+  --delivery-bar-bg: #09412d;
   padding: 1rem var(--padding-inline, 1.6rem);
   background: var(--delivery-bar-bg);
-  color: rgb(var(--color-foreground));
+  color: #ffffff;
   font-weight: 600;
   line-height: 1.2;
-  border-bottom: 0.1rem solid rgb(var(--color-border)/var(--color-border-alpha));
+  border-bottom: 0.1rem solid rgb(9 65 45 / 20%);
 }
 .cart-drawer__delivery-bar .icon {
-  color: rgb(var(--color-foreground));
+  color: #ffffff;
   flex-shrink: 0;
 }
 @media (min-width: 750px) {
