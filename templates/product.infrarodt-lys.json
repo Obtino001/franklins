@@ -1374,7 +1374,7 @@
                 "border_radius": 20,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
+                "padding-inline-start": 20,
                 "padding-inline-end": 0,
                 "mobile-padding-scale": 80
               },
@@ -1482,7 +1482,7 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0,
+                "padding-inline-end": 20,
                 "mobile-padding-scale": 80
               },
               "blocks": {}
@@ -1513,7 +1513,7 @@
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 0,
+            "border_radius": 20,
             "enable_swipe_on_mobile": false,
             "swipe_custom_width_column": false,
             "swipe_column_width": 76,
