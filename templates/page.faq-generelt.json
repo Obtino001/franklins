@@ -38,7 +38,7 @@
       "name": "Martilness page body",
       "settings": {
         "layout": "faq",
-        "show_page_title": false,
+        "show_page_title": true,
         "accent_color": "#09412d",
         "cta_label": "Kontakt os",
         "cta_link": "shopify://pages/kontakt",

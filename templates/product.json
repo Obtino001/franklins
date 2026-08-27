@@ -1077,7 +1077,7 @@
         "enable_sticky_add_to_cart": true,
         "sticky_add_to_cart_inherit_color_scheme": true,
         "sticky_add_to_cart_color_scheme": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "device": "mobile",
         "padding-block-start": 40,
         "padding-block-end": 100,
