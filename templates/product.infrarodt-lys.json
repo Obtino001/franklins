@@ -142,7 +142,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>BEMÆRK: Vores maske kommer med et rigtig 220v stik – lige til at sætte i stikkontakt – ikke kun et USB opladningstik<br/><br/></p>",
+                "text": "<p>BEMÆRK: Vores maske kommer med et rigtig 220v stik – lige til at sætte i stikkontakt – ikke kun et USB opladningstik</p>",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
@@ -571,233 +571,6 @@
               },
               "block_order": []
             },
-            "custom_liquid_6UVzQf": {
-              "type": "custom-liquid",
-              "name": "t:names.custom_liquid",
-              "settings": {
-                "custom_liquid": "{%- liquid\n  assign items = product.metafields.custom.bundle_items.value\n  assign unit = product.metafields.custom.bundle_unit.value | default: 'g'\n  assign total = 0\n-%}\n{%- if items != blank -%}\n  <div class=\"bundle-contents\">\n    <p class=\"bundle-contents__title\">Denne pakke indeholder</p>\n\n    <ul class=\"bundle-contents__list\" role=\"list\">\n      {%- for entry in items -%}\n        {%- liquid\n          assign item = entry.produkt.value\n          assign qty = entry.gram.value | default: 0 | plus: 0\n          assign total = total | plus: qty\n\n          if item == blank\n            continue\n          endif\n        -%}\n        <li class=\"bundle-contents__row\">\n          {%- if item.featured_image -%}\n            <a class=\"bundle-contents__imglink\" href=\"{{ item.url }}\" tabindex=\"-1\" aria-hidden=\"true\">\n              <img\n                class=\"bundle-contents__img\"\n                src=\"{{ item.featured_image | image_url: width: 144, height: 180, crop: 'center' }}\"\n                alt=\"\"\n                width=\"48\"\n                height=\"60\"\n                loading=\"lazy\"\n              >\n            </a>\n          {%- endif -%}\n\n          <a class=\"bundle-contents__name\" href=\"{{ item.url }}\">{{ item.title }}</a>\n\n          <span class=\"bundle-contents__weight\">\n            <b>{{ qty }}</b>&nbsp;{{ unit }}\n          </span>\n        </li>\n      {%- endfor -%}\n    </ul>\n\n    <div class=\"bundle-contents__total\">\n      <span class=\"bundle-contents__total-label\">I alt</span>\n      <span class=\"bundle-contents__total-weight\"><b>{{ total }}</b>&nbsp;{{ unit }}</span>\n    </div>\n  </div>\n\n  <style>\n    .bundle-contents {\n      /* Local knobs — override these per placement instead of editing rules below */\n      --bundle-media-width: 4.8rem;\n      --bundle-media-height: 6rem;\n      --bundle-media-radius: 0.8rem;\n      --bundle-row-padding: 0.6rem;\n      --bundle-chip-background: rgb(var(--color-foreground) / 0.06);\n      --bundle-rule: 0.1rem solid rgb(var(--color-border) / var(--color-border-alpha));\n      --bundle-rule-soft: 0.1rem solid rgb(var(--color-border) / calc(var(--color-border-alpha) * 0.6));\n\n      margin-block-start: var(--spacing-3);\n      padding-block-start: var(--spacing-2);\n      border-block-start: var(--bundle-rule);\n    }\n\n    /* Label styling borrowed from the theme's subheading role */\n    .bundle-contents__title,\n    .bundle-contents__total-label {\n      font-family: var(--font-subheading--family);\n      font-weight: var(--font-subheading--weight);\n      font-style: var(--font-subheading--style);\n      text-transform: var(--font-subheading--transform);\n      letter-spacing: var(--font-subheading--letter-spacing, 0.05em);\n      font-size: calc(var(--font-size--paragraph) * 0.78);\n      color: var(--color-foreground-secondary);\n    }\n\n    .bundle-contents__title {\n      margin: 0 0 var(--spacing-1);\n    }\n\n    .bundle-contents__list {\n      margin: 0;\n      padding: 0;\n      list-style: none;\n    }\n\n    .bundle-contents__row {\n      display: flex;\n      align-items: center;\n      gap: var(--spacing-3);\n      padding-block: var(--bundle-row-padding);\n      border-block-end: var(--bundle-rule-soft);\n    }\n\n    .bundle-contents__row:last-child {\n      border-block-end: 0;\n    }\n\n    .bundle-contents__imglink {\n      flex: none;\n      display: block;\n      line-height: 0;\n    }\n\n    .bundle-contents__img {\n      width: var(--bundle-media-width);\n      height: var(--bundle-media-height);\n      border-radius: var(--bundle-media-radius);\n      object-fit: cover;\n      border: 0.1rem solid rgb(var(--color-border) / var(--color-border-alpha));\n    }\n\n    /* Product name inherits the product-card title role */\n    .bundle-contents__name {\n      min-width: 0;\n      font-family: var(--font-pcard-title--family);\n      font-weight: var(--font-pcard-title--weight);\n      font-style: var(--font-pcard-title--style);\n      font-size: calc(var(--font-size--paragraph) * 0.93);\n      line-height: var(--line-height--body-normal);\n      color: rgb(var(--color-foreground));\n      text-decoration: none;\n      display: -webkit-box;\n      -webkit-line-clamp: 2;\n      line-clamp: 2;\n      -webkit-box-orient: vertical;\n      overflow: hidden;\n    }\n\n    @media (hover: hover) {\n      .bundle-contents__name:hover {\n        text-decoration: underline;\n        text-underline-offset: 0.2rem;\n      }\n    }\n\n    /* Numeric chips use the price role so figures match the rest of the PDP */\n    .bundle-contents__weight,\n    .bundle-contents__total-weight {\n      flex-shrink: 0;\n      white-space: nowrap;\n      display: inline-flex;\n      align-items: baseline;\n      gap: 0.1rem;\n      font-size: calc(var(--font-size--paragraph) * 0.76);\n      color: var(--color-foreground-secondary);\n      font-variant-numeric: tabular-nums;\n    }\n\n    .bundle-contents__weight b,\n    .bundle-contents__total-weight b {\n      font-family: var(--font-pcard-price--family);\n      font-weight: var(--font-pcard-price--weight);\n      font-style: var(--font-pcard-price--style);\n      color: rgb(var(--color-foreground));\n    }\n\n    .bundle-contents__weight {\n      margin-inline-start: auto;\n      background: var(--bundle-chip-background);\n      border-radius: 99rem;\n      padding: 0.4rem 1.1rem;\n    }\n\n    .bundle-contents__weight b {\n      font-size: calc(var(--font-size--paragraph) * 0.93);\n    }\n\n    .bundle-contents__total {\n      display: flex;\n      justify-content: space-between;\n      align-items: baseline;\n      margin-block-start: var(--spacing-2);\n      padding-block-start: var(--spacing-2);\n      border-block-start: var(--bundle-rule);\n    }\n\n    .bundle-contents__total-weight {\n      padding-inline-end: 1.1rem;\n    }\n\n    .bundle-contents__total-weight b {\n      font-size: calc(var(--font-size--paragraph) * 1.07);\n    }\n  </style>\n{%- endif -%}",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "mobile-padding-scale": 80
-              },
-              "blocks": {}
-            },
-            "accordion_U9n4kg": {
-              "type": "accordion",
-              "name": "t:names.accordion",
-              "settings": {
-                "open_behavior": "single",
-                "type_preset": "h5",
-                "style": "standard",
-                "card_color_scheme": "",
-                "icon_arrow": "caret",
-                "icon_style": "default",
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "pdp_tab_beskrivelse": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Beskrivelse",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_beskrivelse": {
-                      "type": "custom-liquid",
-                      "name": "Beskrivelse",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'beskrivelse' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_beskrivelse"
-                  ]
-                },
-                "pdp_tab_fordele": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Sundhedsmæssige fordele",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_fordele": {
-                      "type": "custom-liquid",
-                      "name": "Sundhedsmæssige fordele",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'fordele' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_fordele"
-                  ]
-                },
-                "pdp_tab_specs": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Tekniske specifikationer",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_specs": {
-                      "type": "custom-liquid",
-                      "name": "Tekniske specifikationer",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'specs' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_specs"
-                  ]
-                },
-                "pdp_tab_inkluderet": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "Hvad er inkluderet?",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_inkluderet": {
-                      "type": "custom-liquid",
-                      "name": "Hvad er inkluderet?",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'inkluderet' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_inkluderet"
-                  ]
-                },
-                "pdp_tab_garanti": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "text": "30 dages fuld tilfredshedsgaranti",
-                    "open_row_by_default": false,
-                    "icon": "none",
-                    "icon_size": "extra-large",
-                    "width": 24,
-                    "width_mobile": 24
-                  },
-                  "blocks": {
-                    "liquid_pdp_tab_garanti": {
-                      "type": "custom-liquid",
-                      "name": "30 dages fuld tilfredshedsgaranti",
-                      "settings": {
-                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'garanti' -%}",
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0,
-                        "mobile-padding-scale": 80
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "liquid_pdp_tab_garanti"
-                  ]
-                }
-              },
-              "block_order": [
-                "pdp_tab_beskrivelse",
-                "pdp_tab_fordele",
-                "pdp_tab_specs",
-                "pdp_tab_inkluderet",
-                "pdp_tab_garanti"
-              ]
-            },
-            "product_recommendations_CQcChJ": {
-              "type": "_product-recommendations",
-              "name": "t:names.product_recommendations",
-              "settings": {
-                "recommendations_type": "related",
-                "heading": "Andre købte også...",
-                "heading_preset": "h5",
-                "layout": "grid",
-                "columns_xxl": 3,
-                "products_per_page": 2,
-                "product_count": 4,
-                "column_gap": 10,
-                "row_gap": 10,
-                "show_vendor": false,
-                "show_type": false,
-                "show_badges": false,
-                "show_swatches": false,
-                "show_quick_view": true,
-                "show_quick_add": true,
-                "pcard_image_ratio": "1/1",
-                "enable_swipe_on_mobile": true,
-                "swipe_custom_width_column": false,
-                "swipe_column_width": 76,
-                "columns_mobile": "2",
-                "column_gap_mobile": 8,
-                "row_gap_mobile": 8,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "mobile-padding-scale": 80
-              },
-              "blocks": {}
-            },
             "usp_marquee_inline": {
               "type": "_marquee",
               "name": "t:names.marquee",
@@ -1054,6 +827,233 @@
                 "usp_item_4",
                 "usp_item_5"
               ]
+            },
+            "custom_liquid_6UVzQf": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "{%- liquid\n  assign items = product.metafields.custom.bundle_items.value\n  assign unit = product.metafields.custom.bundle_unit.value | default: 'g'\n  assign total = 0\n-%}\n{%- if items != blank -%}\n  <div class=\"bundle-contents\">\n    <p class=\"bundle-contents__title\">Denne pakke indeholder</p>\n\n    <ul class=\"bundle-contents__list\" role=\"list\">\n      {%- for entry in items -%}\n        {%- liquid\n          assign item = entry.produkt.value\n          assign qty = entry.gram.value | default: 0 | plus: 0\n          assign total = total | plus: qty\n\n          if item == blank\n            continue\n          endif\n        -%}\n        <li class=\"bundle-contents__row\">\n          {%- if item.featured_image -%}\n            <a class=\"bundle-contents__imglink\" href=\"{{ item.url }}\" tabindex=\"-1\" aria-hidden=\"true\">\n              <img\n                class=\"bundle-contents__img\"\n                src=\"{{ item.featured_image | image_url: width: 144, height: 180, crop: 'center' }}\"\n                alt=\"\"\n                width=\"48\"\n                height=\"60\"\n                loading=\"lazy\"\n              >\n            </a>\n          {%- endif -%}\n\n          <a class=\"bundle-contents__name\" href=\"{{ item.url }}\">{{ item.title }}</a>\n\n          <span class=\"bundle-contents__weight\">\n            <b>{{ qty }}</b>&nbsp;{{ unit }}\n          </span>\n        </li>\n      {%- endfor -%}\n    </ul>\n\n    <div class=\"bundle-contents__total\">\n      <span class=\"bundle-contents__total-label\">I alt</span>\n      <span class=\"bundle-contents__total-weight\"><b>{{ total }}</b>&nbsp;{{ unit }}</span>\n    </div>\n  </div>\n\n  <style>\n    .bundle-contents {\n      /* Local knobs — override these per placement instead of editing rules below */\n      --bundle-media-width: 4.8rem;\n      --bundle-media-height: 6rem;\n      --bundle-media-radius: 0.8rem;\n      --bundle-row-padding: 0.6rem;\n      --bundle-chip-background: rgb(var(--color-foreground) / 0.06);\n      --bundle-rule: 0.1rem solid rgb(var(--color-border) / var(--color-border-alpha));\n      --bundle-rule-soft: 0.1rem solid rgb(var(--color-border) / calc(var(--color-border-alpha) * 0.6));\n\n      margin-block-start: var(--spacing-3);\n      padding-block-start: var(--spacing-2);\n      border-block-start: var(--bundle-rule);\n    }\n\n    /* Label styling borrowed from the theme's subheading role */\n    .bundle-contents__title,\n    .bundle-contents__total-label {\n      font-family: var(--font-subheading--family);\n      font-weight: var(--font-subheading--weight);\n      font-style: var(--font-subheading--style);\n      text-transform: var(--font-subheading--transform);\n      letter-spacing: var(--font-subheading--letter-spacing, 0.05em);\n      font-size: calc(var(--font-size--paragraph) * 0.78);\n      color: var(--color-foreground-secondary);\n    }\n\n    .bundle-contents__title {\n      margin: 0 0 var(--spacing-1);\n    }\n\n    .bundle-contents__list {\n      margin: 0;\n      padding: 0;\n      list-style: none;\n    }\n\n    .bundle-contents__row {\n      display: flex;\n      align-items: center;\n      gap: var(--spacing-3);\n      padding-block: var(--bundle-row-padding);\n      border-block-end: var(--bundle-rule-soft);\n    }\n\n    .bundle-contents__row:last-child {\n      border-block-end: 0;\n    }\n\n    .bundle-contents__imglink {\n      flex: none;\n      display: block;\n      line-height: 0;\n    }\n\n    .bundle-contents__img {\n      width: var(--bundle-media-width);\n      height: var(--bundle-media-height);\n      border-radius: var(--bundle-media-radius);\n      object-fit: cover;\n      border: 0.1rem solid rgb(var(--color-border) / var(--color-border-alpha));\n    }\n\n    /* Product name inherits the product-card title role */\n    .bundle-contents__name {\n      min-width: 0;\n      font-family: var(--font-pcard-title--family);\n      font-weight: var(--font-pcard-title--weight);\n      font-style: var(--font-pcard-title--style);\n      font-size: calc(var(--font-size--paragraph) * 0.93);\n      line-height: var(--line-height--body-normal);\n      color: rgb(var(--color-foreground));\n      text-decoration: none;\n      display: -webkit-box;\n      -webkit-line-clamp: 2;\n      line-clamp: 2;\n      -webkit-box-orient: vertical;\n      overflow: hidden;\n    }\n\n    @media (hover: hover) {\n      .bundle-contents__name:hover {\n        text-decoration: underline;\n        text-underline-offset: 0.2rem;\n      }\n    }\n\n    /* Numeric chips use the price role so figures match the rest of the PDP */\n    .bundle-contents__weight,\n    .bundle-contents__total-weight {\n      flex-shrink: 0;\n      white-space: nowrap;\n      display: inline-flex;\n      align-items: baseline;\n      gap: 0.1rem;\n      font-size: calc(var(--font-size--paragraph) * 0.76);\n      color: var(--color-foreground-secondary);\n      font-variant-numeric: tabular-nums;\n    }\n\n    .bundle-contents__weight b,\n    .bundle-contents__total-weight b {\n      font-family: var(--font-pcard-price--family);\n      font-weight: var(--font-pcard-price--weight);\n      font-style: var(--font-pcard-price--style);\n      color: rgb(var(--color-foreground));\n    }\n\n    .bundle-contents__weight {\n      margin-inline-start: auto;\n      background: var(--bundle-chip-background);\n      border-radius: 99rem;\n      padding: 0.4rem 1.1rem;\n    }\n\n    .bundle-contents__weight b {\n      font-size: calc(var(--font-size--paragraph) * 0.93);\n    }\n\n    .bundle-contents__total {\n      display: flex;\n      justify-content: space-between;\n      align-items: baseline;\n      margin-block-start: var(--spacing-2);\n      padding-block-start: var(--spacing-2);\n      border-block-start: var(--bundle-rule);\n    }\n\n    .bundle-contents__total-weight {\n      padding-inline-end: 1.1rem;\n    }\n\n    .bundle-contents__total-weight b {\n      font-size: calc(var(--font-size--paragraph) * 1.07);\n    }\n  </style>\n{%- endif -%}",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
+            },
+            "accordion_U9n4kg": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "open_behavior": "single",
+                "type_preset": "h5",
+                "style": "standard",
+                "card_color_scheme": "",
+                "icon_arrow": "caret",
+                "icon_style": "default",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "pdp_tab_beskrivelse": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Beskrivelse",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_beskrivelse": {
+                      "type": "custom-liquid",
+                      "name": "Beskrivelse",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'beskrivelse' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_beskrivelse"
+                  ]
+                },
+                "pdp_tab_fordele": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Sundhedsmæssige fordele",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_fordele": {
+                      "type": "custom-liquid",
+                      "name": "Sundhedsmæssige fordele",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'fordele' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_fordele"
+                  ]
+                },
+                "pdp_tab_specs": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Tekniske specifikationer",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_specs": {
+                      "type": "custom-liquid",
+                      "name": "Tekniske specifikationer",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'specs' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_specs"
+                  ]
+                },
+                "pdp_tab_inkluderet": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "Hvad er inkluderet?",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_inkluderet": {
+                      "type": "custom-liquid",
+                      "name": "Hvad er inkluderet?",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'inkluderet' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_inkluderet"
+                  ]
+                },
+                "pdp_tab_garanti": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "text": "30 dages fuld tilfredshedsgaranti",
+                    "open_row_by_default": false,
+                    "icon": "none",
+                    "icon_size": "extra-large",
+                    "width": 24,
+                    "width_mobile": 24
+                  },
+                  "blocks": {
+                    "liquid_pdp_tab_garanti": {
+                      "type": "custom-liquid",
+                      "name": "30 dages fuld tilfredshedsgaranti",
+                      "settings": {
+                        "custom_liquid": "{%- render 'martilness-pdp-tab', product: closest.product, tab: 'garanti' -%}",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0,
+                        "mobile-padding-scale": 80
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "liquid_pdp_tab_garanti"
+                  ]
+                }
+              },
+              "block_order": [
+                "pdp_tab_beskrivelse",
+                "pdp_tab_fordele",
+                "pdp_tab_specs",
+                "pdp_tab_inkluderet",
+                "pdp_tab_garanti"
+              ]
+            },
+            "product_recommendations_CQcChJ": {
+              "type": "_product-recommendations",
+              "name": "t:names.product_recommendations",
+              "settings": {
+                "recommendations_type": "related",
+                "heading": "Andre købte også...",
+                "heading_preset": "h5",
+                "layout": "grid",
+                "columns_xxl": 3,
+                "products_per_page": 2,
+                "product_count": 4,
+                "column_gap": 10,
+                "row_gap": 10,
+                "show_vendor": false,
+                "show_type": false,
+                "show_badges": false,
+                "show_swatches": false,
+                "show_quick_view": true,
+                "show_quick_add": true,
+                "pcard_image_ratio": "1/1",
+                "enable_swipe_on_mobile": true,
+                "swipe_custom_width_column": false,
+                "swipe_column_width": 76,
+                "columns_mobile": "2",
+                "column_gap_mobile": 8,
+                "row_gap_mobile": 8,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -1169,16 +1169,16 @@
           "type": "details_list",
           "settings": {
             "block_heading": "Specifikationer",
-            "block_content": "<ul><li>Størrelse: 80 × 190 cm</li><li>Tid: 20–60 minutter</li><li>Temperatur: 30–80°</li><li>Vægt: 6,5 kg</li><li>Strøm: 550W / 220V</li><li>ROHS &amp; CE certificeret</li></ul>",
-            "metafield_key": "tekniske_specifikationer"
+            "metafield_key": "tekniske_specifikationer",
+            "block_content": "<ul><li>Størrelse: 80 × 190 cm</li><li>Tid: 20–60 minutter</li><li>Temperatur: 30–80°</li><li>Vægt: 6,5 kg</li><li>Strøm: 550W / 220V</li><li>ROHS &amp; CE certificeret</li></ul>"
           }
         },
         "details_list_gECcwU": {
           "type": "details_list",
           "settings": {
             "block_heading": "Fordele",
-            "block_content": "<ul><li>1-zone infrarød varme</li><li>Lynlåslukning</li><li>5-lags konstruktion</li><li>Silikone varmetråd</li><li>Kompakt opbevaring</li><li>30 dages tilfredsgaranti</li></ul>",
-            "metafield_key": "sundhedsmaessige_fordele"
+            "metafield_key": "sundhedsmaessige_fordele",
+            "block_content": "<ul><li>1-zone infrarød varme</li><li>Lynlåslukning</li><li>5-lags konstruktion</li><li>Silikone varmetråd</li><li>Kompakt opbevaring</li><li>30 dages tilfredsgaranti</li></ul>"
           }
         }
       },
@@ -1199,9 +1199,9 @@
       "name": "What's Included",
       "settings": {
         "page_bg_color": "#ffffff",
+        "accent_color": "#09412d",
         "details_heading": "Detaljer om produktet",
-        "includes_heading": "Shop efter kategori",
-        "accent_color": "#09412d"
+        "includes_heading": "Shop efter kategori"
       }
     },
     "iwt_how_it_works": {
@@ -1392,6 +1392,7 @@
       ],
       "name": "Image with text",
       "settings": {
+        "require_metafield_key": "image_with_text",
         "container": "page-width",
         "content_direction": "row",
         "vertical_on_mobile": true,
@@ -1416,8 +1417,7 @@
         "padding-block-start-mobile": 0,
         "padding-block-end-mobile": 0,
         "padding-inline-start-mobile": 0,
-        "padding-inline-end-mobile": 0,
-        "require_metafield_key": "image_with_text"
+        "padding-inline-end-mobile": 0
       }
     },
     "iwt_health_benefits": {
@@ -1608,6 +1608,7 @@
       ],
       "name": "Image with text",
       "settings": {
+        "require_metafield_key": "image_with_text",
         "container": "page-width",
         "content_direction": "row",
         "vertical_on_mobile": true,
@@ -1632,8 +1633,7 @@
         "padding-block-start-mobile": 0,
         "padding-block-end-mobile": 0,
         "padding-inline-start-mobile": 0,
-        "padding-inline-end-mobile": 0,
-        "require_metafield_key": "image_with_text"
+        "padding-inline-end-mobile": 0
       }
     },
     "trustpilot_reviews_pdp": {
@@ -2184,15 +2184,16 @@
       ],
       "name": "Image with FAQs",
       "settings": {
+        "require_metafield_key": "faqs",
         "image": "shopify://shop_images/DSC09476.jpg",
         "image_position": "left",
+        "image_radius": 20,
         "title": "Spørgsmål & svar",
         "button_text": "Se alle spørgsmål og svar",
         "button_link": "",
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 0,
-        "require_metafield_key": "faqs"
+        "padding_bottom": 0
       }
     },
     "faq_banner_pdp_Mtq1": {
@@ -3507,6 +3508,7 @@
       "custom_css": [],
       "name": "t:names.faqs_preset_banner",
       "settings": {
+        "require_metafield_key": "",
         "container": "page-width",
         "content_direction": "row",
         "vertical_on_mobile": true,
