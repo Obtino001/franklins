@@ -87,7 +87,7 @@
           "foreground": "#000000",
           "foreground_secondary": "#000000b3",
           "border": "#0000001a",
-          "sale_price": "#c4301c",
+          "sale_price": "#9c5a3c",
           "primary_button_background": "#09412d",
           "primary_button_text": "#ffffff",
           "secondary_button_background": "#09412d",
@@ -470,7 +470,9 @@
           "progress_bar": "#ffffff"
         }
       }
-    }
+    },
+    "sale_badge_background": "#38322f",
+    "sale_badge_text": "#ffffff"
   },
   "installed_preset_name": "Pebble",
   "presets": {

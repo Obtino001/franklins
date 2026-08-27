@@ -75,11 +75,13 @@
   {%- endif -%}
   {%- if show_save_chip -%}
     <span
-      class="badge badge--sale price-chips__chip price-chips__chip--save"
+      class="price-chips__chip price-chips__chip--save"
       ref="saveChip"
       {% if save_percent <= 0 %}hidden{% endif %}
     >
-      {%- if save_percent > 0 -%}Du sparer: {{ save_amount | money_without_trailing_zeros }} ({{ save_percent }}%){%- endif -%}
+      {%- if save_percent > 0 -%}
+        Du sparer: {{ save_amount | money_without_trailing_zeros }} ({{ save_percent }}%)
+      {%- endif -%}
     </span>
   {%- endif -%}
 </price-chips>
