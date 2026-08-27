@@ -1878,6 +1878,7 @@
         "group_t6aEJJ",
         "group_4PqLBm"
       ],
+      "disabled": true,
       "name": "t:names.custom_section",
       "settings": {
         "container": "page-width",
