@@ -57,8 +57,10 @@
         if (!looksLikeList) {
           const text = (root.innerText || '').replace(/\s+/g, ' ').trim();
           const labels = [
-            'Antal LED-lamper',
+            'Nærinfrarød (NIR)',
             'Nærinfrarødt lys',
+            'Nærinfrarød',
+            'Antal LED-lamper',
             'Certificeringer',
             'Tidsindstilling',
             'Strømforbrug',
@@ -69,6 +71,13 @@
             'Spænding',
             'Størrelse',
             'LED-lys',
+            'Orange',
+            'Lilla',
+            'Cyan',
+            'Grøn',
+            'Blå',
+            'Rød',
+            'Gul',
             'Vægt',
             'ROHS'
           ].sort(function (a, b) { return b.length - a.length; });
@@ -80,14 +89,15 @@
           let parts = [];
           if (escaped) {
             parts = text
-              .split(new RegExp('(?=(?:' + escaped + ')\\s*:)', 'g'))
+              .split(new RegExp('(?=(?:' + escaped + ')\\s*:)', 'gi'))
               .map(function (p) { return p.trim(); })
               .filter(Boolean);
           }
 
+          // Fallback: whole words (min 3 letters) ending with :, never single letters like N/I/R in (NIR)
           if (parts.length < 2) {
             parts = text
-              .split(/(?=(?:[A-ZÆØÅ][^\n:]{1,40}):)/)
+              .split(/(?=(?:[A-ZÆØÅ][a-zæøåA-ZÆØÅ-]{2,40})\s*:)/)
               .map(function (p) { return p.trim(); })
               .filter(Boolean);
           }
