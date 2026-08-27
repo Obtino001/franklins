@@ -80,7 +80,7 @@
       {% if save_percent <= 0 %}hidden{% endif %}
     >
       {%- if save_percent > 0 -%}
-        Du sparer: {{ save_amount | money_without_trailing_zeros }} ({{ save_percent }}%)
+        Spar {{ save_amount | money_without_trailing_zeros }}
       {%- endif -%}
     </span>
   {%- endif -%}
