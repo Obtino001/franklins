@@ -1,0 +1,157 @@
+{%- comment -%}
+  Mega menu banner (mt- prefix so theme sync creates this as a new snippet).
+{%- endcomment -%}
+{%- capture image_html -%}
+  {% render 'responsive-image',
+    mode: 'js',
+    image: image,
+    image_mobile: image_mobile,
+    default_alt: heading | default: shop.name,
+  %}
+{%- endcapture -%}
+
+{%- capture overlay_html -%}
+  {%- if image_overlay_opacity > 0 -%}
+    {%- capture overlay_color -%}rgb(0 0 0 / {{ image_overlay_opacity | divided_by: 100.0 }}){%- endcapture -%}
+    {% render 'overlay', overlay_color: overlay_color %}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture subheading_html -%}
+  {%- if subheading != blank -%}
+    {%- render 'text', fallback_text: subheading, preset: 'text-subheading' %}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture heading_html -%}
+  {%- render 'text',
+    fallback_text: heading,
+    preset: heading_preset,
+    font_size: heading_font_size,
+    font_size_mobile: heading_font_size_mobile,
+    font_family: 'var(--font-heading--family)',
+    line_height: 'normal'
+  %}
+{%- endcapture -%}
+
+{%- case banner_design -%}
+  {%- when '1' -%}
+    {%- capture button_html -%}
+      {% render 'button',
+        label: button_label,
+        link: button_link,
+        style: button_style,
+        size: button_size,
+        icon: button_icon,
+        icon_style: button_icon_style
+      %}
+    {%- endcapture -%}
+    {% render 'image-card',
+      mode: 'static',
+      card_link: button_link,
+      image: image_html,
+      overlay: overlay_html,
+      subheading: subheading_html,
+      heading: heading_html,
+      button: button_html,
+      color_scheme: color_scheme,
+      edge_gap: 'md',
+      content_direction: 'column',
+      v_alignment: 'space-between',
+      h_alignment: 'flex-start',
+      column_gap: 32,
+      column_gap_mobile: 32,
+      border_radius: 20
+    %}
+  {%- when '2' -%}
+    {%- capture button_html -%}
+      {% render 'button',
+        label: button_label,
+        link: button_link,
+        style: button_style,
+        size: button_size,
+        icon: button_icon,
+        icon_style: button_icon_style,
+        icon_only: true
+      %}
+    {%- endcapture -%}
+    {% render 'image-card',
+      mode: 'static',
+      card_link: button_link,
+      image: image_html,
+      overlay: overlay_html,
+      subheading: subheading_html,
+      heading: heading_html,
+      button: button_html,
+      card_label: badge,
+      color_scheme: color_scheme,
+      edge_gap: 'sm',
+      content_direction: 'row',
+      v_alignment: 'flex-end',
+      h_alignment: 'space-between',
+      column_gap: 24,
+      column_gap_mobile: 24,
+      border_radius: 20
+    %}
+  {%- when '3' -%}
+    {%- capture image_html -%}
+      {% render 'responsive-image',
+        mode: 'js',
+        image: image,
+        image_mobile: image_mobile,
+        image_ratio: '3/4',
+        default_alt: heading | default: shop.name,
+      %}
+    {%- endcapture -%}
+    {%- capture button_html -%}
+      {% render 'button',
+        label: button_label | default: heading,
+        link: button_link,
+        style: button_style,
+        size: button_size,
+        icon: button_icon,
+        icon_style: button_icon_style,
+        icon_only: true,
+      %}
+    {%- endcapture -%}
+    {% render 'image-card',
+      mode: 'static',
+      card_link: button_link,
+      image: image_html,
+      overlay: overlay_html,
+      subheading: subheading_html,
+      heading: heading_html,
+      button: button_html,
+      card_label: badge,
+      show_content_below: true,
+      edge_gap: 'none',
+      content_direction: 'row',
+      v_alignment: 'center',
+      h_alignment: 'space-between',
+      column_gap: 8,
+      column_gap_mobile: 8,
+      row_gap: 12,
+      row_gap_mobile: 12,
+      gap: 12,
+      gap_mobile: 12,
+      border_radius: 20
+    %}
+  {%- else -%}
+    {%- if image != blank -%}
+      <a
+        href="{{ button_link | default: '#' }}"
+        class="mt-mega-menu-banner-fallback"
+        {% if button_link == blank %}aria-disabled="true"{% endif %}
+      >
+        {{
+          image
+          | image_url: width: 900
+          | image_tag:
+            loading: 'lazy',
+            widths: '400,600,900',
+            sizes: '(min-width: 990px) 20vw, 40vw',
+            alt: heading | default: shop.name
+        }}
+      </a>
+    {%- endif -%}
+{%- endcase -%}
