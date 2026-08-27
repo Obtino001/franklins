@@ -2061,7 +2061,7 @@
                 "text_alignment": "left",
                 "width_mobile": "fit-content",
                 "text_alignment_mobile": "left",
-                "padding-block-start": 0,
+                "padding-block-start": 31,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
