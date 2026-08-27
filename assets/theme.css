@@ -1167,8 +1167,8 @@ button[data-shopify-xr] {
   white-space: nowrap;
   font-size: 1.4rem;
   font-weight: var(--font-body--weight);
-  color: var(--color-cart-bubble-text);
-  background-color: var(--color-cart-bubble-background);
+  color: var(--color-cart-bubble-text, #ffffff);
+  background-color: var(--color-cart-bubble-background, #09412d);
   border-radius: 50%;
 }
 .cart-count--small-medium {
