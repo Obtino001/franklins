@@ -84,6 +84,9 @@
     }
 
     document.addEventListener('shopify:section:load', run);
+    document.addEventListener('toggle', function (e) {
+      if (e.target && e.target.tagName === 'DETAILS') run();
+    }, true);
     // Accordion open / late metafield scripts
     setTimeout(run, 400);
     setTimeout(run, 1200);

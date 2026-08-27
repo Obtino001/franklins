@@ -30,6 +30,11 @@
       </div>
 
       <div class="mt-pd-card__grid">
+        {%- capture is_led_flag -%}{% render 'martilness-is-led-maske', product: product_ref %}{%- endcapture -%}
+        {%- assign is_led_product = false -%}
+        {%- if is_led_flag contains '1' -%}
+          {%- assign is_led_product = true -%}
+        {%- endif -%}
         {% for block in section.blocks %}
           {% if block.type == 'details_list' %}
             {%- liquid
@@ -46,13 +51,28 @@
                   assign has_metafield = true
                 endif
               endif
+              assign use_led_content = false
+              if is_led_product
+                if mf_key == 'sundhedsmaessige_fordele' or mf_key == 'fordele'
+                  assign use_led_content = true
+                endif
+                if mf_key == 'tekniske_specifikationer' or mf_key == 'specs'
+                  assign use_led_content = true
+                endif
+              endif
             -%}
             <div class="mt-pd-block" {{ block.shopify_attributes }}>
               {% if block.settings.block_heading != blank %}
                 <h3 class="mt-pd-block__heading">{{ block.settings.block_heading }}</h3>
               {% endif %}
               <div class="mt-pd-block__list">
-                {%- if has_metafield -%}
+                {%- if use_led_content -%}
+                  {%- if mf_key == 'tekniske_specifikationer' or mf_key == 'specs' -%}
+                    {% render 'martilness-led-content', part: 'specs' %}
+                  {%- else -%}
+                    {% render 'martilness-led-content', part: 'fordele' %}
+                  {%- endif -%}
+                {%- elsif has_metafield -%}
                   {% liquid
                     assign use_color_dots = false
                     if mf_key == 'sundhedsmaessige_fordele' or mf_key == 'fordele'

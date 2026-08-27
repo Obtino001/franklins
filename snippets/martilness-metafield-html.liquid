@@ -75,7 +75,11 @@
 
   <script>
     (() => {
-      const root = document.currentScript && document.currentScript.previousElementSibling;
+      const script = document.currentScript;
+      let root = script && script.previousElementSibling;
+      while (root && !root.hasAttribute('data-mt-pdp-metafield')) {
+        root = root.previousElementSibling;
+      }
       if (!root || !root.hasAttribute('data-mt-pdp-metafield')) return;
       if (root.dataset.mtMetaBound === 'true') return;
       root.dataset.mtMetaBound = 'true';
