@@ -3,6 +3,7 @@
   assign button_label = section.settings.button_text
   assign button_link = section.settings.button_link
   assign image_position = section.settings.image_position | default: 'left'
+  assign image_radius = section.settings.image_radius | default: 20
 -%}
 
 <div
@@ -11,71 +12,74 @@
   style="
     --mt-split-faq-pad-top: {{ section.settings.padding_top }}px;
     --mt-split-faq-pad-bottom: {{ section.settings.padding_bottom }}px;
+    --mt-split-faq-radius: {{ image_radius }}px;
   "
 >
-  <div class="mt-split-faq__grid">
-    <div class="mt-split-faq__media">
-      {% if section.settings.image != blank %}
-        {%- assign split_faq_alt = section.settings.image.alt | default: heading -%}
-        {{
-          section.settings.image
-          | image_url: width: 1600
-          | image_tag:
-            class: 'mt-split-faq__img',
-            loading: 'lazy',
-            widths: '400, 600, 800, 1200, 1600',
-            sizes: '(min-width: 990px) 50vw, 100vw',
-            alt: split_faq_alt
-        }}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag: 'mt-split-faq__img mt-split-faq__img--placeholder' }}
-      {% endif %}
-    </div>
-
-    <div class="mt-split-faq__content">
-      <div class="mt-split-faq__inner">
-        {% if heading != blank %}
-          <h2 class="mt-split-faq__title h2">{{ heading | newline_to_br }}</h2>
+  <div class="mt-split-faq__shell page-width">
+    <div class="mt-split-faq__grid">
+      <div class="mt-split-faq__media">
+        {% if section.settings.image != blank %}
+          {%- assign split_faq_alt = section.settings.image.alt | default: heading -%}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              class: 'mt-split-faq__img',
+              loading: 'lazy',
+              widths: '400, 600, 800, 1200, 1600',
+              sizes: '(min-width: 990px) min(50vw, 750px), 100vw',
+              alt: split_faq_alt
+          }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'mt-split-faq__img mt-split-faq__img--placeholder' }}
         {% endif %}
+      </div>
 
-        {% if section.blocks.size > 0 %}
-          <accordion-component
-            class="mt-split-faq__accordion accordion accordion--standard accordion--arrow-plus"
-            data-single-open="true"
-            data-section-id="{{ section.id }}"
-          >
-            {% for block in section.blocks %}
-              <div class="accordion__row" {{ block.shopify_attributes }}>
-                <details ref="item[]" class="accordion__details">
-                  <summary
-                    ref="summary[]"
-                    class="accordion__summary flex"
-                    on:click="/onSummaryClick"
-                  >
-                    <span class="accordion__summary-text">{{ block.settings.question }}</span>
-                    {% render 'icon', icon: 'plus', class: 'flex shrink-0 accordion__summary-arrow' %}
-                  </summary>
-                  <div ref="content[]" class="accordion__content">
-                    <div class="accordion__inner rte">
-                      {{ block.settings.answer }}
-                    </div>
-                  </div>
-                </details>
-              </div>
-            {% endfor %}
-          </accordion-component>
-        {% endif %}
+      <div class="mt-split-faq__content">
+        <div class="mt-split-faq__inner">
+          {% if heading != blank %}
+            <h2 class="mt-split-faq__title h2">{{ heading | newline_to_br }}</h2>
+          {% endif %}
 
-        {% if button_label != blank %}
-          <div class="mt-split-faq__actions">
-            <a
-              href="{{ button_link | default: '#' }}"
-              class="btn btn--primary"
+          {% if section.blocks.size > 0 %}
+            <accordion-component
+              class="mt-split-faq__accordion accordion accordion--standard accordion--arrow-plus"
+              data-single-open="true"
+              data-section-id="{{ section.id }}"
             >
-              <span class="btn__text">{{ button_label }}</span>
-            </a>
-          </div>
-        {% endif %}
+              {% for block in section.blocks %}
+                <div class="accordion__row" {{ block.shopify_attributes }}>
+                  <details ref="item[]" class="accordion__details">
+                    <summary
+                      ref="summary[]"
+                      class="accordion__summary flex"
+                      on:click="/onSummaryClick"
+                    >
+                      <span class="accordion__summary-text">{{ block.settings.question }}</span>
+                      {% render 'icon', icon: 'plus', class: 'flex shrink-0 accordion__summary-arrow' %}
+                    </summary>
+                    <div ref="content[]" class="accordion__content">
+                      <div class="accordion__inner rte">
+                        {{ block.settings.answer }}
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              {% endfor %}
+            </accordion-component>
+          {% endif %}
+
+          {% if button_label != blank %}
+            <div class="mt-split-faq__actions">
+              <a
+                href="{{ button_link | default: '#' }}"
+                class="btn btn--primary"
+              >
+                <span class="btn__text">{{ button_label }}</span>
+              </a>
+            </div>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -84,28 +88,39 @@
 <style>
   #section-{{ section.id }}.mt-split-faq {
     padding-block: var(--mt-split-faq-pad-top) var(--mt-split-faq-pad-bottom);
+    padding-inline: var(--page-padding, 1.6rem);
     background: rgb(var(--color-background));
     color: rgb(var(--color-foreground));
+  }
+
+  #section-{{ section.id }} .mt-split-faq__shell {
+    max-width: var(--page-width, 1500px);
+    width: 100%;
+    margin: 0 auto;
   }
 
   #section-{{ section.id }} .mt-split-faq__grid {
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
+    gap: 2.4rem;
+    align-items: stretch;
   }
 
   #section-{{ section.id }} .mt-split-faq__media {
-    min-height: 32rem;
+    min-height: 28rem;
     overflow: hidden;
     background: rgb(var(--color-foreground) / 0.06);
+    border-radius: var(--mt-split-faq-radius, 20px);
   }
 
   #section-{{ section.id }} .mt-split-faq__img {
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 32rem;
+    min-height: 28rem;
     object-fit: cover;
+    border-radius: var(--mt-split-faq-radius, 20px);
   }
 
   #section-{{ section.id }} .mt-split-faq__img--placeholder {
@@ -116,7 +131,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem var(--page-padding, 1.6rem);
+    padding: 2.4rem 0;
   }
 
   #section-{{ section.id }} .mt-split-faq__inner {
@@ -148,7 +163,8 @@
   @media (min-width: 990px) {
     #section-{{ section.id }} .mt-split-faq__grid {
       grid-template-columns: 1fr 1fr;
-      min-height: 60rem;
+      gap: 4rem;
+      min-height: 52rem;
     }
 
     #section-{{ section.id }}.mt-split-faq--image-right .mt-split-faq__media {
@@ -166,7 +182,7 @@
     }
 
     #section-{{ section.id }} .mt-split-faq__content {
-      padding: 6rem 5rem;
+      padding: 4rem 2rem;
     }
   }
 </style>
@@ -194,6 +210,16 @@
         { "value": "right", "label": "Right" }
       ],
       "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Image corner radius",
+      "default": 20
     },
     {
       "type": "textarea",
