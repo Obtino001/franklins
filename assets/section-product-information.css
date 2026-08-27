@@ -690,18 +690,18 @@
   font-size: calc(var(--font-size--h5) * 0.85);
 }
 
-/* Save chip — Martilness style: Du sparer: X kr (Y%) */
+/* Save chip — theme green + white */
 .price-chips__chip.price-chips__chip--save {
-  background: #38322f !important;
+  background: #09412d !important;
   color: #ffffff !important;
   border-radius: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 
-/* Sale price colour on PDP (terracotta) */
+/* Sale price — theme green */
 .product-price .price-container.price--on-sale .price--sale {
-  color: #9c5a3c;
+  color: #09412d;
 }
 /* Hele pris+chips-området er flex og stakker ALDRIG — prisen kan krympe, chips bliver ved siden af */
 .product-price .price-container:has(.price-chips > :not([hidden])) {

@@ -2180,7 +2180,7 @@ button:disabled,
 }
 
 .price--sale {
-  color: rgb(var(--color-sale-price));
+  color: #09412d;
 }
 
 .price,
@@ -2239,8 +2239,8 @@ button:disabled,
   color: rgb(var(--color-popular-badge-text));
 }
 .badge--sale {
-  background: rgb(var(--color-sale-badge-background));
-  color: rgb(var(--color-sale-badge-text));
+  background: #09412d;
+  color: #ffffff;
 }
 .badge--sold-out {
   background: rgb(var(--color-sold-out-badge-background));
