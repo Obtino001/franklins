@@ -1128,7 +1128,7 @@
         "included_item_A7HArJ": {
           "type": "included_item",
           "settings": {
-            "image": "shopify://shop_images/unnamed-1_f6ad1c7f-44d1-4e12-a817-f98e746143c6.jpg",
+            "image": "shopify://shop_images/DSC00697_20bffaaf-fd2c-4328-9cf9-134f32f72a9f.jpg",
             "title": "Saunatæppe",
             "link": "shopify://collections/saunataeppe"
           }
@@ -1144,7 +1144,7 @@
         "included_item_nTt7mR": {
           "type": "included_item",
           "settings": {
-            "image": "shopify://shop_images/DSC09233_4a6165c7-c8ac-42a4-8e56-e04bd18139c9.jpg",
+            "image": "shopify://shop_images/DSC06615.webp",
             "title": "Infrarød LED maske",
             "link": "shopify://collections/infrarod-led-maske"
           }
@@ -1160,7 +1160,7 @@
         "included_item_BF6Bh9": {
           "type": "included_item",
           "settings": {
-            "image": "shopify://shop_images/IMG_6335-1-copy.png",
+            "image": "shopify://shop_images/nhb-isbad-pro-xl.webp",
             "title": "Isbad",
             "link": "shopify://collections/isbad"
           }
@@ -1415,7 +1415,7 @@
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "padding-block-start-mobile": 0,
-        "padding-block-end-mobile": 0,
+        "padding-block-end-mobile": 20,
         "padding-inline-start-mobile": 0,
         "padding-inline-end-mobile": 0
       }
