@@ -2259,6 +2259,55 @@
         "open_by_default": false,
         "z_index": 40
       }
+    },
+    "martilness_split_faq_h8BbVk": {
+      "type": "martilness-split-faq",
+      "blocks": {
+        "faq_gnaMxE": {
+          "type": "faq",
+          "settings": {
+            "question": "Hvorfor skal jeg købe et saunatæppe?",
+            "answer": "<p>Et saunatæppe er en fantastisk investering for dig, der ønsker at kombinere velvære, sundhed og afslapning i din daglige rutine.</p>"
+          }
+        },
+        "faq_nFB7FE": {
+          "type": "faq",
+          "settings": {
+            "question": "Hvordan virker et infrarødt saunatæppe?",
+            "answer": "<p>Det fungerer ved at udnytte infrarøde stråler til at opvarme kroppen indefra og skabe en sauna-lignende effekt.</p>"
+          }
+        },
+        "faq_8mCNTN": {
+          "type": "faq",
+          "settings": {
+            "question": "Hvordan bruges saunatæppet?",
+            "answer": "<p>Du tænder det, indstiller tid og temperatur og ligger dig ned i det. Husk at drikke vand før og efter brug.</p>"
+          }
+        },
+        "faq_8bJWbH": {
+          "type": "faq",
+          "settings": {
+            "question": "Hvor længe kan jeg ligge i saunatæppet?",
+            "answer": "<p>Den anbefalede brugstid er 30–60 minutter ad gangen.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_gnaMxE",
+        "faq_nFB7FE",
+        "faq_8mCNTN",
+        "faq_8bJWbH"
+      ],
+      "name": "Image with FAQs",
+      "settings": {
+        "image_position": "left",
+        "title": "Spørgsmål & svar",
+        "button_text": "Se alle spørgsmål og svar",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -2271,6 +2320,7 @@
     "progress_timeline_60d",
     "17843818126653bf72",
     "product_recently_viewed_BYKjx8",
-    "martilness_giveaway_pdp"
+    "martilness_giveaway_pdp",
+    "martilness_split_faq_h8BbVk"
   ]
 }
