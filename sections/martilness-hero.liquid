@@ -284,7 +284,7 @@
     assign hero_sizes = '(min-width: 750px) min(100vw - 2 * var(--page-padding, 0px), var(--page-width, 1700px)), 100vw'
   endif
 -%}
-<div class="fr-hero-wrap fr-hero-wrap--{{ container }} section-grid section-grid--{{ container }}">
+<div class="fr-hero-wrap fr-hero-wrap--{{ container }}  section-grid--{{ container }}">
   <div class="fr-hero {{ hero_modifier }} color-{{ section.settings.color_scheme }}">
     {% if use_picker_images or hero_desktop != blank or hero_mobile != blank %}
       <div class="fr-hero__bg">
