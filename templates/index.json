@@ -1908,7 +1908,7 @@
         "padding-inline-end-mobile": 0
       }
     },
-        "trustpilot_reviews_pdp": {
+    "trustpilot_reviews_pdp": {
       "type": "martilness-reviews",
       "blocks": {
         "review_1": {
@@ -1963,6 +1963,19 @@
         "padding_bottom": 64
       }
     },
+    "martilness_about_home": {
+      "type": "martilness-about-split",
+      "name": "Om Martilness",
+      "settings": {
+        "heading": "Om Martilness",
+        "text": "<p>Vi brænder for at <em>hjælpe</em> dig med at tage hånd om både din fysiske og mentale sundhed. Hos os finder du produkter, der kan forvandle din daglige rutine til øjeblikke af <em>velvære</em> og selvforkælelse. Fra forfriskende isbade til beroligende saunaer — vores <em>udvalg</em> er skabt til at støtte dig i at genoprette energi, <em>reducere stress</em> og styrke dit velvære. Vi tror på, at små forandringer kan gøre en stor forskel, og vores produkter er udvalgt for at give dig de bedste redskaber til et liv i <em>balance</em> og harmoni.</p>",
+        "highlight_color": "#5a9e8f",
+        "bg_color": "#ffffff",
+        "image_gap": 8,
+        "padding_top": 80,
+        "padding_bottom": 0
+      }
+    }
   },
   "order": [
     "martilness_hero_home",
@@ -1973,6 +1986,6 @@
     "testimonials_parallax_8FqTjk",
     "custom_section_cjGfXN",
     "trustpilot_reviews_pdp",
-
+    "martilness_about_home"
   ]
 }
