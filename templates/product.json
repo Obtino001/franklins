@@ -1371,7 +1371,7 @@
                 "border_radius": 20,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
+                "padding-inline-start": 20,
                 "padding-inline-end": 0,
                 "mobile-padding-scale": 80
               },
@@ -1407,7 +1407,7 @@
         "border_radius": 0,
         "device": "desktop",
         "padding-block-start": 0,
-        "padding-block-end": 0,
+        "padding-block-end": 20,
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "padding-block-start-mobile": 0,
@@ -1478,7 +1478,7 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0,
+                "padding-inline-end": 20,
                 "mobile-padding-scale": 80
               },
               "blocks": {}
