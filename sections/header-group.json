@@ -339,9 +339,9 @@
         "enable_language_selector": true,
         "enable_country_selector": true,
         "color_scheme": "scheme-1",
-        "show_sperator_line": true,
+        "show_sperator_line": false,
         "hide_sperator_line_for_templates": "",
-        "enable_dividers": true,
+        "enable_dividers": false,
         "padding-block-start": 16,
         "padding-block-end": 16
       }
