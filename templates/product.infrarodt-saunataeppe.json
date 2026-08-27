@@ -795,6 +795,263 @@
                 "mobile-padding-scale": 80
               },
               "blocks": {}
+            },
+            "usp_marquee_inline": {
+              "type": "_marquee",
+              "name": "t:names.marquee",
+              "settings": {
+                "direction": "forward",
+                "speed": 0.3,
+                "angle": 0,
+                "pause_on_hover": true,
+                "show_edge_fade": true,
+                "enable_parallax": false,
+                "column_gap": 36,
+                "column_gap_mobile": 28,
+                "color_scheme": "",
+                "border_radius": 0,
+                "padding-block-start": 10,
+                "padding-block-end": 10
+              },
+              "blocks": {
+                "usp_item_1": {
+                  "type": "_icon-with-text",
+                  "name": "t:names.icon_with_text",
+                  "settings": {
+                    "column_gap": 12,
+                    "column_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "static-icon-block": {
+                      "type": "_icon",
+                      "static": true,
+                      "settings": {
+                        "icon": "package",
+                        "icon_size": "custom-size",
+                        "width": 26,
+                        "width_mobile": 22
+                      },
+                      "blocks": {}
+                    },
+                    "static-text-block": {
+                      "type": "_simple-text",
+                      "static": true,
+                      "settings": {
+                        "text": "<p>Altid fri fragt</p>",
+                        "highlight_style": "none",
+                        "highlight_font_style": "italic",
+                        "highlight_shape_color": "",
+                        "highlight_text_color": "",
+                        "type_preset": "h4",
+                        "font": "var(--font-body--family)",
+                        "font_weight": "",
+                        "font_size": 15,
+                        "font_size_mobile": 15,
+                        "line_height": "normal",
+                        "text_color": "text",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "mobile-padding-scale": 80,
+                        "animation_type": "none",
+                        "animation_delay": 250
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                },
+                "usp_item_2": {
+                  "type": "_icon-with-text",
+                  "name": "t:names.icon_with_text",
+                  "settings": {
+                    "column_gap": 12,
+                    "column_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "static-icon-block": {
+                      "type": "_icon",
+                      "static": true,
+                      "settings": {
+                        "icon": "arrow-up-left-down",
+                        "icon_size": "custom-size",
+                        "width": 26,
+                        "width_mobile": 22
+                      },
+                      "blocks": {}
+                    },
+                    "static-text-block": {
+                      "type": "_simple-text",
+                      "static": true,
+                      "settings": {
+                        "text": "<p>Nem retur</p>",
+                        "highlight_style": "none",
+                        "highlight_font_style": "italic",
+                        "highlight_shape_color": "",
+                        "highlight_text_color": "",
+                        "type_preset": "h4",
+                        "font": "var(--font-body--family)",
+                        "font_weight": "",
+                        "font_size": 15,
+                        "font_size_mobile": 15,
+                        "line_height": "normal",
+                        "text_color": "text",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "mobile-padding-scale": 80,
+                        "animation_type": "none",
+                        "animation_delay": 250
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                },
+                "usp_item_3": {
+                  "type": "_icon-with-text",
+                  "name": "t:names.icon_with_text",
+                  "settings": {
+                    "column_gap": 12,
+                    "column_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "static-icon-block": {
+                      "type": "_icon",
+                      "static": true,
+                      "settings": {
+                        "icon": "truck",
+                        "icon_size": "custom-size",
+                        "width": 26,
+                        "width_mobile": 22
+                      },
+                      "blocks": {}
+                    },
+                    "static-text-block": {
+                      "type": "_simple-text",
+                      "static": true,
+                      "settings": {
+                        "text": "<p>Hurtig levering</p>",
+                        "highlight_style": "none",
+                        "highlight_font_style": "italic",
+                        "highlight_shape_color": "",
+                        "highlight_text_color": "",
+                        "type_preset": "h4",
+                        "font": "var(--font-body--family)",
+                        "font_weight": "",
+                        "font_size": 15,
+                        "font_size_mobile": 15,
+                        "line_height": "normal",
+                        "text_color": "text",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "mobile-padding-scale": 80,
+                        "animation_type": "none",
+                        "animation_delay": 250
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                },
+                "usp_item_4": {
+                  "type": "_icon-with-text",
+                  "name": "t:names.icon_with_text",
+                  "settings": {
+                    "column_gap": 12,
+                    "column_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "static-icon-block": {
+                      "type": "_icon",
+                      "static": true,
+                      "settings": {
+                        "icon": "padlock",
+                        "icon_size": "custom-size",
+                        "width": 26,
+                        "width_mobile": 22
+                      },
+                      "blocks": {}
+                    },
+                    "static-text-block": {
+                      "type": "_simple-text",
+                      "static": true,
+                      "settings": {
+                        "text": "<p>Sikker betaling</p>",
+                        "highlight_style": "none",
+                        "highlight_font_style": "italic",
+                        "highlight_shape_color": "",
+                        "highlight_text_color": "",
+                        "type_preset": "h4",
+                        "font": "var(--font-body--family)",
+                        "font_weight": "",
+                        "font_size": 15,
+                        "font_size_mobile": 15,
+                        "line_height": "normal",
+                        "text_color": "text",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "mobile-padding-scale": 80,
+                        "animation_type": "none",
+                        "animation_delay": 250
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                },
+                "usp_item_5": {
+                  "type": "_icon-with-text",
+                  "name": "t:names.icon_with_text",
+                  "settings": {
+                    "column_gap": 12,
+                    "column_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "static-icon-block": {
+                      "type": "_icon",
+                      "static": true,
+                      "settings": {
+                        "icon": "check-circle",
+                        "icon_size": "custom-size",
+                        "width": 26,
+                        "width_mobile": 22
+                      },
+                      "blocks": {}
+                    },
+                    "static-text-block": {
+                      "type": "_simple-text",
+                      "static": true,
+                      "settings": {
+                        "text": "<p>30 dages tilfredsgaranti</p>",
+                        "highlight_style": "none",
+                        "highlight_font_style": "italic",
+                        "highlight_shape_color": "",
+                        "highlight_text_color": "",
+                        "type_preset": "h4",
+                        "font": "var(--font-body--family)",
+                        "font_weight": "",
+                        "font_size": 15,
+                        "font_size_mobile": 15,
+                        "line_height": "normal",
+                        "text_color": "text",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "mobile-padding-scale": 80,
+                        "animation_type": "none",
+                        "animation_delay": 250
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                }
+              },
+              "block_order": [
+                "usp_item_1",
+                "usp_item_2",
+                "usp_item_3",
+                "usp_item_4",
+                "usp_item_5"
+              ]
             }
           },
           "block_order": [
@@ -804,6 +1061,7 @@
             "group_ngeVTK",
             "shipping_date_8NUgUx",
             "buy_buttons_rhMNwM",
+            "usp_marquee_inline",
             "custom_liquid_6UVzQf",
             "accordion_U9n4kg",
             "product_recommendations_CQcChJ"
@@ -908,14 +1166,16 @@
           "type": "details_list",
           "settings": {
             "block_heading": "Specifikationer",
-            "block_content": "<ul><li>Størrelse: 80 × 190 cm</li><li>Tid: 20–60 minutter</li><li>Temperatur: 30–80°</li><li>Vægt: 6,5 kg</li><li>Strøm: 550W / 220V</li><li>ROHS &amp; CE certificeret</li></ul>"
+            "block_content": "<ul><li>Størrelse: 80 × 190 cm</li><li>Tid: 20–60 minutter</li><li>Temperatur: 30–80°</li><li>Vægt: 6,5 kg</li><li>Strøm: 550W / 220V</li><li>ROHS &amp; CE certificeret</li></ul>",
+            "metafield_key": "tekniske_specifikationer"
           }
         },
         "details_list_gECcwU": {
           "type": "details_list",
           "settings": {
-            "block_heading": "Funktioner",
-            "block_content": "<ul><li>1-zone infrarød varme</li><li>Lynlåslukning</li><li>5-lags konstruktion</li><li>Silikone varmetråd</li><li>Kompakt opbevaring</li><li>30 dages tilfredsgaranti</li></ul>"
+            "block_heading": "Fordele",
+            "block_content": "<ul><li>1-zone infrarød varme</li><li>Lynlåslukning</li><li>5-lags konstruktion</li><li>Silikone varmetråd</li><li>Kompakt opbevaring</li><li>30 dages tilfredsgaranti</li></ul>",
+            "metafield_key": "sundhedsmaessige_fordele"
           }
         }
       },
@@ -937,7 +1197,8 @@
       "settings": {
         "page_bg_color": "#ffffff",
         "details_heading": "Detaljer om produktet",
-        "includes_heading": "Shop efter kategori"
+        "includes_heading": "Shop efter kategori",
+        "accent_color": "#09412d"
       }
     },
     "iwt_how_it_works": {
@@ -1103,11 +1364,11 @@
                 "custom_width": 100,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
-                "rounded": false,
+                "rounded": true,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 20,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -1128,7 +1389,7 @@
       ],
       "name": "Image with text",
       "settings": {
-        "container": "page-width--full",
+        "container": "page-width",
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
@@ -1209,11 +1470,11 @@
                 "custom_width": 100,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
-                "rounded": false,
+                "rounded": true,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 20,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -1343,7 +1604,7 @@
       ],
       "name": "Image with text",
       "settings": {
-        "container": "page-width--full",
+        "container": "page-width",
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",

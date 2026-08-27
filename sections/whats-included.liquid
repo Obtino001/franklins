@@ -1,64 +1,76 @@
-<div id="section-{{ section.id }}" class="combined-cards-section" style="background-color: {{ section.settings.page_bg_color }};">
-  {%- liquid
-    assign collection_links = section.blocks | where: 'type', 'collection_link'
-  -%}
+{%- liquid
+  assign accent = section.settings.accent_color | default: '#09412d'
+  assign product_ref = product
+  if product_ref == blank and closest.product != blank
+    assign product_ref = closest.product
+  endif
+-%}
 
-
-  <div class="combined-cards-container">
-    
-    <!-- ==========================================
-         LEFT CARD: BLACK (Product Details) — sticky
-    =========================================== -->
-    <div class="pd-card sticky-element" id="pd-card-{{ section.id }}">
-      <div class="pd-header">
-        <div class="pd-title-group">
-          <!-- Icon -->
-          <svg class="pd-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="7" y="5" width="10" height="14" rx="2"></rect>
-            <path d="M9 5v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          <h2 class="pd-title">{{ section.settings.details_heading }}</h2>
-        </div>
-        <!-- Close Button -->
-        <button class="pd-close-btn" aria-label="Close" onclick="document.getElementById('pd-card-{{ section.id }}').style.display='none'">
+<div
+  id="section-{{ section.id }}"
+  class="mt-product-details"
+  style="
+    --mt-pd-accent: {{ accent }};
+    --mt-pd-page-bg: {{ section.settings.page_bg_color }};
+    background-color: {{ section.settings.page_bg_color }};
+  "
+>
+  <div class="mt-product-details__container">
+    {%- comment -%} LEFT: product specs card {%- endcomment -%}
+    <aside class="mt-pd-card" id="pd-card-{{ section.id }}">
+      <div class="mt-pd-card__header">
+        <span class="mt-pd-card__badge" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+            <rect x="9" y="3" width="6" height="4" rx="1"/>
+            <path d="M9 12h6M9 16h4"/>
           </svg>
-        </button>
+        </span>
+        <h2 class="mt-pd-card__title">{{ section.settings.details_heading }}</h2>
       </div>
 
-      <div class="pd-content-grid">
+      <div class="mt-pd-card__grid">
         {% for block in section.blocks %}
           {% if block.type == 'details_list' %}
-            <div class="pd-block" {{ block.shopify_attributes }}>
-              <h3 class="pd-block-heading">{{ block.settings.block_heading }}</h3>
-              <div class="pd-list">
-                {{ block.settings.block_content }}
+            {%- liquid
+              assign mf_key = block.settings.metafield_key | strip
+              assign mf_field = blank
+              if mf_key != blank and product_ref != blank
+                assign mf_field = product_ref.metafields.custom[mf_key]
+              endif
+              assign has_metafield = false
+              if mf_field != blank
+                if mf_field.value != blank
+                  assign has_metafield = true
+                elsif mf_field.type contains 'rich_text' or mf_field.type == 'multi_line_text_field'
+                  assign has_metafield = true
+                endif
+              endif
+            -%}
+            <div class="mt-pd-block" {{ block.shopify_attributes }}>
+              {% if block.settings.block_heading != blank %}
+                <h3 class="mt-pd-block__heading">{{ block.settings.block_heading }}</h3>
+              {% endif %}
+              <div class="mt-pd-block__list">
+                {%- if has_metafield -%}
+                  {% render 'martilness-metafield-html', metafield: mf_field, format_list: true %}
+                {%- elsif block.settings.block_content != blank -%}
+                  {{ block.settings.block_content }}
+                {%- endif -%}
               </div>
             </div>
           {% endif %}
         {% endfor %}
       </div>
-    </div>
+    </aside>
 
-    <!-- ==========================================
-         RIGHT CARD: WHITE (What's Included)
-    =========================================== -->
-    <div class="wi-card">
-      <div class="hanger-tab" aria-hidden="true">
-        <svg class="icon-box" viewBox="0 0 234 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="234" height="74" fill="currentColor"></rect>
-          <rect x="58" y="32" width="118" height="19" class="svg-cutout"></rect>
-          <circle cx="117.5" cy="32.5" r="11.5" class="svg-cutout"></circle>
-        </svg>
-      </div>
-
+    {%- comment -%} RIGHT: shop by category {%- endcomment -%}
+    <div class="mt-wi-card">
       {% if section.settings.includes_heading != blank %}
-        <h2 class="wi-heading">{{ section.settings.includes_heading }}</h2>
+        <h2 class="mt-wi-card__heading">{{ section.settings.includes_heading }}</h2>
       {% endif %}
 
-      <div class="wi-grid">
+      <div class="mt-wi-card__grid">
         {% for block in section.blocks %}
           {% if block.type == 'included_item' %}
             {%- liquid
@@ -69,327 +81,294 @@
               endif
             -%}
             <{{ item_tag }}
-              class="wi-item{% if item_link != blank %} wi-item--link{% endif %}"
+              class="mt-wi-item{% if item_link != blank %} mt-wi-item--link{% endif %}"
               {% if item_link != blank %}href="{{ item_link }}"{% endif %}
               {{ block.shopify_attributes }}
             >
-              <div class="wi-image-circle">
+              <div class="mt-wi-item__media">
                 {% if block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 200, height: 200, crop: 'center' | image_tag: loading: 'lazy', alt: block.settings.title }}
+                  {{
+                    block.settings.image
+                    | image_url: width: 240, height: 240, crop: 'center'
+                    | image_tag: loading: 'lazy', alt: block.settings.title, widths: '120, 200, 240'
+                  }}
                 {% else %}
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                 {% endif %}
               </div>
               {% if block.settings.title != blank %}
-                <p class="wi-title">{{ block.settings.title }}</p>
+                <p class="mt-wi-item__title">{{ block.settings.title }}</p>
               {% endif %}
             </{{ item_tag }}>
           {% endif %}
         {% endfor %}
       </div>
     </div>
-
   </div>
 </div>
 
 <style>
-  /* Section Container */
-  #section-{{ section.id }}.combined-cards-section {
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3.2rem;
+  #section-{{ section.id }}.mt-product-details {
+    padding: clamp(4rem, 6vw, 7rem) 2rem;
     font-family: var(--font-body--family, inherit);
   }
 
-  #section-{{ section.id }} .wi-collections {
-    width: 100%;
-    max-width: 1400px;
-  }
-
-  #section-{{ section.id }} .wi-collections__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem 1.2rem;
-  }
-
-  #section-{{ section.id }} .wi-collections__link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.85rem 1.6rem;
-    border-radius: 9999px;
-    border: 1.5px solid rgb(var(--color-foreground) / 0.18);
-    background: #fff;
-    color: rgb(var(--color-foreground));
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.2;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  }
-
-  #section-{{ section.id }} .wi-collections__link:hover {
-    border-color: rgb(var(--color-foreground) / 0.45);
-    background: rgb(var(--color-foreground) / 0.04);
-  }
-
-  #section-{{ section.id }} .combined-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-    align-items: flex-start;
-    max-width: 1400px;
+  #section-{{ section.id }} .mt-product-details__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2.4rem, 4vw, 4.8rem);
+    align-items: start;
+    max-width: 1280px;
+    margin: 0 auto;
     width: 100%;
   }
 
   @media screen and (min-width: 990px) {
-    #section-{{ section.id }} .pd-card.sticky-element {
+    #section-{{ section.id }} .mt-pd-card {
       position: sticky;
       top: calc(var(--header-height, 0px) + 2.4rem);
-      align-self: flex-start;
     }
   }
 
-  /* ==========================================
-     LEFT CARD STYLES (Black)
-  =========================================== */
-  #section-{{ section.id }} .pd-card {
-    background-color: #1a1a1a;
-    border-radius: 20px;
-    padding: 30px 40px 40px;
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
-    color: #ffffff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  /* —— Specs card (theme green) —— */
+  #section-{{ section.id }} .mt-pd-card {
+    background:
+      linear-gradient(165deg, color-mix(in srgb, var(--mt-pd-accent) 88%, #fff) 0%, var(--mt-pd-accent) 48%, #06281c 100%);
+    border-radius: 1.6rem;
+    padding: 2.8rem 3.2rem 3.2rem;
+    color: #fff;
+    box-shadow:
+      0 1.2rem 3.2rem rgb(9 65 45 / 18%),
+      inset 0 1px 0 rgb(255 255 255 / 12%);
+    border: 1px solid color-mix(in srgb, var(--mt-pd-accent) 70%, #000);
   }
 
-  #section-{{ section.id }} .pd-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-  }
-
-  #section-{{ section.id }} .pd-title-group {
+  #section-{{ section.id }} .mt-pd-card__header {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1.2rem;
+    margin-bottom: 2.4rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid rgb(255 255 255 / 18%);
   }
 
-  #section-{{ section.id }} .pd-icon {
-    width: 22px;
-    height: 22px;
-    color: #ffffff;
+  #section-{{ section.id }} .mt-pd-card__badge {
+    flex: none;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255 255 255 / 14%);
+    color: #fff;
   }
 
-  #section-{{ section.id }} .pd-title {
-    font-size: 20px;
-    font-weight: 600;
+  #section-{{ section.id }} .mt-pd-card__badge svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  #section-{{ section.id }} .mt-pd-card__title {
     margin: 0;
-    color: #ffffff;
+    font-size: clamp(1.8rem, 2vw, 2.2rem);
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    color: #fff;
     font-family: var(--font-heading--family, inherit);
+    line-height: 1.25;
   }
 
-  #section-{{ section.id }} .pd-close-btn {
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 5px;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-  }
-
-  #section-{{ section.id }} .pd-close-btn:hover { opacity: 1; }
-  #section-{{ section.id }} .pd-close-btn svg { width: 20px; height: 20px; }
-
-  #section-{{ section.id }} .pd-content-grid {
+  #section-{{ section.id }} .mt-pd-card__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 2.4rem 2.8rem;
   }
 
-  #section-{{ section.id }} .pd-block-heading {
-    font-size: 16px;
+  #section-{{ section.id }} .mt-pd-block__heading {
+    margin: 0 0 1.2rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    margin-bottom: 12px;
-    margin-top: 0;
-    color: #ffffff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 72%);
     font-family: var(--font-heading--family, inherit);
   }
 
-  #section-{{ section.id }} .pd-list ul {
+  #section-{{ section.id }} .mt-pd-block__list,
+  #section-{{ section.id }} .mt-pd-block__list .mt-pdp-tab,
+  #section-{{ section.id }} .mt-pd-block__list .metafield-rich_text_field {
+    color: rgb(255 255 255 / 88%);
+    font-size: 1.4rem;
+    line-height: 1.55;
+  }
+
+  #section-{{ section.id }} .mt-pd-block__list ul,
+  #section-{{ section.id }} .mt-pd-block__list .mt-pdp-tab__list,
+  #section-{{ section.id }} .mt-pd-block__list .metafield-rich_text_field ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
   }
 
-  #section-{{ section.id }} .pd-list li {
+  #section-{{ section.id }} .mt-pd-block__list li {
     position: relative;
-    padding-left: 18px;
-    margin-bottom: 8px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #cccccc;
+    padding-left: 1.6rem;
+    margin: 0;
+    color: rgb(255 255 255 / 88%);
   }
 
-  #section-{{ section.id }} .pd-list li::before {
+  #section-{{ section.id }} .mt-pd-block__list li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 5px;
-    height: 5px;
-    background-color: #888;
+    top: 0.65em;
+    width: 0.55rem;
+    height: 0.55rem;
     border-radius: 50%;
+    background: #7dcea0;
+    box-shadow: 0 0 0 3px rgb(125 206 160 / 22%);
   }
 
-  /* ==========================================
-     RIGHT CARD STYLES (White)
-  =========================================== */
-  #section-{{ section.id }} .wi-card {
-    background-color: #f8f8f8;
-    border-radius: 20px;
-    padding: 60px 40px 50px;
-    position: relative;
-    flex: 1;
-    min-width: 300px;
-    max-width: 700px;
+  #section-{{ section.id }} .mt-pd-block__list p {
+    margin: 0 0 0.8rem;
+    color: rgb(255 255 255 / 88%);
+  }
+
+  #section-{{ section.id }} .mt-pd-block__list p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* —— Category card —— */
+  #section-{{ section.id }} .mt-wi-card {
+    background: #f3f6f4;
+    border-radius: 1.6rem;
+    padding: clamp(2.8rem, 4vw, 4rem) clamp(2rem, 3vw, 3.6rem);
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    margin-top: 24px; /* Offset for hanger tab */
+    border: 1px solid rgb(9 65 45 / 8%);
+    position: relative;
+    overflow: hidden;
   }
 
-  #section-{{ section.id }} .hanger-tab {
+  #section-{{ section.id }} .mt-wi-card::before {
+    content: "";
     position: absolute;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 140px;
-    color: #1a1a1a;
-  }
-
-  #section-{{ section.id }} .hanger-tab svg {
+    inset: 0 auto auto 0;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--mt-pd-accent), #7dcea0);
   }
 
-  #section-{{ section.id }} .svg-cutout {
-    fill: {{ section.settings.page_bg_color }};
-  }
-
-  #section-{{ section.id }} .wi-heading {
-    font-size: 32px;
+  #section-{{ section.id }} .mt-wi-card__heading {
+    margin: 0 0 2.8rem;
+    font-size: clamp(2.2rem, 2.6vw, 2.8rem);
     font-weight: 700;
+    letter-spacing: -0.03em;
     color: #111;
-    margin-bottom: 40px;
     font-family: var(--font-heading--family, inherit);
-    margin-top: 0;
   }
 
-  #section-{{ section.id }} .wi-grid {
+  #section-{{ section.id }} .mt-wi-card__grid {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    justify-content: center;
+    gap: 2rem 2.4rem;
   }
 
-  #section-{{ section.id }} .wi-item {
+  #section-{{ section.id }} .mt-wi-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 120px;
+    width: 11.5rem;
     text-decoration: none;
     color: inherit;
   }
 
-  #section-{{ section.id }} .wi-item--link {
-    cursor: pointer;
-    transition: transform 0.2s ease;
+  #section-{{ section.id }} .mt-wi-item--link {
+    transition: transform 0.25s ease;
   }
 
-  #section-{{ section.id }} .wi-item--link:hover {
-    transform: translateY(-2px);
+  #section-{{ section.id }} .mt-wi-item--link:hover {
+    transform: translateY(-3px);
   }
 
-  #section-{{ section.id }} .wi-item--link .wi-title {
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
-  }
-
-  #section-{{ section.id }} .wi-image-circle {
-    width: 110px;
-    height: 110px;
+  #section-{{ section.id }} .mt-wi-item__media {
+    width: 10.4rem;
+    height: 10.4rem;
     border-radius: 50%;
-    background-color: #efefef;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.1rem;
+    background: #fff;
+    border: 3px solid #fff;
+    box-shadow:
+      0 0 0 2px color-mix(in srgb, var(--mt-pd-accent) 35%, transparent),
+      0 0.8rem 1.8rem rgb(9 65 45 / 10%);
   }
 
-  #section-{{ section.id }} .wi-image-circle img {
+  #section-{{ section.id }} .mt-wi-item--link:hover .mt-wi-item__media {
+    box-shadow:
+      0 0 0 2px var(--mt-pd-accent),
+      0 1rem 2rem rgb(9 65 45 / 16%);
+  }
+
+  #section-{{ section.id }} .mt-wi-item__media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
     display: block;
   }
 
-  #section-{{ section.id }} .wi-image-circle .placeholder-svg {
+  #section-{{ section.id }} .mt-wi-item__media .placeholder-svg {
     width: 50%;
     height: 50%;
+    margin: 25%;
     fill: #ccc;
   }
 
-  #section-{{ section.id }} .wi-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: #333;
+  #section-{{ section.id }} .mt-wi-item__title {
     margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.3;
   }
 
-  /* Responsive Adjustments */
-  @media screen and (max-width: 990px) {
-    #section-{{ section.id }} .combined-cards-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 60px; /* More space when stacked vertically */
+  #section-{{ section.id }} .mt-wi-item--link:hover .mt-wi-item__title {
+    color: var(--mt-pd-accent);
+  }
+
+  @media screen and (max-width: 989px) {
+    #section-{{ section.id }} .mt-product-details__container {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
     }
-    #section-{{ section.id }} .pd-card,
-    #section-{{ section.id }} .wi-card {
-      width: 100%;
+
+    #section-{{ section.id }} .mt-pd-card,
+    #section-{{ section.id }} .mt-wi-card {
       max-width: 100%;
     }
   }
 
   @media screen and (max-width: 600px) {
-    #section-{{ section.id }} .pd-content-grid {
-      grid-template-columns: 1fr; /* 1 column on mobile for black card */
-      gap: 20px;
+    #section-{{ section.id }} .mt-pd-card {
+      padding: 2.2rem 2rem 2.4rem;
     }
-    #section-{{ section.id }} .wi-grid {
-      gap: 15px;
+
+    #section-{{ section.id }} .mt-pd-card__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
-    #section-{{ section.id }} .wi-item {
-      width: 45%;
+
+    #section-{{ section.id }} .mt-wi-item {
+      width: 42%;
     }
-    #section-{{ section.id }} .wi-image-circle {
-      width: 90px;
-      height: 90px;
+
+    #section-{{ section.id }} .mt-wi-item__media {
+      width: 8.8rem;
+      height: 8.8rem;
     }
   }
 </style>
@@ -403,29 +382,34 @@
     {
       "type": "color",
       "id": "page_bg_color",
-      "label": "Page Background Color",
-      "default": "#FFFFFF",
-      "info": "Fills the section background and the 'hole' in the hanger SVG."
+      "label": "Page background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Theme green (details card)",
+      "default": "#09412d"
     },
     {
       "type": "header",
-      "content": "Left Card (Black)"
+      "content": "Left card"
     },
     {
       "type": "text",
       "id": "details_heading",
-      "label": "Details Heading",
+      "label": "Details heading",
       "default": "Detaljer om produktet"
     },
     {
       "type": "header",
-      "content": "Right Card (White)"
+      "content": "Right card"
     },
     {
       "type": "text",
       "id": "includes_heading",
-      "label": "Includes Heading",
-      "default": "Hvad medfølger?"
+      "label": "Category heading",
+      "default": "Shop efter kategori"
     }
   ],
   "blocks": [
@@ -448,37 +432,53 @@
     },
     {
       "type": "details_list",
-      "name": "Details List (Black Card)",
+      "name": "Details list",
       "settings": [
         {
           "type": "text",
           "id": "block_heading",
-          "label": "List Heading",
-          "default": "Funktioner"
+          "label": "List heading",
+          "default": "Specifikationer"
+        },
+        {
+          "type": "select",
+          "id": "metafield_key",
+          "label": "Product metafield",
+          "info": "Uses the product metafield when set. Falls back to list content below.",
+          "options": [
+            { "value": "", "label": "None (use list content)" },
+            { "value": "tekniske_specifikationer", "label": "Tekniske specifikationer" },
+            { "value": "sundhedsmaessige_fordele", "label": "Sundhedsmæssige fordele" },
+            { "value": "hvad_er_inkluderet", "label": "Hvad er inkluderet" },
+            { "value": "fordele", "label": "Fordele" },
+            { "value": "product_usps", "label": "Product USPs" },
+            { "value": "tilfredshedsgaranti", "label": "Tilfredshedsgaranti" }
+          ],
+          "default": ""
         },
         {
           "type": "richtext",
           "id": "block_content",
-          "label": "List Content",
-          "default": "<ul><li>Cylinderformet</li><li>330 liter kapacitet</li><li>Sort farve</li><li>Oppusteligt design</li></ul>",
-          "info": "Use bullet points in the editor."
+          "label": "Fallback list content",
+          "default": "<ul><li>Specifikation</li></ul>",
+          "info": "Shown only if the metafield is empty."
         }
       ]
     },
     {
       "type": "included_item",
-      "name": "Included Item",
+      "name": "Category item",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Item Image"
+          "label": "Image"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Item Title",
-          "default": "Håndpumpe"
+          "label": "Title",
+          "default": "Saunatæppe"
         },
         {
           "type": "url",
@@ -495,39 +495,20 @@
         {
           "type": "details_list",
           "settings": {
-            "block_heading": "Funktioner",
-            "block_content": "<ul><li>Cylinderformet</li><li>330 liter kapacitet</li><li>Sort farve</li><li>Oppusteligt design</li></ul>"
+            "block_heading": "Specifikationer",
+            "metafield_key": "tekniske_specifikationer"
           }
         },
         {
           "type": "details_list",
           "settings": {
-            "block_heading": "Dimensioner",
-            "block_content": "<ul><li>75 cm diameter</li><li>75 cm højde</li><li>Velegnet til højder op til 2,10m</li></ul>"
-          }
-        },
-        {
-          "type": "details_list",
-          "settings": {
-            "block_heading": "Konstruktion",
-            "block_content": "<ul><li>Nylon udvendigt materiale</li><li>UV-resistent materiale</li><li>Skumisolering</li><li>None-rip polyester</li></ul>"
+            "block_heading": "Fordele",
+            "metafield_key": "sundhedsmaessige_fordele"
           }
         },
         {
           "type": "included_item",
-          "settings": { "title": "Håndpumpe" }
-        },
-        {
-          "type": "included_item",
-          "settings": { "title": "Afløbshane" }
-        },
-        {
-          "type": "included_item",
-          "settings": { "title": "Afløbsslange" }
-        },
-        {
-          "type": "included_item",
-          "settings": { "title": "Overtræk" }
+          "settings": { "title": "Saunatæppe" }
         }
       ]
     }
