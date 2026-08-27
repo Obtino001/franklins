@@ -1,10 +1,14 @@
 {%- comment -%} Mega menu promotional banner card {%- endcomment -%}
+{%- liquid
+  assign banner_alt = heading | default: shop.name
+  assign banner_button_label = button_label | default: heading
+-%}
 {%- capture image_html -%}
   {% render 'responsive-image',
     mode: 'js',
     image: image,
     image_mobile: image_mobile,
-    default_alt: heading | default: shop.name,
+    default_alt: banner_alt
   %}
 {%- endcapture -%}
 
@@ -98,18 +102,18 @@
         image: image,
         image_mobile: image_mobile,
         image_ratio: '3/4',
-        default_alt: heading | default: shop.name,
+        default_alt: banner_alt
       %}
     {%- endcapture -%}
     {%- capture button_html -%}
       {% render 'button',
-        label: button_label | default: heading,
+        label: banner_button_label,
         link: button_link,
         style: button_style,
         size: button_size,
         icon: button_icon,
         icon_style: button_icon_style,
-        icon_only: true,
+        icon_only: true
       %}
     {%- endcapture -%}
     {% render 'image-card',
