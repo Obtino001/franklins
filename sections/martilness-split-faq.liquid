@@ -4,8 +4,30 @@
   assign button_link = section.settings.button_link
   assign image_position = section.settings.image_position | default: 'left'
   assign image_radius = section.settings.image_radius | default: 20
--%}
 
+  assign show_section = true
+  assign gate_key = section.settings.require_metafield_key | default: 'faqs' | strip
+  if gate_key != blank
+    assign show_section = false
+    assign gate_product = product
+    if gate_product == blank and closest.product != blank
+      assign gate_product = closest.product
+    endif
+    if gate_product != blank
+      assign gate_mf = gate_product.metafields.custom[gate_key]
+      if gate_mf != blank and gate_mf.value != blank
+        assign show_section = true
+      endif
+    endif
+  endif
+-%}
+{%- unless show_section -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      display: none !important;
+    }
+  </style>
+{%- else -%}
 <div
   id="section-{{ section.id }}"
   class="mt-split-faq color-{{ section.settings.color_scheme }}{% if image_position == 'right' %} mt-split-faq--image-right{% endif %}"
@@ -186,6 +208,7 @@
     }
   }
 </style>
+{%- endunless -%}
 
 {% schema %}
 {
@@ -196,6 +219,13 @@
     "groups": ["header", "footer", "custom.overlay"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "require_metafield_key",
+      "label": "Show only if product metafield has entries",
+      "default": "faqs",
+      "info": "Custom namespace key, e.g. faqs. Leave blank to always show."
+    },
     {
       "type": "image_picker",
       "id": "image",

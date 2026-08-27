@@ -1416,7 +1416,8 @@
         "padding-block-start-mobile": 0,
         "padding-block-end-mobile": 0,
         "padding-inline-start-mobile": 0,
-        "padding-inline-end-mobile": 0
+        "padding-inline-end-mobile": 0,
+        "require_metafield_key": "image_with_text"
       }
     },
     "iwt_health_benefits": {
@@ -1631,7 +1632,8 @@
         "padding-block-start-mobile": 0,
         "padding-block-end-mobile": 0,
         "padding-inline-start-mobile": 0,
-        "padding-inline-end-mobile": 0
+        "padding-inline-end-mobile": 0,
+        "require_metafield_key": "image_with_text"
       }
     },
     "trustpilot_reviews_pdp": {
@@ -2189,7 +2191,8 @@
         "button_link": "",
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "require_metafield_key": "faqs"
       }
     },
     "faq_banner_pdp_Mtq1": {
