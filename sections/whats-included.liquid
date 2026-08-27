@@ -53,9 +53,17 @@
               {% endif %}
               <div class="mt-pd-block__list">
                 {%- if has_metafield -%}
-                  {% render 'martilness-metafield-html', metafield: mf_field, format_list: true %}
+                  {% liquid
+                    assign use_color_dots = false
+                    if mf_key == 'sundhedsmaessige_fordele' or mf_key == 'fordele'
+                      assign use_color_dots = true
+                    endif
+                  %}
+                  {% render 'martilness-metafield-html', metafield: mf_field, format_list: true, color_swatches: use_color_dots %}
                 {%- elsif block.settings.block_content != blank -%}
-                  {{ block.settings.block_content }}
+                  <div class="mt-pdp-tab rte" data-mt-color-auto>
+                    {{ block.settings.block_content }}
+                  </div>
                 {%- endif -%}
               </div>
             </div>
@@ -231,6 +239,19 @@
     border-radius: 50%;
     background: #7dcea0;
     box-shadow: 0 0 0 3px rgb(125 206 160 / 22%);
+  }
+
+  #section-{{ section.id }} .mt-pd-block__list .mt-pdp-tab__swatch-row {
+    padding-left: 0;
+    color: rgb(255 255 255 / 88%);
+  }
+
+  #section-{{ section.id }} .mt-pd-block__list .mt-pdp-tab__swatch-row::before {
+    display: none;
+  }
+
+  #section-{{ section.id }} .mt-pd-block__list .mt-color-dot {
+    box-shadow: inset 0 0 0 0.1rem rgb(255 255 255 / 25%);
   }
 
   #section-{{ section.id }} .mt-pd-block__list p {

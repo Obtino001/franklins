@@ -1,9 +1,10 @@
 {%- doc -%}
   Renders a product metafield as HTML.
   Rich text must use metafield_tag. Flat/broken list text is normalized to <ul><li> in the browser.
+  LED color names (Rød, Blå, …) get colored circle swatches automatically.
 
   @param {object} metafield - product.metafields.namespace.key
-  @param {boolean} [color_swatches] - inject colored dots for LED therapy colors
+  @param {boolean} [color_swatches] - force color dots (default: auto when color names detected)
   @param {boolean} [format_list] - force flat "Label: value" text into a bullet list (default true)
 {%- enddoc -%}
 {%- liquid
@@ -16,7 +17,7 @@
     class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}"
     data-mt-pdp-metafield
     {% if format_list %}data-mt-format-list{% endif %}
-    {% if color_swatches %}data-mt-color-swatches{% endif %}
+    data-mt-color-swatches
   >
     {%- case metafield.type -%}
       {%- when 'multi_line_text_field' -%}
@@ -40,6 +41,38 @@
       {%- endcase -%}
   </div>
 
+  <style>
+    .mt-pdp-tab--swatches .metafield-rich_text_field ul,
+    .mt-pdp-tab--swatches .mt-pdp-tab__list,
+    .mt-pdp-tab__list--colors,
+    .mt-pd-block__list .mt-pdp-tab__list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .mt-pdp-tab__swatch-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      list-style: none;
+    }
+    .mt-color-dot {
+      flex: 0 0 auto;
+      width: 1.15rem;
+      height: 1.15rem;
+      margin-top: 0.3rem;
+      border-radius: 999px;
+      box-shadow: inset 0 0 0 0.1rem rgb(0 0 0 / 8%);
+    }
+    .mt-color-dot--rod { background: #e53935; }
+    .mt-color-dot--bla { background: #42a5f5; }
+    .mt-color-dot--gron { background: #43a047; }
+    .mt-color-dot--gul { background: #fdd835; }
+    .mt-color-dot--lilla { background: #8e24aa; }
+    .mt-color-dot--orange { background: #fb8c00; }
+    .mt-color-dot--cyan { background: #26c6da; border-radius: 0.2rem; }
+    .mt-color-dot--nir { background: #111; }
+  </style>
+
   <script>
     (() => {
       const root = document.currentScript && document.currentScript.previousElementSibling;
@@ -48,7 +81,43 @@
       root.dataset.mtMetaBound = 'true';
 
       const formatList = root.hasAttribute('data-mt-format-list');
-      const colorSwatches = root.hasAttribute('data-mt-color-swatches');
+      const COLOR_MAP = [
+        ['nærinfrarød', 'nir'],
+        ['narinfrarod', 'nir'],
+        ['orange', 'orange'],
+        ['lilla', 'lilla'],
+        ['cyan', 'cyan'],
+        ['grøn', 'gron'],
+        ['blå', 'bla'],
+        ['rød', 'rod'],
+        ['gul', 'gul']
+      ];
+
+      function applyColorSwatches(scope) {
+        if (!scope) return;
+        let hit = false;
+        scope.querySelectorAll('li, p').forEach(function (el) {
+          if (el.querySelector('.mt-color-dot')) return;
+          const raw = (el.textContent || '').trim();
+          const text = raw.toLowerCase();
+          if (!text || text.indexOf('hvad hjælper') === 0) return;
+
+          for (var i = 0; i < COLOR_MAP.length; i++) {
+            var name = COLOR_MAP[i][0];
+            var cls = COLOR_MAP[i][1];
+            if (text.indexOf(name) === 0 || text.indexOf(name + ':') === 0 || text.indexOf(name + ' (') === 0) {
+              var dot = document.createElement('span');
+              dot.className = 'mt-color-dot mt-color-dot--' + cls;
+              dot.setAttribute('aria-hidden', 'true');
+              el.insertBefore(dot, el.firstChild);
+              el.classList.add('mt-pdp-tab__swatch-row');
+              hit = true;
+              break;
+            }
+          }
+        });
+        if (hit) scope.classList.add('mt-pdp-tab--swatches');
+      }
 
       if (formatList) {
         const existingLis = root.querySelectorAll('li');
@@ -94,7 +163,6 @@
               .filter(Boolean);
           }
 
-          // Fallback: whole words (min 3 letters) ending with :, never single letters like N/I/R in (NIR)
           if (parts.length < 2) {
             parts = text
               .split(/(?=(?:[A-ZÆØÅ][a-zæøåA-ZÆØÅ-]{2,40})\s*:)/)
@@ -116,38 +184,7 @@
         }
       }
 
-      if (colorSwatches) {
-        const map = [
-          ['rød', 'rod'],
-          ['blå', 'bla'],
-          ['grøn', 'gron'],
-          ['gul', 'gul'],
-          ['lilla', 'lilla'],
-          ['orange', 'orange'],
-          ['cyan', 'cyan'],
-          ['nærinfrarød', 'nir'],
-          ['narinfrarod', 'nir']
-        ];
-
-        root.querySelectorAll('li, p').forEach(function (el) {
-          if (el.querySelector('.mt-color-dot')) return;
-          const text = (el.textContent || '').trim().toLowerCase();
-          if (!text || text.indexOf('hvad hjælper') === 0) return;
-
-          for (var i = 0; i < map.length; i++) {
-            var name = map[i][0];
-            var cls = map[i][1];
-            if (text.indexOf(name) === 0) {
-              var dot = document.createElement('span');
-              dot.className = 'mt-color-dot mt-color-dot--' + cls;
-              dot.setAttribute('aria-hidden', 'true');
-              el.insertBefore(dot, el.firstChild);
-              el.classList.add('mt-pdp-tab__swatch-row');
-              break;
-            }
-          }
-        });
-      }
+      applyColorSwatches(root);
     })();
   </script>
 {%- endif -%}
