@@ -37,7 +37,7 @@
   {%- if metafield.type == 'multi_line_text_field' -%}
     {%- assign mf_lines = metafield.value | strip | newline_to_br | split: '<br />' -%}
     <div class="mt-pdp-tab rte{% if color_swatches %} mt-pdp-tab--swatches{% endif %}" data-mt-pdp-metafield data-mt-color-swatches>
-      {%- if mf_lines.size > 1 -%}
+      {%- if mf_lines.size > 1 and format_list -%}
         <ul class="mt-pdp-tab__list">
           {%- for line in mf_lines -%}
             {%- assign line_text = line | strip_html | strip -%}
@@ -46,6 +46,21 @@
             {%- endif -%}
           {%- endfor -%}
         </ul>
+      {%- elsif mf_lines.size > 1 -%}
+        {%- for line in mf_lines -%}
+          {%- assign line_text = line | strip_html | strip -%}
+          {%- if line_text != blank -%}
+            {%- assign segments = line_text | split: ':' -%}
+            {%- assign label = segments[0] -%}
+            {%- assign label_length = label | size -%}
+            {%- if segments.size > 1 and label_length < 60 -%}
+              {%- assign rest = line_text | remove_first: label | remove_first: ':' | strip -%}
+              <p><strong>{{ label }}:</strong> {{ rest }}</p>
+            {%- else -%}
+              <p>{{ line_text }}</p>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
       {%- else -%}
         <div class="mt-pdp-tab__text">{{ metafield.value | newline_to_br }}</div>
       {%- endif -%}
