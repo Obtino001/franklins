@@ -27,6 +27,7 @@
   {%- assign is_led_maske = true -%}
 {%- endif -%}
 
+{%- capture tab_body -%}
 {%- case tab -%}
   {%- when 'beskrivelse' -%}
     {%- if product.description != blank -%}
@@ -160,6 +161,9 @@
       </div>
     {%- else -%}
       {%- assign mf_field = product.metafields.custom.tekniske_specifikationer -%}
+      {%- if mf_field == blank -%}
+        {%- assign mf_field = product.metafields.custom.tekniske_specifikationers -%}
+      {%- endif -%}
       {%- capture mf_check -%}{{ mf_field | metafield_tag }}{%- endcapture -%}
       {%- assign mf_txt = mf_check | strip_html | strip -%}
       {%- assign mf_down = mf_txt | downcase -%}
@@ -218,6 +222,9 @@
       </div>
     {%- else -%}
       {%- assign mf_field = product.metafields.custom.hvad_er_inkluderet -%}
+      {%- if mf_field == blank -%}
+        {%- assign mf_field = product.metafields.custom.hvad_er_inkluderets -%}
+      {%- endif -%}
       {%- if mf_field != blank -%}
         {% render 'martilness-metafield-html', metafield: mf_field, format_list: true %}
       {%- elsif is_saunataeppe -%}
@@ -260,6 +267,31 @@
       </div>
     {%- endif -%}
 {%- endcase -%}
+{%- endcapture -%}
+
+{%- assign tab_body_text = tab_body | strip_html | strip -%}
+
+{%- if tab_body_text != blank -%}
+  {{ tab_body }}
+{%- else -%}
+  {%- comment -%} No content for this tab: collapse the whole accordion row. {%- endcomment -%}
+  <span class="mt-pdp-tab-empty" hidden></span>
+  <style>
+    details:has(.mt-pdp-tab-empty) {
+      display: none !important;
+    }
+  </style>
+  <script>
+    (() => {
+      const marker = document.currentScript.parentElement.querySelector('.mt-pdp-tab-empty')
+        || document.currentScript.previousElementSibling;
+      const row = marker && marker.closest('details');
+      if (row && !(window.Shopify && window.Shopify.designMode)) {
+        row.style.display = 'none';
+      }
+    })();
+  </script>
+{%- endif -%}
 
 <style>
   .mt-pdp-tab { width: 100%; max-width: 100%; }

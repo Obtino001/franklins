@@ -38,6 +38,19 @@
               assign mf_probe_txt = ''
               if mf_key != blank and product_ref != blank
                 assign mf_field = product_ref.metafields.custom[mf_key]
+                # Some stores name the key with a trailing "s" (tekniske_specifikationers)
+                if mf_field == blank
+                  assign mf_key_alt = mf_key | append: 's'
+                  assign mf_field = product_ref.metafields.custom[mf_key_alt]
+                endif
+                if mf_field == blank
+                  assign last_char = mf_key | slice: -1
+                  if last_char == 's'
+                    assign trimmed_len = mf_key | size | minus: 1
+                    assign mf_key_alt = mf_key | slice: 0, trimmed_len
+                    assign mf_field = product_ref.metafields.custom[mf_key_alt]
+                  endif
+                endif
               endif
               assign has_metafield = false
               if mf_field != blank
