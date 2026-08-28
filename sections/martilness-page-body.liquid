@@ -91,13 +91,25 @@
       return (el.textContent || '').trim();
     }
 
+    function headingClass(el) {
+      const tag = (el.tagName || '').toLowerCase();
+      if (/^h[1-6]$/.test(tag)) return tag;
+      return '';
+    }
+
     const items = [];
     let current = null;
 
     nodes.forEach((node) => {
       if (isQuestionEl(node)) {
         if (current) items.push(current);
-        current = { q: questionText(node), parts: [] };
+        current = {
+          q: questionText(node),
+          html: node.innerHTML,
+          heading: headingClass(node),
+          style: node.getAttribute('style') || '',
+          parts: []
+        };
         return;
       }
       if (!current) {
@@ -138,9 +150,17 @@
 
       const summary = document.createElement('summary');
       summary.className = 'mt-page-faq__summary accordion__summary';
+      const qClass = 'mt-page-faq__q' + (item.heading ? ' ' + item.heading : '');
+      const qStyle = item.style
+        ? ' style="' + item.style.replace(/"/g, '&quot;') + '"'
+        : '';
       summary.innerHTML =
-        '<span class="mt-page-faq__q">' +
-        item.q.replace(/</g, '&lt;') +
+        '<span class="' +
+        qClass +
+        '"' +
+        qStyle +
+        '>' +
+        (item.html || item.q.replace(/</g, '&lt;')) +
         '</span><span class="mt-page-faq__icon" aria-hidden="true"></span>';
 
       const content = document.createElement('div');
@@ -198,7 +218,6 @@
   #section-{{ section.id }} .mt-page-body__content,
   #section-{{ section.id }} .mt-page-body__intro,
   #section-{{ section.id }} .mt-page-faq__answer {
-    font-size: 1.55rem;
     line-height: 1.65;
     color: rgb(0 0 0 / 82%);
   }
@@ -256,7 +275,7 @@
     padding: 1.6rem 0;
     cursor: pointer;
     font-family: var(--font-heading--family, inherit);
-    font-size: 1.65rem;
+    font-size: inherit;
     font-weight: 650;
     line-height: 1.35;
     color: #111;
@@ -269,6 +288,13 @@
   #section-{{ section.id }} .mt-page-faq__q {
     flex: 1;
   }
+
+  #section-{{ section.id }} .mt-page-faq__q.h1 { font-size: var(--font-size--h1); }
+  #section-{{ section.id }} .mt-page-faq__q.h2 { font-size: var(--font-size--h2); }
+  #section-{{ section.id }} .mt-page-faq__q.h3 { font-size: var(--font-size--h3); }
+  #section-{{ section.id }} .mt-page-faq__q.h4 { font-size: var(--font-size--h4); }
+  #section-{{ section.id }} .mt-page-faq__q.h5 { font-size: var(--font-size--h5); }
+  #section-{{ section.id }} .mt-page-faq__q.h6 { font-size: var(--font-size--h6); }
 
   #section-{{ section.id }} .mt-page-faq__icon {
     flex: none;
@@ -350,7 +376,6 @@
     }
 
     #section-{{ section.id }} .mt-page-faq__summary {
-      font-size: 1.5rem;
       padding: 1.4rem 0;
     }
   }
