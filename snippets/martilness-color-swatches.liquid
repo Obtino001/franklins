@@ -171,8 +171,21 @@
       });
     }
 
+    function hideEmptyAccordions() {
+      if (window.Shopify && window.Shopify.designMode) return;
+      document.querySelectorAll('details.accordion__details').forEach(function (details) {
+        var content = details.querySelector('.accordion__content');
+        if (!content) return;
+        if (content.querySelector('img, svg, iframe, video, a, input, button')) return;
+        var text = (content.textContent || '').replace(/\s+/g, '').trim();
+        if (text) return;
+        details.hidden = true;
+      });
+    }
+
     function run() {
       paint(document);
+      hideEmptyAccordions();
     }
 
     if (document.readyState === 'loading') {

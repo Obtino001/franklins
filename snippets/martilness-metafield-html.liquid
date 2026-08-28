@@ -23,6 +23,15 @@
   endcapture
 
   assign mf_plain = mf_raw_html | strip_html | replace: '&nbsp;', ' ' | strip
+  assign mf_down = mf_plain | downcase
+
+  # Only treat as a color list when the text really names LED colors
+  if color_swatches
+    assign color_swatches = false
+    if mf_down contains 'rød:' or mf_down contains 'blå:' or mf_down contains 'grøn:' or mf_down contains 'nærinfrarød'
+      assign color_swatches = true
+    endif
+  endif
 -%}
 {%- if metafield != blank -%}
   {%- if metafield.type == 'multi_line_text_field' -%}
