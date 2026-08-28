@@ -550,6 +550,7 @@
               "blocks": {
                 "quantity-selector": {
                   "type": "_quantity-selector",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
