@@ -142,7 +142,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>BEMÆRK: Vores maske kommer med et rigtig 220v stik – lige til at sætte i stikkontakt – ikke kun et USB opladningstik</p>",
+                "text": "{{ closest.product.metafields.custom.text | metafield_tag }}",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
