@@ -813,6 +813,7 @@
             "accordion_U9n4kg": {
               "type": "accordion",
               "name": "t:names.accordion",
+              "disabled": true,
               "settings": {
                 "open_behavior": "single",
                 "type_preset": "h5",
