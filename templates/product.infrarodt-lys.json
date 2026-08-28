@@ -1178,7 +1178,7 @@
           "type": "details_list",
           "settings": {
             "block_heading": "Fordele",
-            "metafield_key": "sundhedsmaessige_fordele",
+            "metafield_key": "hvad_er_inkluderet",
             "block_content": "<ul><li>1-zone infrarød varme</li><li>Lynlåslukning</li><li>5-lags konstruktion</li><li>Silikone varmetråd</li><li>Kompakt opbevaring</li><li>30 dages tilfredsgaranti</li></ul>"
           }
         }
