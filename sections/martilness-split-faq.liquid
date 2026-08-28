@@ -126,11 +126,12 @@
     grid-template-columns: 1fr;
     width: 100%;
     gap: 2.4rem;
-    align-items: stretch;
+    align-items: start;
   }
 
   #section-{{ section.id }} .mt-split-faq__media {
-    min-height: 28rem;
+    position: relative;
+    height: 28rem;
     overflow: hidden;
     background: rgb(var(--color-foreground) / 0.06);
     border-radius: var(--mt-split-faq-radius, 20px);
@@ -140,7 +141,6 @@
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 28rem;
     object-fit: cover;
     border-radius: var(--mt-split-faq-radius, 20px);
   }
@@ -186,7 +186,7 @@
     #section-{{ section.id }} .mt-split-faq__grid {
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      min-height: 52rem;
+      align-items: start;
     }
 
     #section-{{ section.id }}.mt-split-faq--image-right .mt-split-faq__media {
@@ -197,14 +197,19 @@
       order: 1;
     }
 
-    #section-{{ section.id }} .mt-split-faq__media,
+    #section-{{ section.id }} .mt-split-faq__media {
+      position: sticky;
+      top: calc(var(--header-height, 0px) + 2.4rem);
+      height: min(72vh, 64rem);
+      align-self: start;
+    }
+
     #section-{{ section.id }} .mt-split-faq__img {
-      min-height: 100%;
       height: 100%;
     }
 
     #section-{{ section.id }} .mt-split-faq__content {
-      padding: 4rem 2rem;
+      padding: 0 2rem;
     }
   }
 </style>
