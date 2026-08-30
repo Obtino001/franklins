@@ -78,6 +78,43 @@
       source.firstElementChild.remove();
     }
 
+    function isAddressLine(el) {
+      if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;
+      const t = norm(el.textContent);
+      if (!t) return false;
+      if (t.includes('baunebakkevej') && (t.includes('cvr') || t.includes('tlf') || t.includes('@'))) {
+        return true;
+      }
+      if (t.length > 90) return false;
+      return (
+        t === 'martilness' ||
+        t.includes('baunebakkevej') ||
+        t.includes('hvidovre') ||
+        t.includes('cvr') ||
+        t.indexOf('tlf') === 0 ||
+        t.indexOf('e-mail') === 0 ||
+        t.indexOf('email') === 0 ||
+        t.includes('info@martilness') ||
+        t.includes('2779 6900') ||
+        t.includes('27796900')
+      );
+    }
+
+    const trailing = [];
+    let trail = source.lastElementChild;
+    while (trail && isAddressLine(trail)) {
+      trailing.push(trail);
+      trail = trail.previousElementSibling;
+    }
+    const trailText = trailing.map((n) => n.textContent).join(' ').toLowerCase();
+    if (
+      trailText.includes('baunebakkevej') ||
+      trailText.includes('35633146') ||
+      trailText.includes('info@martilness')
+    ) {
+      trailing.forEach((n) => n.remove());
+    }
+
     const target = root.querySelector('[data-mt-page-faq]');
     if (!target || source.dataset.mtLayout !== 'faq' || source.dataset.mtFaqBound === 'true') return;
     source.dataset.mtFaqBound = 'true';
