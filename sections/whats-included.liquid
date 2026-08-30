@@ -198,13 +198,6 @@
     width: 100%;
   }
 
-  @media screen and (min-width: 990px) {
-    #section-{{ section.id }} .mt-wi-card {
-      position: sticky;
-      top: calc(var(--header-height, 0px) + 2.4rem);
-    }
-  }
-
   /* —— Specs card (theme green) —— */
   #section-{{ section.id }} .mt-pd-card {
     background:
@@ -330,6 +323,18 @@
     margin-bottom: 0;
   }
 
+  #section-{{ section.id }} .mt-pd-block__list :is(h2, h3, h4) {
+    margin: 0 0 0.9rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  #section-{{ section.id }} .mt-pd-block__list :is(ul, ol, p) + :is(h2, h3, h4),
+  #section-{{ section.id }} .mt-pd-block__list :is(h2, h3, h4):not(:first-child) {
+    margin-top: 2.2rem;
+  }
+
   /* —— Category card —— */
   #section-{{ section.id }} .mt-wi-card {
     background: #f3f6f4;
@@ -339,6 +344,15 @@
     border: 1px solid rgb(9 65 45 / 8%);
     position: relative;
     overflow: hidden;
+  }
+
+  @media screen and (min-width: 990px) {
+    #section-{{ section.id }} .mt-wi-card {
+      position: sticky;
+      top: calc(var(--header-height, 0px) + 2.4rem);
+      align-self: start;
+      z-index: 2;
+    }
   }
 
   #section-{{ section.id }} .mt-wi-card::before {

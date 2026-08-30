@@ -238,6 +238,36 @@
     color: #111;
   }
 
+  /* Shopify wraps list items in <p>. Theme uses list-style-position: inside,
+     so the bullet sits on its own line above the paragraph. */
+  #section-{{ section.id }} .mt-page-body__content ul,
+  #section-{{ section.id }} .mt-page-body__content ol,
+  #section-{{ section.id }} .mt-page-body__intro ul,
+  #section-{{ section.id }} .mt-page-body__intro ol,
+  #section-{{ section.id }} .mt-page-faq__answer ul,
+  #section-{{ section.id }} .mt-page-faq__answer ol {
+    list-style-position: outside;
+    padding-inline-start: 1.6em;
+    margin-block: 0 1.2rem;
+  }
+
+  #section-{{ section.id }} .mt-page-body__content li,
+  #section-{{ section.id }} .mt-page-body__intro li,
+  #section-{{ section.id }} .mt-page-faq__answer li {
+    display: list-item;
+    margin: 0.45rem 0;
+  }
+
+  #section-{{ section.id }} .mt-page-body__content li > p,
+  #section-{{ section.id }} .mt-page-body__intro li > p,
+  #section-{{ section.id }} .mt-page-faq__answer li > p,
+  #section-{{ section.id }} .mt-page-body__content li > :is(h1, h2, h3, h4, h5, h6),
+  #section-{{ section.id }} .mt-page-body__intro li > :is(h1, h2, h3, h4, h5, h6),
+  #section-{{ section.id }} .mt-page-faq__answer li > :is(h1, h2, h3, h4, h5, h6) {
+    display: inline;
+    margin: 0;
+  }
+
   #section-{{ section.id }} .mt-page-body__empty {
     margin: 0;
     color: rgb(0 0 0 / 55%);
