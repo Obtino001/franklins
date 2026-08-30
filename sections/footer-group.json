@@ -133,41 +133,12 @@
                 "border_radius": 10
               },
               "blocks": {}
-            },
-            "icon_box_hF6UhE": {
-              "type": "icon-box",
-              "name": "t:names.icon_box_standard",
-              "settings": {
-                "direction": "vertical",
-                "text_align": "center",
-                "icon": "star",
-                "icon_spacing": 12,
-                "icon_size": "custom-size",
-                "icon_width": 32,
-                "icon_width_mobile": 48,
-                "heading": "4,8 ud af 5 stjerner på Trustpilot",
-                "heading_preset": "h6",
-                "text": "<p>Se vores anmeldelser på Trustpilot.</p>",
-                "text_color": "subtext",
-                "link": "https://dk.trustpilot.com/review/martilness.dk",
-                "show_link_icon": true,
-                "content_row_gap": 4,
-                "style": "standard",
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "border": "solid",
-                "border_width": 1,
-                "border_opacity": 10,
-                "border_radius": 10
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "icon_box_f9Ued3",
             "icon_box_DxbEHb",
-            "icon_box_36RmyU",
-            "icon_box_hF6UhE"
+            "icon_box_36RmyU"
           ]
         }
       },
@@ -177,6 +148,7 @@
       "custom_css": [],
       "name": "t:names.custom_section",
       "settings": {
+        "require_metafield_key": "",
         "container": "page-width",
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -316,7 +288,7 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Kontaktoplysninger",
+            "heading": "Kontakt",
             "heading_size": "h5",
             "open_default": true,
             "disable_collapse": false,
@@ -376,7 +348,7 @@
                 "tx_addr": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Martilness<br/>Baunebakkevej 12, 2.th<br/>2650 Hvidovre<br/>Telefon: 2779 6900<br/>E-mail: info@martilness.dk<br/>CVR: 35633146</p>",
+                    "text": "<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p>",
                     "highlight_style": "none",
                     "highlight_font_style": "italic",
                     "highlight_shape_color": "",
@@ -406,6 +378,7 @@
                 }
               },
               "block_order": [
+                "ic_addr",
                 "tx_addr"
               ]
             },
@@ -616,7 +589,10 @@
             }
           },
           "block_order": [
-            "grp_addr"
+            "grp_addr",
+            "grp_mail",
+            "grp_tlf",
+            "tx_hours"
           ]
         },
         "footer_column_PGwbyx": {
@@ -649,7 +625,7 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Shop",
+            "heading": "Kategorier",
             "heading_size": "h5",
             "open_default": false,
             "disable_collapse": false,
@@ -674,47 +650,24 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Åbningstider",
+            "heading": "Information",
             "heading_size": "h5",
             "open_default": false,
             "disable_collapse": false,
             "enable_divider": true
           },
           "blocks": {
-            "tx_hours_col": {
-              "type": "text",
+            "footer_menu_3Wgeft": {
+              "type": "_footer-menu",
+              "name": "t:names.menu",
               "settings": {
-                "text": "<p>Mandag: 08.00 - 20.00<br/>Tirsdag: 08.00 - 20.00<br/>Onsdag: 08.00 - 20.00<br/>Torsdag: 08.00 - 20.00<br/>Fredag: 08.00 - 20.00<br/>Lørdag: E-mail besvares hurtigst muligt<br/>Søndag: E-mail besvares hurtigst muligt</p>",
-                "highlight_style": "none",
-                "highlight_font_style": "italic",
-                "highlight_shape_color": "",
-                "highlight_text_color": "",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_weight": "",
-                "font_size": 15,
-                "font_size_mobile": 15,
-                "line_height": "normal",
-                "text_color": "text",
-                "text_color_gradient": "",
-                "disable_line_break_mobile": false,
-                "width": "fit-content",
-                "text_alignment": "left",
-                "width_mobile": "fit-content",
-                "text_alignment_mobile": "left",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "mobile-padding-scale": 80,
-                "animation_type": "none",
-                "animation_delay": 250
+                "menu": "footer"
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "tx_hours_col"
+            "footer_menu_3Wgeft"
           ]
         },
         "footer_column_y3GCHb": {
@@ -750,10 +703,12 @@
         }
       },
       "block_order": [
+        "footer_column_gD6g8d",
         "footer_column_6qKBdj",
-        "footer_column_B4ErBg",
+        "footer_column_PGwbyx",
         "footer_column_TggKmp",
-        "footer_column_PGwbyx"
+        "footer_column_B4ErBg",
+        "footer_column_y3GCHb"
       ],
       "settings": {
         "menu": "",
@@ -761,7 +716,7 @@
         "enable_social_media_icons": false,
         "enable_language_selector": true,
         "enable_country_selector": true,
-        "enable_payment_icons": true,
+        "enable_payment_icons": false,
         "show_footer_bar": true,
         "payment_label": "Betalingsmuligheder",
         "shipping_label": "Fragtpartner",
