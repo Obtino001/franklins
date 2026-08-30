@@ -982,32 +982,48 @@
     "product_tabs_VFRpjk": {
       "type": "product-tabs",
       "blocks": {
-        "collection_C4aep4": {
+        "collection_isbad": {
           "type": "collection",
           "settings": {
-            "collection": "infrarodt-lys",
-            "title": ""
-          }
-        },
-        "collection_kyfeYK": {
-          "type": "collection",
-          "settings": {
-            "collection": "isbad-dampsauna",
-            "title": ""
+            "collection": "isbad",
+            "title": "Isbad"
           }
         },
         "collection_4waXYt": {
           "type": "collection",
           "settings": {
             "collection": "dampsauna",
-            "title": ""
+            "title": "Dampsauna"
+          }
+        },
+        "collection_kyfeYK": {
+          "type": "collection",
+          "settings": {
+            "collection": "isbad-dampsauna",
+            "title": "Isbad + Dampsauna"
+          }
+        },
+        "collection_saunataeppe": {
+          "type": "collection",
+          "settings": {
+            "collection": "saunataeppe",
+            "title": "Saunatæppe"
+          }
+        },
+        "collection_C4aep4": {
+          "type": "collection",
+          "settings": {
+            "collection": "infrarodt-lys",
+            "title": "Infrarødt lys"
           }
         }
       },
       "block_order": [
-        "collection_C4aep4",
+        "collection_isbad",
+        "collection_4waXYt",
         "collection_kyfeYK",
-        "collection_4waXYt"
+        "collection_saunataeppe",
+        "collection_C4aep4"
       ],
       "name": "t:names.product_tab_carousel",
       "settings": {

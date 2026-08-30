@@ -49,8 +49,41 @@
           },
           "blocks": {}
         },
+        "page_intro": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong>Vi er her for at hjælpe!</strong></p><p>Har du spørgsmål til et produkt, din ordre, returnering eller andet? Skriv til os – vi svarer så hurtigt som muligt.</p>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_shape_color": "",
+            "highlight_text_color": "",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_weight": "",
+            "font_size": 15,
+            "font_size_mobile": 15,
+            "line_height": "normal",
+            "text_color": "subtext",
+            "text_color_gradient": "",
+            "disable_line_break_mobile": false,
+            "width": "fit-content",
+            "text_alignment": "left",
+            "width_mobile": "fit-content",
+            "text_alignment_mobile": "left",
+            "padding-block-start": 16,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "mobile-padding-scale": 75,
+            "animation_type": "fade-up",
+            "animation_delay": 100
+          },
+          "blocks": {}
+        },
         "page_content": {
           "type": "_page-content",
+          "disabled": true,
           "name": "t:names.page_content",
           "settings": {
             "type_preset": "rte",
@@ -75,6 +108,7 @@
       },
       "block_order": [
         "page_title",
+        "page_intro",
         "page_content"
       ],
       "settings": {
@@ -397,7 +431,7 @@
                 "icon_width_mobile": 28,
                 "heading": "Åbningstider",
                 "heading_preset": "h5",
-                "text": "<p>Man–Fre: 11–18<br/>Lør: 12–16<br/>Søn: 12–16</p>",
+                "text": "<p>Mandag–fredag: 08.00–20.00<br/>Weekend: E-mails besvares hurtigst muligt</p>",
                 "text_color": "subtext",
                 "link": "",
                 "show_link_icon": true,
