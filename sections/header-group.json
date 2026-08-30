@@ -11,56 +11,8 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
-    "martilness_announce_bar": {
-      "type": "martilness-announce-bar",
-      "blocks": {
-        "item_truck": {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "text": "Altid GRATIS fragt",
-            "link": ""
-          }
-        },
-        "item_dolly": {
-          "type": "item",
-          "settings": {
-            "icon": "dolly",
-            "text": "1-3 dages levering",
-            "link": ""
-          }
-        },
-        "item_return": {
-          "type": "item",
-          "settings": {
-            "icon": "return",
-            "text": "30 dages tilfredsgaranti",
-            "link": ""
-          }
-        },
-        "item_star": {
-          "type": "item",
-          "settings": {
-            "icon": "star",
-            "text": "4,8 ud af 5 stjerner på Trustpilot",
-            "link": "https://dk.trustpilot.com/review/martilness.dk"
-          }
-        }
-      },
-      "block_order": [
-        "item_truck",
-        "item_dolly",
-        "item_return",
-        "item_star"
-      ],
-      "settings": {
-        "background": "#09412d",
-        "text_color": "#ffffff"
-      }
-    },
     "announcement_bar_JcwAHk": {
       "type": "announcement-bar",
-      "disabled": true,
       "blocks": {
         "text_DXcGVh": {
           "type": "text",
@@ -207,7 +159,7 @@
             "subheading_2": "",
             "badge_2": "",
             "button_label_2": "Dampsauna",
-            "button_link_2": "shopify://collections/dampsauna",
+            "button_link_2": "shopify://products/dampsauna",
             "button_style_2": "primary",
             "button_size_2": "medium",
             "button_icon_2": "caret-right",
@@ -235,7 +187,7 @@
             "subheading_4": "",
             "badge_4": "",
             "button_label_4": "Saunatæppe",
-            "button_link_4": "shopify://collections/saunataeppe",
+            "button_link_4": "shopify://products/infrarodt-saunataeppe",
             "button_style_4": "primary",
             "button_size_4": "medium",
             "button_icon_4": "caret-right",
@@ -396,7 +348,7 @@
     }
   },
   "order": [
-    "martilness_announce_bar",
+    "announcement_bar_JcwAHk",
     "header"
   ]
 }
