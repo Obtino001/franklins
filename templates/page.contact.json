@@ -53,7 +53,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p><strong>Vi er her for at hjælpe!</strong></p><p>Har du spørgsmål til et produkt, din ordre, returnering eller andet? Skriv til os – vi svarer så hurtigt som muligt.</p>",
+            "text": "<p>Hvis du har spørgsmål, store som små, eller har brug for mere information om vores produkter, tøv endelig ikke med at kontakte os. Vores team står klar til at hjælpe dig, så du får den bedste oplevelse og de svar, du søger.</p><p>Vi glæder os til at høre fra dig!</p>",
             "highlight_style": "none",
             "highlight_font_style": "italic",
             "highlight_shape_color": "",
@@ -111,7 +111,6 @@
         "page_intro",
         "page_content"
       ],
-      "disabled": true,
       "settings": {
         "container": "fixed",
         "container_custom_width": 880,
@@ -404,7 +403,7 @@
                 "icon_width_mobile": 32,
                 "heading": "Adresse",
                 "heading_preset": "h5",
-                "text": "<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p>",
+                "text": "<p>Baunebakkevej 12, 2.th<br/>2650 Hvidovre<br/>CVR: 35633146</p>",
                 "text_color": "subtext",
                 "link": "",
                 "show_link_icon": true,
