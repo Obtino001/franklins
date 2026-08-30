@@ -1982,7 +1982,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>Nu kan det ikke længere kun mærkes – det kan ses. Det grå og matte udtryk er væk. Huden stråler af sundhed, gløden er tilbage, og spejlbilledet viser den udhvilede, stærke version af dig selv.</p><p><strong>95% Oplevede en markant forbedring i udseende og generel livskvalitet.</strong></p><p><em>*Baseret på interne data og brugerfeedback fra Martilness.</em></p>",
+                "text": "<p>Nu kan det ikke længere kun mærkes – det kan ses. Det grå og matte udtryk er væk. Huden stråler af sundhed, gløden er tilbage, og spejlbilledet viser den udhvilede, stærke version af dig selv.</p><p><strong>95% Oplevede en markant forbedring i udseende og generel livskvalitet.</strong></p><p><em>*Baseret på interne data og brugerfeedback fra getmozion.dk's testgrupper.</em></p>",
                 "highlight_style": "none",
                 "highlight_font_style": "italic",
                 "highlight_shape_color": "",
@@ -2284,7 +2284,7 @@
       "name": "Image with FAQs",
       "settings": {
         "require_metafield_key": "faqs",
-        "image": "shopify://shop_images/thumbnail_1x13_d77b26e7-95e5-4876-9076-ee5c620ff610.jpg",
+        "image": "{{ product.metafields.custom.faq_with_image.value }}",
         "image_position": "left",
         "image_radius": 20,
         "title": "Spørgsmål & svar",

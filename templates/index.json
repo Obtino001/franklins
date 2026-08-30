@@ -2384,108 +2384,167 @@
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/thumbnail_1x1.1-2_6fe1b89a-a9d6-4aec-a668-785dcb1f6fd6.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_2": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/DSC00496_b04cb529-663f-4662-b7a3-cd329bd6088f.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_3": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/DSC00652-scaled.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_4": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/DSC09528_44f17d66-85fb-4abc-9bf1-9661ae33f9ae.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_5": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/nhb-isbad-pro-xl.webp",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_6": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/IMG_1698-1_d88880a3-2809-4c4a-9449-23e7dd493fac.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_7": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/unnamed-2_43d33afe-6beb-4166-8eea-c90c5f712f16.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_8": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/martilness1.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_9": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/DSC00719_1.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_10": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/DSC09835_cc1a13ad-36bf-4154-934b-9b6223c5a129.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_11": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/IMG_6335-1-copy.png",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
         },
         "gallery_12": {
           "type": "_gallery-item",
           "settings": {
             "type": "image",
             "image": "shopify://shop_images/1080x1080-Pakketilbud_Web_1-scaled_394ac44a-5491-4ca7-854d-7b05354cdffb.jpg",
+            "link": "",
             "heading": "",
+            "type_preset": "paragraph",
+            "text_color": "text",
             "border_radius": 0
-          }
+          },
+          "blocks": {}
+        },
+        "section-header-vertical": {
+          "type": "_section-header-vertical",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "device": "desktop",
+            "padding-block-end": 40,
+            "padding-block-end-mobile": 24
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -2502,6 +2561,7 @@
         "gallery_11",
         "gallery_12"
       ],
+      "disabled": true,
       "name": "Lifestyle gallery",
       "settings": {
         "container": "full",
@@ -2510,11 +2570,15 @@
         "column_gap": 8,
         "row_gap": 8,
         "enable_swipe_on_mobile": false,
+        "swipe_custom_width_column": false,
+        "swipe_column_width": 76,
         "columns_mobile": "2",
         "column_gap_mobile": 8,
         "row_gap_mobile": 8,
         "color_scheme": "scheme-1",
         "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
         "border_radius": 0,
         "device": "desktop",
         "padding-block-start": 0,
@@ -2523,6 +2587,8 @@
         "padding-inline-end": 0,
         "padding-block-start-mobile": 0,
         "padding-block-end-mobile": 0,
+        "padding-inline-start-mobile": 0,
+        "padding-inline-end-mobile": 0,
         "custom_columns": ""
       }
     }
