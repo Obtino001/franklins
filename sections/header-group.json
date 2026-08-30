@@ -11,8 +11,56 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
+    "martilness_announce_bar": {
+      "type": "martilness-announce-bar",
+      "blocks": {
+        "item_truck": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "text": "Altid GRATIS fragt",
+            "link": ""
+          }
+        },
+        "item_dolly": {
+          "type": "item",
+          "settings": {
+            "icon": "dolly",
+            "text": "1-3 dages levering",
+            "link": ""
+          }
+        },
+        "item_return": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "text": "30 dages tilfredsgaranti",
+            "link": ""
+          }
+        },
+        "item_star": {
+          "type": "item",
+          "settings": {
+            "icon": "star",
+            "text": "4,8 ud af 5 stjerner på Trustpilot",
+            "link": "https://dk.trustpilot.com/review/martilness.dk"
+          }
+        }
+      },
+      "block_order": [
+        "item_truck",
+        "item_dolly",
+        "item_return",
+        "item_star"
+      ],
+      "settings": {
+        "background": "#09412d",
+        "text_color": "#ffffff"
+      }
+    },
     "announcement_bar_JcwAHk": {
       "type": "announcement-bar",
+      "disabled": true,
       "blocks": {
         "text_DXcGVh": {
           "type": "text",
@@ -348,7 +396,7 @@
     }
   },
   "order": [
-    "announcement_bar_JcwAHk",
+    "martilness_announce_bar",
     "header"
   ]
 }
