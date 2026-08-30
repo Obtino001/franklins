@@ -508,8 +508,8 @@
                   "type": "button",
                   "static": true,
                   "settings": {
-                    "label": "Shop Now",
-                    "link": "",
+                    "label": "Shop nu",
+                    "link": "shopify://collections/isbad",
                     "style": "primary",
                     "size": "large",
                     "icon": "caret-right",
@@ -649,8 +649,8 @@
                   "type": "button",
                   "static": true,
                   "settings": {
-                    "label": "Shop now",
-                    "link": "",
+                    "label": "Shop nu",
+                    "link": "shopify://collections/dampsauna",
                     "style": "primary",
                     "size": "large",
                     "icon": "caret-right",
@@ -790,8 +790,8 @@
                   "type": "button",
                   "static": true,
                   "settings": {
-                    "label": "Shop now",
-                    "link": "",
+                    "label": "Shop nu",
+                    "link": "shopify://collections/saunataeppe",
                     "style": "primary",
                     "size": "large",
                     "icon": "caret-right",
@@ -932,7 +932,7 @@
                   "type": "button",
                   "static": true,
                   "settings": {
-                    "label": "Shop now",
+                    "label": "Shop nu",
                     "link": "shopify://collections/infrarodt-lys",
                     "style": "primary",
                     "size": "large",

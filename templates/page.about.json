@@ -606,8 +606,8 @@
               "type": "button",
               "name": "t:names.button",
               "settings": {
-                "label": "Shop Now",
-                "link": "",
+                "label": "Shop nu",
+                "link": "/collections/all",
                 "style": "primary",
                 "size": "large",
                 "icon": "caret-right",
