@@ -2187,7 +2187,7 @@
       "name": "Image with FAQs",
       "settings": {
         "require_metafield_key": "faqs",
-        "image": "shopify://shop_images/DSC09476.jpg",
+        "image": "{{ product.metafields.custom.faq_with_image.value }}",
         "image_position": "left",
         "image_radius": 20,
         "title": "Spørgsmål & svar",
