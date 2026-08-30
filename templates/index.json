@@ -20,10 +20,10 @@
         "subtitle": "Hurtig levering. Stort udvalg. Fra isbad til sauna — velvære derhjemme.",
         "btn1_label": "Se vores produkter",
         "btn1_link": "/collections/all",
-        "btn2_label": "Shop isbad",
-        "btn2_link": "/collections/isbad",
-        "btn3_label": "Shop sauna",
-        "btn3_link": "/collections/dampsauna",
+        "btn2_label": "",
+        "btn2_link": "",
+        "btn3_label": "",
+        "btn3_link": "",
         "trust_1": "1-3 dages levering",
         "trust_2": "Altid gratis fragt",
         "trust_3": "30 dages tilfredsgaranti",
@@ -41,25 +41,25 @@
         "pill_wyFq8R": {
           "type": "pill",
           "settings": {
-            "label": "1-3 Hverdages Levering"
+            "label": "Altid GRATIS fragt"
           }
         },
         "pill_nDkTLt": {
           "type": "pill",
           "settings": {
-            "label": "Kundeservice 24/7"
+            "label": "1-3 dages levering"
           }
         },
         "pill_QmphwM": {
           "type": "pill",
           "settings": {
-            "label": "Nem & Sikker Betaling"
+            "label": "30 dages tilfredsgaranti"
           }
         },
         "pill_yjFzr9": {
           "type": "pill",
           "settings": {
-            "label": "Fri Fragt Over 500kr"
+            "label": "4,8 ud af 5 stjerner på Trustpilot"
           }
         }
       },
@@ -1959,7 +1959,7 @@
         "marquee_speed": 40,
         "pause_on_hover": true,
         "link_label": "Se flere anmeldelser her →",
-        "link_url": "https://dk.trustpilot.com",
+        "link_url": "https://dk.trustpilot.com/review/martilness.dk",
         "color_scheme": "scheme-1",
         "padding_top": 64,
         "padding_bottom": 64
