@@ -140,16 +140,16 @@
               "settings": {
                 "direction": "vertical",
                 "text_align": "center",
-                "icon": "storefront",
+                "icon": "star",
                 "icon_spacing": 12,
                 "icon_size": "custom-size",
                 "icon_width": 32,
                 "icon_width_mobile": 48,
-                "heading": "Dansk butik & webshop",
+                "heading": "4,8 ud af 5 stjerner på Trustpilot",
                 "heading_preset": "h6",
-                "text": "<p>Kig forbi vores butik i Hvidovre.</p>",
+                "text": "<p>Se vores anmeldelser på Trustpilot.</p>",
                 "text_color": "subtext",
-                "link": "",
+                "link": "https://dk.trustpilot.com/review/martilness.dk",
                 "show_link_icon": true,
                 "content_row_gap": 4,
                 "style": "standard",
@@ -316,7 +316,7 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Kontakt",
+            "heading": "Kontaktoplysninger",
             "heading_size": "h5",
             "open_default": true,
             "disable_collapse": false,
@@ -376,7 +376,7 @@
                 "tx_addr": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p>",
+                    "text": "<p>Martilness<br/>Baunebakkevej 12, 2.th<br/>2650 Hvidovre<br/>Telefon: 2779 6900<br/>E-mail: info@martilness.dk<br/>CVR: 35633146</p>",
                     "highlight_style": "none",
                     "highlight_font_style": "italic",
                     "highlight_shape_color": "",
@@ -406,7 +406,6 @@
                 }
               },
               "block_order": [
-                "ic_addr",
                 "tx_addr"
               ]
             },
@@ -617,10 +616,7 @@
             }
           },
           "block_order": [
-            "grp_addr",
-            "grp_mail",
-            "grp_tlf",
-            "tx_hours"
+            "grp_addr"
           ]
         },
         "footer_column_PGwbyx": {
@@ -653,7 +649,7 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Kategorier",
+            "heading": "Shop",
             "heading_size": "h5",
             "open_default": false,
             "disable_collapse": false,
@@ -678,24 +674,47 @@
           "name": "t:names.column",
           "settings": {
             "width": 17,
-            "heading": "Information",
+            "heading": "Åbningstider",
             "heading_size": "h5",
             "open_default": false,
             "disable_collapse": false,
             "enable_divider": true
           },
           "blocks": {
-            "footer_menu_3Wgeft": {
-              "type": "_footer-menu",
-              "name": "t:names.menu",
+            "tx_hours_col": {
+              "type": "text",
               "settings": {
-                "menu": "footer"
+                "text": "<p>Mandag: 08.00 - 20.00<br/>Tirsdag: 08.00 - 20.00<br/>Onsdag: 08.00 - 20.00<br/>Torsdag: 08.00 - 20.00<br/>Fredag: 08.00 - 20.00<br/>Lørdag: E-mail besvares hurtigst muligt<br/>Søndag: E-mail besvares hurtigst muligt</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 80,
+                "animation_type": "none",
+                "animation_delay": 250
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "footer_menu_3Wgeft"
+            "tx_hours_col"
           ]
         },
         "footer_column_y3GCHb": {
@@ -731,12 +750,10 @@
         }
       },
       "block_order": [
-        "footer_column_gD6g8d",
         "footer_column_6qKBdj",
-        "footer_column_PGwbyx",
-        "footer_column_TggKmp",
         "footer_column_B4ErBg",
-        "footer_column_y3GCHb"
+        "footer_column_TggKmp",
+        "footer_column_PGwbyx"
       ],
       "settings": {
         "menu": "",
@@ -744,7 +761,7 @@
         "enable_social_media_icons": false,
         "enable_language_selector": true,
         "enable_country_selector": true,
-        "enable_payment_icons": false,
+        "enable_payment_icons": true,
         "show_footer_bar": true,
         "payment_label": "Betalingsmuligheder",
         "shipping_label": "Fragtpartner",

@@ -650,7 +650,7 @@
                   "static": true,
                   "settings": {
                     "label": "Shop nu",
-                    "link": "shopify://collections/dampsauna",
+                    "link": "/products/dampsauna",
                     "style": "primary",
                     "size": "large",
                     "icon": "caret-right",
