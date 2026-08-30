@@ -22,30 +22,6 @@
         "padding-block-end-mobile": 12
       }
     },
-    "mt_contact": {
-      "type": "martilness-contact",
-      "disabled": true,
-      "name": "Martilness contact",
-      "settings": {
-        "heading": "Vi er her for at hjælpe!",
-        "intro": "<p>Hvis du har spørgsmål, store som små, eller har brug for mere information om vores produkter, tøv endelig ikke med at kontakte os. Vores team står klar til at hjælpe dig, så du får den bedste oplevelse og de svar, du søger.</p><p>Vi glæder os til at høre fra dig!</p>",
-        "returns_heading": "Returnering eller reklamation",
-        "returns_text": "Skal du returnere eller reklamere over et produkt kan du gå direkte her til vores",
-        "returns_mid": " eller vores ",
-        "returns_end": ".",
-        "return_link": "shopify://pages/returnering",
-        "return_link_label": "returportal",
-        "claim_link": "shopify://pages/reklamation",
-        "claim_link_label": "reklamationsside",
-        "company": "Martilness",
-        "address": "<p>Baunebakkevej 12, 2.th<br/>2650 Hvidovre<br/>CVR: 35633146</p>",
-        "phone": "+45 2779 6900",
-        "email": "info@martilness.dk",
-        "accent_color": "#09412d",
-        "padding_top": 48,
-        "padding_bottom": 72
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
