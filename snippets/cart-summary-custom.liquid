@@ -175,12 +175,10 @@
 
       {%- comment -%} Egne betalingsikoner — minimal top/bund-padding {%- endcomment -%}
       <div class="WI_paymentIcons" style="display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 -2px;">
-        {{ "dankort" | payment_type_svg_tag: style: "width:38px;height:24px;" }}
-        {{ "mobilepay" | payment_type_svg_tag: style: "width:38px;height:24px;" }}
-        {{ "visa" | payment_type_svg_tag: style: "width:38px;height:24px;" }}
-        {{ "master" | payment_type_svg_tag: style: "width:38px;height:24px;" }}
-        {{ "viabill" | payment_type_svg_tag: style: "width:38px;height:24px;" }}
-        {{ "apple_pay" | payment_type_svg_tag: style: "width:38px;height:24px;" }}
+        {%- assign cart_payment_methods = 'dankort,visa,master,apple_pay,mobilepay,google_pay,viabill' | split: ',' -%}
+        {%- for method in cart_payment_methods -%}
+          {%- render 'martilness-payment-icon', type: method -%}
+        {%- endfor -%}
       </div>
     </div>
   </div>
