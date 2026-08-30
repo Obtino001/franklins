@@ -115,13 +115,7 @@
             "row_gap": 20,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
-            "row_gap_mobile": 20,
-            "show_name": false,
-            "show_email": false,
-            "show_message": false,
-            "custom_fields_first": true,
-            "submit_label": "SEND",
-            "submit_full_width": true
+            "row_gap_mobile": 20
           },
           "blocks": {
             "field_ordrenummer": {
