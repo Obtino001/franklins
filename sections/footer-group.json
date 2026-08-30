@@ -113,6 +113,7 @@
                 "direction": "vertical",
                 "text_align": "center",
                 "icon": "return",
+                "icon_image_upload": "shopify://shop_images/return-up-back-outline-svgrepo-com.svg",
                 "icon_spacing": 12,
                 "icon_size": "custom-size",
                 "icon_width": 32,
