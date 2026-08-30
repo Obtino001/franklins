@@ -210,10 +210,8 @@
 
       const summary = document.createElement('summary');
       summary.className = 'mt-page-faq__summary accordion__summary';
-      const qClass = 'mt-page-faq__q' + (item.heading ? ' ' + item.heading : '');
-      const qStyle = item.style
-        ? ' style="' + item.style.replace(/"/g, '&quot;') + '"'
-        : '';
+      const qClass = 'mt-page-faq__q h2';
+      const qStyle = '';
       summary.innerHTML =
         '<span class="' +
         qClass +
