@@ -2375,6 +2375,156 @@
         "padding-inline-start-mobile": 16,
         "padding-inline-end-mobile": 16
       }
+    },
+    "media_gallery_lifestyle": {
+      "type": "media-gallery",
+      "blocks": {
+        "gallery_1": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/thumbnail_1x1.1-2_6fe1b89a-a9d6-4aec-a668-785dcb1f6fd6.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_2": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/DSC00496_b04cb529-663f-4662-b7a3-cd329bd6088f.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_3": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/DSC00652-scaled.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_4": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/DSC09528_44f17d66-85fb-4abc-9bf1-9661ae33f9ae.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_5": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/nhb-isbad-pro-xl.webp",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_6": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/IMG_1698-1_d88880a3-2809-4c4a-9449-23e7dd493fac.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_7": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/unnamed-2_43d33afe-6beb-4166-8eea-c90c5f712f16.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_8": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/martilness1.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_9": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/DSC00719_1.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_10": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/DSC09835_cc1a13ad-36bf-4154-934b-9b6223c5a129.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_11": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/IMG_6335-1-copy.png",
+            "heading": "",
+            "border_radius": 0
+          }
+        },
+        "gallery_12": {
+          "type": "_gallery-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/1080x1080-Pakketilbud_Web_1-scaled_394ac44a-5491-4ca7-854d-7b05354cdffb.jpg",
+            "heading": "",
+            "border_radius": 0
+          }
+        }
+      },
+      "block_order": [
+        "gallery_1",
+        "gallery_2",
+        "gallery_3",
+        "gallery_4",
+        "gallery_5",
+        "gallery_6",
+        "gallery_7",
+        "gallery_8",
+        "gallery_9",
+        "gallery_10",
+        "gallery_11",
+        "gallery_12"
+      ],
+      "name": "Lifestyle gallery",
+      "settings": {
+        "container": "full",
+        "type": "grid",
+        "columns_xxl": 4,
+        "column_gap": 8,
+        "row_gap": 8,
+        "enable_swipe_on_mobile": false,
+        "columns_mobile": "2",
+        "column_gap_mobile": 8,
+        "row_gap_mobile": 8,
+        "color_scheme": "scheme-1",
+        "border": "none",
+        "border_radius": 0,
+        "device": "desktop",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0,
+        "custom_columns": ""
+      }
     }
   },
   "order": [
@@ -2386,6 +2536,7 @@
     "testimonials_parallax_8FqTjk",
     "custom_section_cjGfXN",
     "trustpilot_reviews_pdp",
-    "custom_section_7fBr8q"
+    "custom_section_7fBr8q",
+    "media_gallery_lifestyle"
   ]
 }

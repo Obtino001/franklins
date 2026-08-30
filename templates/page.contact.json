@@ -24,6 +24,7 @@
     },
     "mt_contact": {
       "type": "martilness-contact",
+      "disabled": true,
       "name": "Martilness contact",
       "settings": {
         "heading": "Vi er her for at hjælpe!",
@@ -217,9 +218,7 @@
             }
           },
           "block_order": [
-            "custom_field_L6Yt43",
-            "custom_field_XHe9jL",
-            "custom_field_8WeCm7"
+            "custom_field_L6Yt43"
           ]
         },
         "divider_amtmne": {
@@ -251,7 +250,7 @@
             "row_gap": 32,
             "enable_sticky_desktop": false,
             "width": "custom",
-            "custom_width": 40,
+            "custom_width": 50,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "inherit_color_scheme": true,
@@ -320,12 +319,12 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Information</p>",
+                    "text": "<p>Vi er her for at hjælpe!</p>",
                     "highlight_style": "none",
                     "highlight_font_style": "italic",
                     "highlight_shape_color": "",
                     "highlight_text_color": "",
-                    "type_preset": "h3",
+                    "type_preset": "h1",
                     "font": "var(--font-body--family)",
                     "font_weight": "",
                     "font_size": 15,
@@ -352,7 +351,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Adresse, telefon og åbningstider – alt det praktiske.</p>",
+                    "text": "<p>Hvis du har spørgsmål, store som små, eller har brug for mere information om vores produkter, tøv endelig ikke med at kontakte os. Vores team står klar til at hjælpe dig, så du får den bedste oplevelse og de svar, du søger.</p><p>Vi glæder os til at høre fra dig!</p><p><strong>Returnering eller reklamation</strong></p><p>Skal du returnere eller reklamere over et produkt kan du gå direkte her til vores <a href=\"/pages/returnering\">returportal</a> eller vores <a href=\"/pages/reklamation\">reklamationsside</a>.</p><p><strong>Martilness</strong><br/>Baunebakkevej 12, 2.th<br/>2650 Hvidovre<br/>CVR: 35633146</p>",
                     "highlight_style": "none",
                     "highlight_font_style": "italic",
                     "highlight_shape_color": "",
@@ -397,11 +396,11 @@
                 "icon_size": "custom-size",
                 "icon_width": 28,
                 "icon_width_mobile": 28,
-                "heading": "Kontakt os",
+                "heading": "",
                 "heading_preset": "h5",
-                "text": "<p>info@martilness.dk<br/>+45 2779 6900</p>",
-                "text_color": "subtext",
-                "link": "",
+                "text": "<p>Tlf.: +45 2779 6900</p>",
+                "text_color": "text",
+                "link": "tel:+4527796900",
                 "show_link_icon": true,
                 "content_row_gap": 4,
                 "style": "standard",
@@ -420,16 +419,16 @@
               "settings": {
                 "direction": "horizontal",
                 "text_align": "left",
-                "icon": "map-pin",
+                "icon": "email",
                 "icon_spacing": 12,
                 "icon_size": "custom-size",
-                "icon_width": 32,
-                "icon_width_mobile": 32,
-                "heading": "Adresse",
+                "icon_width": 28,
+                "icon_width_mobile": 28,
+                "heading": "",
                 "heading_preset": "h5",
-                "text": "<p>Baunebakkevej 12, 2.th, 2650 Hvidovre</p>",
-                "text_color": "subtext",
-                "link": "",
+                "text": "<p>info@martilness.dk</p>",
+                "text_color": "text",
+                "link": "mailto:info@martilness.dk",
                 "show_link_icon": true,
                 "content_row_gap": 4,
                 "style": "standard",
@@ -474,17 +473,14 @@
           "block_order": [
             "group_cQUErA",
             "icon_box_xh6q86",
-            "icon_box_BEMkqB",
-            "icon_box_Bkx7De"
+            "icon_box_BEMkqB"
           ]
         }
       },
       "block_order": [
-        "contact_form_tyLWPT",
-        "divider_amtmne",
-        "group_4wEPx4"
+        "group_4wEPx4",
+        "contact_form_tyLWPT"
       ],
-      "disabled": true,
       "name": "t:names.contact_form",
       "settings": {
         "container": "page-width",
@@ -707,10 +703,6 @@
   },
   "order": [
     "breadcrumbs",
-    "mt_contact",
-    "main",
-    "custom_section_tUbpGU",
-    "custom_section_4ARCm4",
-    "store_locator_BQJBp9"
+    "custom_section_tUbpGU"
   ]
 }
