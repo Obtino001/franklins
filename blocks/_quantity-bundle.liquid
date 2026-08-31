@@ -11,6 +11,10 @@
   endif
   assign addon = block.settings.addon_product
   assign radio_name = 'qty-bundle-' | append: section.id | append: '-' | append: block.id
+  assign bundle_name = block.settings.product_label | strip
+  if bundle_name == blank
+    assign bundle_name = product.title | split: '|' | first | strip
+  endif
 -%}
 
 {%- if product != blank and variant != blank -%}
@@ -35,6 +39,7 @@
     data-live-max="{{ block.settings.live_max }}"
     data-save-prefix="{{ block.settings.pill_prefix | escape }}"
     data-save-line="{{ block.settings.save_label | escape }}"
+    {% if block.settings.product_label != blank %}data-fixed-name="true"{% endif %}
     {{ block.shopify_attributes }}
   >
     {%- if block.settings.eyebrow != blank -%}
@@ -98,9 +103,9 @@
           <span class="qty-bundle__info">
             <span class="qty-bundle__label">
               {%- if is_flex -%}
-                <span data-lblq="">{{ qty }}</span>× {{ product.title | escape }}
+                <span data-lblq="">{{ qty }}</span>× <span data-pname>{{ bundle_name | escape }}</span>
               {%- else -%}
-                {{ qty }}× {{ product.title | escape }}
+                {{ qty }}× <span data-pname>{{ bundle_name | escape }}</span>
               {%- endif -%}
             </span>
             {%- if subtitle != blank -%}
@@ -265,13 +270,19 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Vælg 1 / 2 / 3+ stk. Rabat-% er visning. Opret volume-rabat i Shopify Admin for rigtig prisnedsættelse."
+      "content": "1× / 2× / 3× er altid dette produkt (valgt variant). Addon nedenfor er et separat produkt. Rabat-% er visning — opret volume-rabat i Shopify Admin for rigtig prisnedsættelse."
     },
     {
       "type": "text",
       "id": "eyebrow",
       "label": "Overskrift",
       "default": "Hvor mange har du brug for?"
+    },
+    {
+      "type": "text",
+      "id": "product_label",
+      "label": "Navn i pakker",
+      "info": "Tom = produkttitel (tekst før | )"
     },
     {
       "type": "color",

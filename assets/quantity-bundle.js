@@ -51,8 +51,16 @@ class QuantityBundle extends HTMLElement {
 
   #onVariantUpdate = (event) => {
     const resource = event.detail?.resource;
-    const productId = event.detail?.data?.productId;
-    if (productId && String(productId) !== String(this.dataset.productId)) return;
+    const data = event.detail?.data || {};
+    const newProduct = data.newProduct;
+    const productId = data.productId;
+
+    if (newProduct?.id) {
+      this.dataset.productId = String(newProduct.id);
+    } else if (productId && String(productId) !== String(this.dataset.productId)) {
+      return;
+    }
+
     if (!resource?.id) return;
     this.variantId = String(resource.id);
     this.dataset.variantId = this.variantId;
@@ -62,7 +70,21 @@ class QuantityBundle extends HTMLElement {
     } else if (this.unitCompare < this.unit) {
       this.unitCompare = this.unit;
     }
+    this.#syncProductName(data.html);
     this.#paint();
+  };
+
+  #syncProductName(html) {
+    if (this.dataset.fixedName === "true" || !html) return;
+    const raw =
+      html.querySelector(".product-title__name")?.textContent ||
+      html.querySelector("product-title .text-block")?.textContent ||
+      "";
+    const name = raw.split("|")[0].replace(/\s+/g, " ").trim();
+    if (!name) return;
+    this.querySelectorAll("[data-pname]").forEach((el) => {
+      el.textContent = name;
+    });
   };
 
   #onChange = (event) => {
