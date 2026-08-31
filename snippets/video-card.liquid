@@ -43,9 +43,10 @@
     {{ block.shopify_attributes }}
   >
     {% render 'video',
+      block: block,
       video: block_settings.video,
       video_loop: true,
-      video_autoplay: false,
+      video_autoplay: block_settings.video_autoplay,
       disable_controls: true,
       enable_toggle_button: true,
       enable_toggle_volume_button: true,

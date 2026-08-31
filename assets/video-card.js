@@ -11,6 +11,9 @@ class VideoCard extends Component {
   connectedCallback() {
     super.connectedCallback();
 
+    // Viewport muted autoplay is handled by deferred-media.
+    if (this.deferredMedia?.hasAttribute("data-autoplay")) return;
+
     // Respect reduced motion: do not autoplay on hover/focus.
     if (prefersReducedMotion()) return;
 

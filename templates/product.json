@@ -524,14 +524,66 @@
               "type": "_shipping-date",
               "name": "Afsendes",
               "settings": {
-                "label": "Afsendes:",
+                "label": "På lager.",
                 "cutoff_hour": 17,
-                "text_today": "i dag",
-                "text_tomorrow": "i morgen",
-                "text_monday": "mandag",
+                "text_today": "2-5 virkedagers levering",
+                "text_tomorrow": "2-5 virkedagers levering",
+                "text_monday": "2-5 virkedagers levering",
                 "type_preset": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "quantity_bundle_pdp": {
+              "type": "_quantity-bundle",
+              "name": "Quantity bundle",
+              "settings": {
+                "eyebrow": "Hvor mange har du brug for?",
+                "accent_color": "#09412d",
+                "replace_buy_buttons": true,
+                "after_add": "cart",
+                "cta_label": "Tilføj til kurv",
+                "show_tier_1": true,
+                "qty_1": 1,
+                "discount_1": 0,
+                "show_tier_2": true,
+                "qty_2": 2,
+                "discount_2": 0,
+                "show_tier_3": true,
+                "qty_3": 3,
+                "discount_3": 0,
+                "enable_flex": true,
+                "flex_max": 8,
+                "default_tier": 1,
+                "popular_tier": 2,
+                "popular_badge": "Mest populær",
+                "subtitle_1": "",
+                "subtitle_2": "",
+                "subtitle_3": "",
+                "pill_prefix": "Spar",
+                "show_addon": false,
+                "addon_hint_off": "Anbefalet",
+                "addon_hint_on": "Tilføjet",
+                "addon_default_on": false,
+                "addon_sync_qty": true,
+                "addon_max": 8,
+                "addon_qty_label": "Antal",
+                "total_label": "Din pris i alt",
+                "show_save": true,
+                "save_label": "Du sparer {amount}",
+                "show_live": true,
+                "live_min": 20,
+                "live_max": 80,
+                "live_text": "[count] har den i kurven lige nu",
+                "show_reassure": true,
+                "reassure_1": "30 dages prøve",
+                "reassure_2": "Gratis fragt",
+                "reassure_3": "9 ud af 10 beholder den",
+                "padding-block-start": 8,
+                "padding-block-end": 8,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -1028,25 +1080,26 @@
               "name": "t:names.product_recommendations",
               "settings": {
                 "recommendations_type": "related",
-                "heading": "Andre købte også...",
+                "product_list": [],
+                "heading": "Passer perfekt med",
                 "heading_preset": "h5",
-                "layout": "grid",
+                "layout": "list",
                 "columns_xxl": 3,
-                "products_per_page": 2,
-                "product_count": 4,
+                "products_per_page": 1,
+                "product_count": 3,
                 "column_gap": 10,
                 "row_gap": 10,
                 "show_vendor": false,
                 "show_type": false,
-                "show_badges": false,
-                "show_swatches": false,
-                "show_quick_view": true,
+                "show_badges": true,
+                "show_swatches": true,
+                "show_quick_view": false,
                 "show_quick_add": true,
                 "pcard_image_ratio": "1/1",
-                "enable_swipe_on_mobile": true,
+                "enable_swipe_on_mobile": false,
                 "swipe_custom_width_column": false,
                 "swipe_column_width": 76,
-                "columns_mobile": "2",
+                "columns_mobile": "1",
                 "column_gap_mobile": 8,
                 "row_gap_mobile": 8,
                 "padding-block-start": 0,
@@ -1065,6 +1118,7 @@
             "variant_picker_NYNfW9",
             "group_ngeVTK",
             "shipping_date_8NUgUx",
+            "quantity_bundle_pdp",
             "buy_buttons_rhMNwM",
             "usp_marquee_inline",
             "custom_liquid_6UVzQf",
@@ -2266,6 +2320,201 @@
         "z_index": 40
       }
     },
+    "flex_carousel_videos": {
+      "type": "flex-carousel",
+      "name": "t:names.flex_carousel_video_cards",
+      "blocks": {
+        "video_card_1": {
+          "type": "video-card",
+          "settings": {
+            "video_autoplay": true,
+            "video_ratio": "3/4",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "color_scheme": "scheme-1",
+            "border_radius": 20
+          },
+          "blocks": {
+            "video-card-info": {
+              "type": "_video-card-info",
+              "static": true,
+              "settings": {
+                "avatar_hidden_mobile": true,
+                "title": "",
+                "name_preset": "h4",
+                "bio": "",
+                "bio_text_color": "subtext"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "video_card_2": {
+          "type": "video-card",
+          "settings": {
+            "video_autoplay": true,
+            "video_ratio": "3/4",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "color_scheme": "scheme-1",
+            "border_radius": 20
+          },
+          "blocks": {
+            "video-card-info": {
+              "type": "_video-card-info",
+              "static": true,
+              "settings": {
+                "avatar_hidden_mobile": true,
+                "title": "",
+                "name_preset": "h4",
+                "bio": "",
+                "bio_text_color": "subtext"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "video_card_3": {
+          "type": "video-card",
+          "settings": {
+            "video_autoplay": true,
+            "video_ratio": "3/4",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "color_scheme": "scheme-1",
+            "border_radius": 20
+          },
+          "blocks": {
+            "video-card-info": {
+              "type": "_video-card-info",
+              "static": true,
+              "settings": {
+                "avatar_hidden_mobile": true,
+                "title": "",
+                "name_preset": "h4",
+                "bio": "",
+                "bio_text_color": "subtext"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "video_card_4": {
+          "type": "video-card",
+          "settings": {
+            "video_autoplay": true,
+            "video_ratio": "3/4",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "color_scheme": "scheme-1",
+            "border_radius": 20
+          },
+          "blocks": {
+            "video-card-info": {
+              "type": "_video-card-info",
+              "static": true,
+              "settings": {
+                "avatar_hidden_mobile": true,
+                "title": "",
+                "name_preset": "h4",
+                "bio": "",
+                "bio_text_color": "subtext"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "section-header-vertical": {
+          "type": "_section-header-vertical",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "device": "desktop",
+            "padding-block-end": 32,
+            "padding-block-end-mobile": 20
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<p>Elsket af 20.000+ danskere</p>",
+                "highlight_style": "none",
+                "highlight_font_style": "italic",
+                "highlight_shape_color": "",
+                "highlight_text_color": "",
+                "type_preset": "h2",
+                "font": "var(--font-heading--family)",
+                "font_weight": "",
+                "font_size": 15,
+                "font_size_mobile": 15,
+                "line_height": "normal",
+                "text_color": "text",
+                "text_color_gradient": "",
+                "disable_line_break_mobile": false,
+                "width": "fit-content",
+                "text_alignment": "left",
+                "width_mobile": "fit-content",
+                "text_alignment_mobile": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "mobile-padding-scale": 100,
+                "animation_type": "none",
+                "animation_delay": 250
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading"
+          ]
+        }
+      },
+      "block_order": [
+        "video_card_1",
+        "video_card_2",
+        "video_card_3",
+        "video_card_4"
+      ],
+      "settings": {
+        "container": "page-width",
+        "overflow_content": "visible",
+        "slides_per_view": "columns",
+        "columns": 4,
+        "column_gap": 12,
+        "enable_swipe_on_mobile": true,
+        "swipe_custom_width_column": false,
+        "swipe_column_width": 76,
+        "columns_mobile": "2",
+        "column_gap_mobile": 8,
+        "color_scheme": "scheme-1",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "control_type": "standard",
+        "control_alignment": "center",
+        "device": "desktop",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-block-start-mobile": 32,
+        "padding-block-end-mobile": 32
+      }
+    },
     "martilness_split_faq_h8BbVk": {
       "type": "martilness-split-faq",
       "blocks": {
@@ -2300,6 +2549,7 @@
     "breadcrumbs_zq9zwK",
     "main",
     "whats_included_Kp7mR2",
+    "flex_carousel_videos",
     "iwt_how_it_works",
     "iwt_health_benefits",
     "trustpilot_reviews_pdp",

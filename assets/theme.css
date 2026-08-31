@@ -6908,6 +6908,15 @@ more-payment-options-link a:hover {
 .block-product-recommendations__heading {
   padding-bottom: 1.6rem;
 }
+.block-product-recommendations--list .product-card--horizontal {
+  padding: 1.2rem;
+  background: rgb(var(--color-foreground) / 0.04);
+  border-radius: 1.6rem;
+}
+.block-product-recommendations--list .product-card--horizontal .product-card__media {
+  width: 8.8rem;
+  border-radius: 1.2rem;
+}
 @media (min-width: 768px) {
   .block-product-recommendations__heading {
     padding-bottom: 2rem;

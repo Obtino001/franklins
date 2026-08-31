@@ -30,18 +30,32 @@
 
   assign products = null
   assign has_recommendations = false
-  if recommendations.performed and recommendations.products_count == 0
-    if recommendations_type == 'related'
-      assign products = collections.all.products | reject: 'id', product.id
+  assign use_manual_products = false
+  assign recs_ready = recommendations.performed
+
+  if block.settings.product_list != blank
+    assign products = block.settings.product_list | reject: 'id', product.id
+    if products != blank
+      assign use_manual_products = true
       assign has_recommendations = true
-    elsif recommendations_type == 'complementary'
-      # Do not recommend the All collection as complementary products
-      assign products = null
+      assign recs_ready = true
+      assign limit = products.size
     endif
-  else
-    assign products = recommendations.products
-    assign has_recommendations = true
   endif
+
+  unless use_manual_products
+    if recommendations.performed and recommendations.products_count == 0
+      if recommendations_type == 'related'
+        assign products = collections.all.products | reject: 'id', product.id
+        assign has_recommendations = true
+      elsif recommendations_type == 'complementary'
+        assign products = null
+      endif
+    else
+      assign products = recommendations.products
+      assign has_recommendations = true
+    endif
+  endunless
 
   if products != blank
     assign product_count = products.size
@@ -83,14 +97,15 @@
   data-section-id="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-intent="{{ recommendations_type }}"
-  data-recommendations-performed="{{ recommendations.performed }}"
+  data-recommendations-performed="{{ recs_ready }}"
+  data-use-manual-products="{% if use_manual_products %}true{% else %}false{% endif %}"
   class="block spacing-style block-product-recommendations block-product-recommendations--{{ layout }}"
   style="{{ container_style | replace: '  ', ' ' | strip | strip_newlines }}"
   {{ block.shopify_attributes }}
 >
-  {%- if recommendations.performed -%}
+  {%- if recs_ready -%}
     {%- liquid
-      assign continue = 0
+      assign slide_offset = 0
     -%}
     {%- capture list_items -%}
       {%- if layout == 'list' -%}
@@ -99,7 +114,7 @@
             class="block-product-recommendations__product swiper-slide flex flex-col gap-style"
             style="{% render 'gap-style', row_gap: block.settings.row_gap, row_gap_mobile: block.settings.row_gap_mobile %}"
           >
-            {%- for product in products limit: products_per_page offset: continue -%}
+            {%- for product in products limit: products_per_page offset: slide_offset -%}
               {% render 'product-card-horizontal',
                 product: product,
                 use_card_style: true,
@@ -114,6 +129,7 @@
                 show_quick_add_mobile: block.settings.show_quick_add
               %}
             {%- endfor -%}
+            {%- assign slide_offset = slide_offset | plus: products_per_page -%}
           </div>
         {%- endfor -%}
       {%- else -%}
@@ -199,7 +215,7 @@
         {%- endif -%}
         "loop": false,
         "autoplay": false,
-        "counter": false,
+        "counter": true,
         "mousewheel": {
           "enabled": true,
           "forceToAxis": true,
@@ -212,7 +228,7 @@
       <span class="{{ heading_preset }} rte">
         {{- heading -}}
       </span>
-      {% render 'carousel-controls', ref: 'controls', type: 'group', pagination: false, counter: false %}
+      {% render 'carousel-controls', ref: 'controls', type: 'group', pagination: false, counter: true %}
     </div>
     <div
       class="block-product-recommendations__products swiper{{ swipe_mobile_classes }}"
@@ -243,6 +259,13 @@
         { "value": "complementary", "label": "t:options.complementary" }
       ],
       "default": "related"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "t:settings.products",
+      "limit": 3,
+      "info": "Vælg 1–3 produkter. Tomt felt bruger automatiske anbefalinger."
     },
     {
       "type": "inline_richtext",
